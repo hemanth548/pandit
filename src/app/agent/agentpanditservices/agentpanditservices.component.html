@@ -1,0 +1,246 @@
+<body>
+  <div class="modal fade mx-auto" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- use {{k}}-- if service is required -->
+          <h1 class="modal-title" id="exampleModalLongTitle">Update Details</h1>
+          <span type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;">
+            <span aria-hidden="true">&times;</span>
+          </span>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="f" (ngSubmit)="act(f.value);f.reset();">
+            <div class="col-12 wow animated slideInLeft form-group" data-wow-delay=".5s">
+              <label>Cost</label>
+              <input type="text" name="cost" formControlName="cost" class="form-control" placeholder="cost" />
+
+              <label>Duration</label>
+              <input type="text" name="duration" formControlName="duration" class="form-control"
+                placeholder="Duration in hours" />
+              <!-- <input type="number"name="pandit_service_id" disabled formControlName="pandit_service_id"required  class="form" placeholder="Pandit Service ID" disabled/> -->
+
+              <label>Samagri cost</label>
+              <input type="text" name="samagri_cost" formControlName="samagri_cost" class="form-control"
+                placeholder="Samagri Cost" />
+              <label>No of pandits</label>
+              <input type="text" name="noofpandits" formControlName="noofpandits" class="form-control"
+                placeholder="No of Pandits" />
+              <!-- <textarea name="description" formControlName="description"  class="form" placeholder="Description "></textarea> -->
+              <label>Samagri</label>
+              <textarea type="text" name="samagri" formControlName="samagri" class="form-control" placeholder="Samagri"
+                style="height:140px;"></textarea>
+            </div>
+            <div class="form-group btn-container col-5 float-right">
+
+              <button type="submit" mdbBtn mdbWavesEffect name="submit">Save changes</button>
+              <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal" (click)="f.reset()">Close</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 float-left">
+      <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
+        class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
+          class="fa fa-download">&nbsp;Download PDF</i></button>
+    </div>
+
+    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 float-right'>
+      <div class="form-midline waves-light " mdbWavesEffect>
+        <div class="md-form">
+          <input class="form-control-search" [(ngModel)]="term" type="text" placeholder="Search"
+            style="font-size:16px">
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="table-responsive">
+    <table
+      class="table table-hover table-bordered"
+      id="my-table">
+      <thead>
+        <tr>
+          <th>Pandit&nbsp;Service&nbsp;ID</th>
+          <!-- <th>Service&nbsp;ID</th> -->
+          <th>Description</th>
+          <th>Samagri</th>
+          <th>Cost</th>
+          <th>Duration</th>
+          <th>Pandit&nbsp;ID</th>
+          <th>Pandits</th>
+          <th>Samagri&nbsp;cost</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <div *ngIf="loading">
+        <div class="col-4 mx-auto">
+          <div class="lds-css ng-scope">
+            <div class="lds-spinner" style="width:100%;height:100%">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <style type="text/css">
+              @keyframes lds-spinner {
+                0% {
+                  opacity: 1;
+                }
+
+                100% {
+                  opacity: 0;
+                }
+              }
+
+              @-webkit-keyframes lds-spinner {
+                0% {
+                  opacity: 1;
+                }
+
+                100% {
+                  opacity: 0;
+                }
+              }
+
+              .lds-spinner {
+                position: relative;
+              }
+
+              .lds-spinner div {
+                top: 45px;
+                position: absolute;
+                -webkit-animation: lds-spinner linear 1.3s infinite;
+                animation: lds-spinner linear 1.3s infinite;
+                background: #fd6a0fea;
+                width: 12px;
+                height: 30px;
+                border-radius: 40%;
+                -webkit-transform-origin: 0px 55px;
+                transform-origin: 0px 55px;
+              }
+
+              .lds-spinner div:nth-child(1) {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                -webkit-animation-delay: -1.17s;
+                animation-delay: -1.17s;
+              }
+
+              .lds-spinner div:nth-child(2) {
+                -webkit-transform: rotate(36deg);
+                transform: rotate(36deg);
+                -webkit-animation-delay: -1.04s;
+                animation-delay: -1.04s;
+              }
+
+              .lds-spinner div:nth-child(3) {
+                -webkit-transform: rotate(72deg);
+                transform: rotate(72deg);
+                -webkit-animation-delay: -0.91s;
+                animation-delay: -0.91s;
+              }
+
+              .lds-spinner div:nth-child(4) {
+                -webkit-transform: rotate(108deg);
+                transform: rotate(108deg);
+                -webkit-animation-delay: -0.78s;
+                animation-delay: -0.78s;
+              }
+
+              .lds-spinner div:nth-child(5) {
+                -webkit-transform: rotate(144deg);
+                transform: rotate(144deg);
+                -webkit-animation-delay: -0.65s;
+                animation-delay: -0.65s;
+              }
+
+              .lds-spinner div:nth-child(6) {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+                -webkit-animation-delay: -0.52s;
+                animation-delay: -0.52s;
+              }
+
+              .lds-spinner div:nth-child(7) {
+                -webkit-transform: rotate(216deg);
+                transform: rotate(216deg);
+                -webkit-animation-delay: -0.39s;
+                animation-delay: -0.39s;
+              }
+
+              .lds-spinner div:nth-child(8) {
+                -webkit-transform: rotate(252deg);
+                transform: rotate(252deg);
+                -webkit-animation-delay: -0.26s;
+                animation-delay: -0.26s;
+              }
+
+              .lds-spinner div:nth-child(9) {
+                -webkit-transform: rotate(288deg);
+                transform: rotate(288deg);
+                -webkit-animation-delay: -0.13s;
+                animation-delay: -0.13s;
+              }
+
+              .lds-spinner div:nth-child(10) {
+                -webkit-transform: rotate(324deg);
+                transform: rotate(324deg);
+                -webkit-animation-delay: 0s;
+                animation-delay: 0s;
+              }
+
+              .lds-spinner {
+                width: 200px !important;
+                height: 200px !important;
+                -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+                transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+              }
+            </style>
+          </div>
+        </div>
+      </div>
+      <tbody>
+
+        <tr *ngFor="let a of result | filter:term | paginate: { itemsPerPage: page, currentPage: p }">
+          <td>{{a.pandit_service_id}}</td>
+          <!-- <td>{{a.service_id}}</td> -->
+          <td>{{a.description}}</td>
+          <td>{{a.samagri}}</td>
+          <td>{{a.cost}}</td>
+          <td>{{a.duration}}</td>
+          <td>{{a.pandit_id}}</td>
+          <td>{{a.noofpandits}}</td>
+          <td>{{a.samagri_cost}}</td>
+          <!-- <td><span (click)="fun(a.pandit_service_id,a.duration,a.cost,a.samagri_cost,a.noofpandits,a.samagri)"class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></span></td> -->
+          <td style="color:darkcyan"><span (click)="funs(a)" class="fa fa-pencil-square-o" aria-hidden="true"
+              data-toggle="modal" data-target="#exampleModalCenter"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row container">
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12 float-left">
+      <span style="font-size: 18px;font-weight:550;">Items per page&nbsp;</span>
+      <select [(ngModel)]="page">
+        <option value=5>5</option>
+        <option value=10>10</option>
+        <option value=15>15</option>
+      </select>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 float-right" style="font-size:16px;">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</body>

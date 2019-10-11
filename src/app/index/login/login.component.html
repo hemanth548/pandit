@@ -1,0 +1,663 @@
+<html>
+<head>
+	<!-- <script src="https://rawgit.com/aaditmshah/capsLock/master/capsLock.js"></script> -->
+	<style>
+		body {
+			font-family: sans-serif;
+			font-size: 16px;
+		}
+
+		.animate {
+			-webkit-animation: animatezoom 0.6s;
+			animation: animatezoom 0.6s
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg deep-orange ">
+		<div class="visible-block mx-auto">
+			<a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
+		</div>
+		<div class="collapse navbar-collapse visible-xs-block text-left col-xs-12 visible-md-block visible-lg-block"
+			id="navbarSupportedContent">
+			<div class="visible-block navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" routerLink="/purohitdashboard">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/purohitdashboard">Temple Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/purohitdashboard">Shop</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link"href="https://www.ojas-it.com/about.php">About US</a>
+				</li>
+				<li class="nav-item">
+						<a class="nav-link" href="https://www.ojas-it.com/contact.php">Contact US</a>
+					</li>
+
+			</div>
+			<div class="ml-md-auto">
+				<div class="row">
+					<div class=""><input type="search" class="search" title="Search for products and more"
+							placeholder="Search for products puja pujari" aria-label="Search"></div>
+					<div class="btn-group ml-md-0" mdbDropdown>
+						<i class="fa fa-user-circle-o fa-2x my-sm-0  ml-sm-2" style="color:white;padding:2px 15px;"
+							aria-hidden="true" mdbDropdownToggle title="Login/Register"></i>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item nav-link waves-light" (click)="basicModal.show()"
+								style="font-size: 20px;color:orangered;padding:5px 15px;" mdbWavesEffect>SignIn/
+								SignUp</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark deep-orange " [containerInside]="false">
+	<mdb-navbar-brand><a class="navbar-brand" routerLink="/"><code
+				style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a></mdb-navbar-brand>
+	<links> -->
+	<!-- <ul class="form-inline my-2 ml-auto">
+			<div class="float-right" style="padding:5px 10px;">
+						  <input type="text"class="search" title="Search for products and more"autocomplete="off" placeholder="Search for products"[matAutocomplete]="auto">	
+						  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+								<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+								  {{option}}
+								</mat-option>
+							  </mat-autocomplete>
+			</div>
+				<div class="btn-group ml-md-0" mdbDropdown>
+				<i class="fa fa-user-circle-o fa-2x my-2 my-2 my-sm-0" aria-hidden="true" mdbDropdownToggle title="Login/Register"></i>
+				<div class="dropdown-menu dropdown-menu-right dropdown-primary">
+					<a class="dropdown-item nav-link waves-light" (click)="basicModal.show()"
+						style="font-size: 20px;color:orangered;padding:5px 15px;" mdbWavesEffect>SignIn/ SignUp</a>
+				</div>
+
+			</div>
+		</ul>
+	</links>
+</mdb-navbar> -->
+	<!-- <nav class="navbar">
+	<a class="navbar-brand">Navbar</a>
+	<form class="form-inline">
+	  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	</form>
+  </nav> -->
+	<!-- <nav class="navbar navbar-dark default-color">
+		<form class="form-inline my-2 my-lg-0 ml-auto">
+		  <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+		  <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
+		</form>
+	  </nav> -->
+	<div style="margin-top:-20px;" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"
+		data-interval="2800">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/crh.jpg"
+					alt="First slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal.jpg"
+					alt="second slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal2.jpg"
+					alt="third slide">
+			</div>
+
+
+<!-- 
+
+			<div class="carousel-item">
+							<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal3.jpg"
+								alt="First slide">
+						</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal4.jpg"
+					alt="First slide">
+			</div>
+			<div class="carousel-item">
+									<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal5.png"
+										alt="First slide">
+								</div>
+			<div class="carousel-caption col-4 col-xs-12">
+				 <div class="col">
+					<div class="md-form mt-0">
+						<input mdbInput type="text" id="abc" class="form-control" style="font-size:17px;color:white;">
+						<label for="abc" style="color:white;font-size: 18px; font-weight: 448;">search</label>
+					</div>
+				</div>
+			</div> -->
+
+		</div>
+
+		<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+		<br>
+	</div>
+
+
+
+	<!-- <div class="container slideInUp mx-auto" data-wow-delay="2s" data-interval="2000" style="margin-top: -130px;">
+				<div class="float-right" style="padding:5px 10px;">
+						<input type="text"class="search" title="Search for products and more"autocomplete="off" placeholder="Search for products"[matAutocomplete]="auto">	
+						<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+							  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+								{{option}}
+							  </mat-option>
+							</mat-autocomplete>
+		  </div>
+			</div> -->
+	<!-- offer container -->
+
+	<a routerLink="/agentbooking">
+<div class="container wow animated slideInUp col-5 mx-auto card hidden-xs" style="margin-top:-120px;z-index:1;">
+		<div class="row">
+		  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xs-2 ">
+			<div class="my-5 "><img class="img-fluid img-responsive"src="./assets/offerdash.png"></div>
+		  </div>
+		  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-xs-10">
+
+			
+  
+				  <p typingAnimation [typeSpeed]="25" [startDelay]="800" class="count1">SAVE UPTO RS 300 ON FIRST BOOKING</p>
+				  <p typingAnimation [typeSpeed]="25" [startDelay]="800" class="count2">USE PROMOCODE: FIRST</p>
+
+			
+  
+		  </div>
+		</div>
+</div>
+</a>
+	<div class="container wow animated slideInUp mx-auto" data-wow-delay="2s" data-interval="5000">
+		<div class="row">
+			<div routerLink="agentdashboard" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<a class="view overlay zoom" (click)="basicModal.show()">
+					<div class="card ss ">
+						<div class="mx-auto">
+							<h4 class="text-center">20% cashback upto Rs.300</h4>
+							<img class="mx-auto" src="./assets/offer.png"><br>
+							<h4 class="text-center ">USE: PAYPRANI</h4>
+
+						</div>
+					</div>
+				</a>
+			</div>
+			<br>
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<a class="view overlay zoom" (click)="basicModal.show()">
+					<div class="card ss">
+						<div class="mx-auto">
+							<h4 class="text-center">50% cashback upto Rs.500</h4>
+							<img class="mx-auto" src="./assets/offer.png"><br>
+							<h4 class="text-center ">USE: PAYPRANIT</h4>
+						</div>
+					</div>
+				</a>
+				<br>
+
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+				<a class="view overlay zoom" (click)="basicModal.show()">
+					<div class="card ss">
+						<div class="mx-auto">
+							<h4 class="text-center">60% cashback upto Rs.600</h4>
+							<img class="mx-auto" src="./assets/offer.png"><br>
+							<h4 class="text-center">USE: PAYPUJ</h4>
+
+
+						</div>
+					</div>
+				</a>
+				<br>
+
+			</div>
+		</div>
+	</div>
+	<div mdbModal #basicModal="mdbModal" class="modal fade center " tabindex="-1" role="dialog"
+		aria-labelledby="myBasicModalLabel" aria-hidden="true" >
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<span style="color:orangered">
+						<h1 class="modal-title w-100" id="myModalLabel">PUROHIT</h1>
+					</span>
+				</div>
+				<div class="modal-body">
+
+					<mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0" id="customLoadingTemplate">
+						<mat-tab  label="Sign In" color="primary" active>
+							<ng-template mat-tab-label>
+								<span>&nbsp;Sign In</span>
+							</ng-template>
+							<form class="container" [formGroup]="TrafficLoginForm"
+								(ngSubmit)="LoginAction(TrafficLoginForm.value);TrafficLoginForm.reset();">
+								<br>
+								<div class="md-form md-outline">
+									<input type="text" id="form1" class="form-control" formControlName="mobile"
+										style="height: 45px;font-size: 13px;" mdbInput>
+									<label style="font-size: 15px;color:orangered;" for="form1">Mobile
+										Number</label>
+									<br>
+
+								</div>
+
+								<div class="md-form md-outline">
+									<input type="password" id="password-field" class="form-control"
+										formControlName="password" style="height: 45px;font-size: 13px;" mdbInput>
+									<label style="font-size: 15px;color:orangered;" for="form1">Password</label>
+								</div>
+
+								<!-- <div *ngIf="caps"><p style="color:red;">Warning! Caps Lock is ON</p>	</div> -->
+
+								<section class="col-12 mx-auto">
+									<mat-radio-group (change)="onChange($event)" formControlName="gender" color="warn">
+										<mat-radio-button class="example-margin" value="Yajman">Yajman
+										</mat-radio-button>&nbsp;
+										<mat-radio-button class="example-margin " value="Purohit">Purohit
+										</mat-radio-button>&nbsp;
+										<mat-radio-button class="example-margin " value="Agent">Agent</mat-radio-button>
+										&nbsp;
+										<mat-radio-button class="example-margin " value="Admin">Admin</mat-radio-button>
+										&nbsp;
+
+									</mat-radio-group>
+								</section>
+								<div class="form-group mx-auto col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xl-12">
+									<div class="modal-footer d-flex justify-content-center">
+										<button type="submit" id="btn-login" mdbBtn color="deep-orange"
+											class="waves-light" [disabled]="TrafficLoginForm.invalid"
+											style="padding:10px 20px;font-size:13px;" mdbWavesEffect><i
+												class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
+									</div>
+
+								</div>
+							</form>
+						</mat-tab>
+						<mat-tab label="Registration">
+							<ng-template mat-tab-label>
+								<span>&nbsp;Register</span>
+							</ng-template>
+							<form class="container" [formGroup]="PurohitRegisterForm"
+								(ngSubmit)="RegisterAction(PurohitRegisterForm.value);" style="background-color: #fff;">
+								<br>
+								<section class="col-12 mx-auto">
+									<mat-radio-group (change)="onChange($event)" formControlName="gender" color="warn">
+										<mat-radio-button class="example-margin" name="gender" value="Yajman">Yajman
+										</mat-radio-button>&nbsp;
+										<mat-radio-button class="example-margin " name="gender" value="Purohit">Purohit
+										</mat-radio-button>&nbsp;
+										<mat-radio-button class="example-margin " name="gender" value="Agent">Agent
+										</mat-radio-button>
+										&nbsp;
+										<!-- <mat-radio-button class="example-margin "name="gender" value="Admin">Admin</mat-radio-button> -->
+										&nbsp;
+									</mat-radio-group>
+								</section>
+								<div class="md-form md-outline">
+									<input type="text" name="fname" class="form-control" formControlName="fname"
+										style="height: 45px;font-size: 13px;" mdbInput
+										[ngClass]="{ 'is-invalid': submitted && PurohitRegisterForm.get('fname').errors}">
+									<label style="font-size: 15px;color:orangered;" for="form1">First
+										name</label>
+									<div *ngIf="submitted && PurohitRegisterForm.get('fname').errors"
+										class="invalid-feedback">
+										<p *ngIf="PurohitRegisterForm.get('fname').errors.required">First Name is
+											required</p>
+										<p *ngIf="PurohitRegisterForm.get('fname').errors.pattern">3 to 15 characters
+											are required</p>
+
+									</div>
+								</div>
+								<div class="md-form md-outline">
+									<input type="text" name="lname" class="form-control" formControlName="lname"
+										style="height: 45px;font-size: 13px;" mdbInput
+										[ngClass]="{ 'is-invalid': submitted && PurohitRegisterForm.get('lname').errors }">
+									<label style="font-size: 15px;color:orangered;" for="form1">Last
+										name</label>
+									<div *ngIf="submitted && PurohitRegisterForm.get('lname').errors"
+										class="invalid-feedback">
+										<p *ngIf="PurohitRegisterForm.get('lname').errors.required">Last Name is
+											required</p>
+										<p *ngIf="PurohitRegisterForm.get('lname').errors.pattern">3 to 15 characters
+											are required</p>
+
+									</div>
+								</div>
+								<div class="md-form md-outline">
+									<input type="text" name="email" class="form-control" formControlName="email"
+										style="height: 45px;font-size: 13px;" mdbInput
+										[ngClass]="{ 'is-invalid': submitted && PurohitRegisterForm.get('email').errors }">
+									<label style="font-size: 15px;color:orangered;" for="form1">Email</label>
+									<div *ngIf="submitted && PurohitRegisterForm.get('email').errors"
+										class="invalid-feedback">
+										<p *ngIf="PurohitRegisterForm.get('email').errors.pattern">Email should be
+											abc@xyz.com</p>
+										<p *ngIf="PurohitRegisterForm.get('email').errors.required">Email is required
+										</p>
+
+									</div>
+								</div>
+								<div class="md-form md-outline">
+									<input type="text" name="mobile" class="form-control" formControlName="mobile"
+										style="height: 45px;font-size: 13px;" mdbInput
+										[ngClass]="{ 'is-invalid': submitted && PurohitRegisterForm.get('mobile').errors }">
+									<label style="font-size: 15px;color:orangered;" for="form1">Mobile
+										Number</label>
+									<div *ngIf="submitted && PurohitRegisterForm.get('mobile').errors"
+										class="invalid-feedback">
+										<p *ngIf="PurohitRegisterForm.get('mobile').errors.required">Mobile Number is
+											required</p>
+										<p *ngIf="PurohitRegisterForm.get('mobile').errors.pattern">Invalid mobile
+											number</p>
+
+									</div>
+								</div>
+
+								<div *ngIf="val">
+									<div class="md-form md-outline">
+										<input type="text" name="city" class="form-control" formControlName="city"
+											style="height: 45px;font-size: 13px;" mdbInput>
+										<label style="font-size: 15px;color:orangered;" for="form1">City</label>
+										<!-- <div *ngIf="submitted && PurohitRegisterForm.get('city').errors"
+											class="invalid-feedback">
+											<p *ngIf="PurohitRegisterForm.get('city').errors.required">City is required
+											</p>
+											<p *ngIf="PurohitRegisterForm.get('city').errors.pattern">3 to 15 characters
+												are required</p>
+
+										</div> -->
+									</div>
+
+								</div>
+								<div class="form-group mx-auto col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xl-12">
+									<div class="modal-footer d-flex justify-content-center">
+										<button type="submit" mdbBtn color="deep-orange" class="waves-light"
+											style="padding:10px 20px;font-size:13px;" mdbWavesEffect><i
+												class="fa fa-user-plus" aria-hidden="true"></i> Register</button>
+									</div>
+								</div>
+							</form>
+						</mat-tab>
+						<mat-tab label="Forgot Password">
+							<ng-template mat-tab-label>
+								<span>&nbsp;Forgot</span>
+							</ng-template>
+
+							<div *ngIf="valf">
+								<form [formGroup]="ff" (ngSubmit)="act(ff.value);" class="face front animate">
+									<div class=" login-box panel panel-default">
+										<div class="panel-body">
+											<div class="text-center">
+												<h1 style="font-size: 35px;"><i class="fa fa-lock fa-4x"></i></h1>
+												<h2 class="text-center" style="font-size: 25px;">Forgot Password ?</h2>
+												<p style="font-size: 13px;">You can reset your password here.</p>
+												<div class="panel-body">
+
+													<div class="md-form md-outline">
+														<input type="text" class="form-control "
+															formControlName="mobile" mdbInput
+															[ngClass]="{'is-invalid':ff.get('mobile').errors && submitted}"
+															style="height: 45px;font-size: 13px;">
+														<label style="font-size: 15px;color:orangered;"
+															for="form1">Mobile Number</label>
+
+													</div>
+													<div *ngIf="ff.get('mobile').errors && submitted">
+														<p *ngIf="ff.get('mobile').errors.required">Mobile Number is
+															required</p>
+														<p *ngIf="ff.get('mobile').errors.pattern">Please Enter 10 digit
+															Number</p>
+													</div>
+
+
+
+
+
+
+													<div class="form-group">
+														<button mdbBtn color="deep-orange" class="waves-light"
+															type="submit" style="padding:10px 20px;font-size:13px;"
+															mdbWavesEffect>Send OTP</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div *ngIf="val2">
+								<form [formGroup]="f" (ngSubmit)="otp(f.value);">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="text-center">
+												<h1 style="font-size: 35px;"><i class="fa fa-unlock fa-4x"></i></h1>
+												<h2 class="text-center" style="font-size: 25px;">Enter OTP</h2>
+												<div class="col-12 justify-content-center">
+													<countdown #cd1
+														style="color:orangered;font-weight: 700;font-size: 22px;"
+														[config]="{ leftTime: 5,format:'mm:ss'}"
+														(event)="handleEvent($event)"></countdown>
+												</div>
+												<div class="panel-body">
+													<div class="md-form md-outline">
+														<input type="text" class="form-control" name="ot"
+															formControlName="ot"
+															[ngClass]="{ 'is-invalid': submitted && f.get('ot').errors }"
+															style="height: 45px;font-size: 13px;" mdbInput>
+														<label style="font-size: 15px;color:orangered;"
+															for="form1">OTP</label>
+														<div *ngIf="submitted && f.get('ot').errors"
+															class="invalid-feedback">
+															<div *ngIf="f.get('ot').errors.required">OTP is required
+															</div>
+															<div *ngIf="f.get('ot').errors.pattern">Please Enter 6 Digit
+																Number</div>
+
+														</div>
+													</div>
+													<div class="form-group">
+														<button class="waves-light" type="submit" color="deep-orange"
+															mdbBtn mdbWavesEffect
+															style="padding:10px 20px;font-size:13px;"><i
+																class="fa fa-paper-plane fa-lg fa-fw"></i>
+															&nbsp;Submit</button>
+														<span *ngIf="submitstatus">
+															<button
+																(click)="handleEvent($event);cd1.restart();showToaster()"
+																mdbBtn color="deep-orange" class="waves-light"
+																style="padding:10px 20px;font-size:13px;"
+																mdbWavesEffect> Resend OTP</button>
+														</span>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</mat-tab>
+					</mat-tab-group>
+					<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(0,0,0,0.5)' }" [template]="customLoadingTemplate"></ngx-loading>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" mdbBtn color="deep-orange" class="waves-light" aria-label="Close"
+						(click)="basicModal.hide()" style="padding:10px 20px;font-size:13px;" mdbWavesEffect>
+						Close</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<!-- <div class="float-right my-auto" >
+				<a (click)="load()"><img src="./assets/ojas-logo.png"class="img-fluid img-responsive"></a>
+					<p style="font-size:15px;">click to <a href (click)="load()">Login</a></p>
+			</div> -->
+	<!-- <form class="login-form" [formGroup]="TrafficLoginForm"
+							(ngSubmit)="LoginAction(TrafficLoginForm.value);TrafficLoginForm.reset();">
+							<h3 class="login-head" style="font-size:25px;"><i class="fa fa-lg fa-fw fa-user"></i >SIGN IN</h3>
+								<br>
+								<div class="md-form md-outline">
+										<input type="text" id="form1" class="form-control" required="required" formControlName="mobile" style="height: 45px;font-size: 13px;"mdbInput>
+										<label style="font-size: 15px;color:orangered;" for="form1">Mobile Number</label>
+										<br>
+
+									</div>
+								<div class="md-form md-outline">
+										<input type="password" id="password-field" class="form-control" required="required" formControlName="password" style="height: 45px;font-size: 13px;"mdbInput>
+										<label style="font-size: 15px;color:orangered;" for="form1">Password</label>
+								</div>
+				
+						
+							<section >
+								<mat-radio-group (change)="onChange($event)"
+									formControlName="gender" [(ngModel)]="gen">
+									<mat-radio-button class="example-margin" value="Yajman">Yajman</mat-radio-button>
+									<br>
+									<mat-radio-button class="example-margin " value="Purohit">Purohit</mat-radio-button>
+									<br>
+									<mat-radio-button class="example-margin " value="Agent">Agent</mat-radio-button>																
+								</mat-radio-group>
+							</section>
+							<div class="form-group">
+								<div >
+									<br>
+									<a mat-raised-button (click)="openDialog()">Forget Password</a> -->
+	<!-- <a class="float-right"mat-raised-button (click)="adminDialog()">Admin</a> 
+								</div>
+							</div>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="form-group mx-auto col-6">
+										<button type="submit"class="btn btn-block text-center form-control"
+									
+											[disabled]="TrafficLoginForm.invalid"
+											style="background-color: red;color: white;">
+											<b style="color:white;font-size: 13px;">SIGN IN</b>
+										</button>
+									</div>
+									<div class="form-group mx-auto col-6">
+										<button class="btn btn-block text-center form-control pull-right" [disabled]="TrafficLoginForm.get('gender').invalid"
+											style="background-color: red;" data-toggle="flip"> <b
+												style="color:white;font-size: 13px;" >Register</b> </button>
+									</div>
+								</div>
+							</div>
+						</form>
+
+
+
+
+
+						<form class="container forget-form" [formGroup]="PurohitRegisterForm"
+							(ngSubmit)="RegisterAction(PurohitRegisterForm.value);PurohitRegisterForm.reset();" style="background-color: #fff;">
+							<h3 class="login-head" style="font-size:30px;"><i class="fa fa-lg fa-fw fa-pencil" ></i>{{gen}} Registration</h3>
+							<div class="md-form md-outline">
+									<input type="text" class="form-control" required="required" pattern="[a-zA-Z]*"
+									formControlName="fname" style="height: 45px;font-size: 13px;"mdbInput>
+									<label style="font-size: 15px;color:orangered;" for="form1">First name</label>
+							</div>
+							<div class="md-form md-outline">
+									<input type="text" class="form-control"formControlName="lname"required="required" pattern="[a-zA-Z]*"
+									formControlName="fname" style="height: 45px;font-size: 13px;"mdbInput>
+									<label style="font-size: 15px;color:orangered;" for="form1">Last name</label>
+							</div>
+							<div class="md-form md-outline">
+									<input type="email" class="form-control" required="required"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+									formControlName="email" style="height: 45px;font-size: 13px;"mdbInput>
+									<label style="font-size: 15px;color:orangered;" for="form1">Email</label>
+							</div>
+							<div class="md-form md-outline">
+									<input type="number" class="form-control" required="required"  
+									formControlName="mobile" style="height: 45px;font-size: 13px;"mdbInput>
+									<label style="font-size: 15px;color:orangered;" for="form1">Mobile Number</label>
+							</div>
+
+							<div *ngIf="val">
+									<div class="md-form md-outline">
+											<input type="text" class="form-control" required="required" pattern="[a-z]*"
+											formControlName="city" style="height: 45px;font-size: 13px;"mdbInput>
+											<label style="font-size: 15px;color:orangered;" for="form1">City</label>
+									</div>
+								</div>
+							<div class="form-group col-11">
+<br>
+									<button type="submit" class="btn btn-primary btn-block" [disabled]="PurohitRegisterForm.invalid" style="font-size:12px;">
+											Register
+										  </button>
+
+							</div><br>
+							<div class="form-group col-11">
+								<button class="btn btn-info btn-block " data-toggle="flip"style="font-size:12px;">Back</button>
+							</div>
+						</form>
+			
+		<!-- <a href="#"><img class="float-right img-responsive img-fluid" src="./assets/p.png" ></a> -->
+<!-- Side Modal Top Right -->
+
+<!-- To change the direction of the modal animation change .right class -->
+<div mdbModal id="adModal"class="modal fade right"role="dialog"tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Add class .modal-side and then add class .modal-top-right (or other classes from list above) to set a position to the modal -->
+  <div class="modal-dialog modal-side modal-bottom-right modal-lg" role="document">
+
+
+	<div class="modal-content blur"style="margin-left:100px;margin-bottom:-150px;">
+		<div class="modal-header">
+			<h2 style="color:white;"class="modal-title w-100" id="myModalLabel">Special Offer</h2>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="animated slideInDown text-center col-4 my-auto">
+					<i style="color:orangered;font-size:110px;"class="fa fa-shopping-cart"></i>
+				</div>
+				<div class="col-8">
+					<div class="col-12 text-center">
+						<span style="color:white;">
+											NAVARATRI KOLU/GOLU
+						</span>
+						<br><br>
+						<span style="color:white;">
+								DEEPAVALI
+						</span>
+						<br><br>
+						<a (click)="basicModal.show()"style="border: 2px dotted white">
+							Pre-Order Now
+						</a>
+					</div>
+					<br><br>	
+					<div class="col-12 text-center">
+						<code style="color:red;font-size: 18px;font-weight: 600;padding:5px 15px;">USE: H48K57R</code>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+
+		</div>
+	</div>
+	</div>
+	</div>
+<!-- Side Modal Top Right -->
+</body>
+</html>

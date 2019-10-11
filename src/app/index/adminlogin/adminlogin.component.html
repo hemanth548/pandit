@@ -1,0 +1,24 @@
+<body>
+  <div class="container">
+      <div class="mx-auto">
+        <div class="card card-signin my-5 col-8 mx-auto">
+            <h1 class="card-title text-center" style="font-size: 30px;"><b>Sign In</b></h1>
+            <form class="form-signin" [formGroup]="f" (ngSubmit)="log(f.value);f.reset();">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control mx-auto" formControlName="email" required style="font-size: 25px;" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <label for="inputEmail" style="font-size: 15px;margin-left: 130px;" >Email address</label>
+              </div>
+<br>
+              <div class="form-label-group ">
+                <input type="password" name="password" id="password-field" class="form-control" placeholder="Password" formControlName="password" style="font-size: 25px; "required maxlength="10">
+                <label for="inputPassword" style="font-size: 15px;margin-left: 130px;" >Password</label>
+              </div>
+            
+              <button class="btn btn-lg btn-primary btn-block text-uppercase col-6 mx-auto" type="submit"style="font-size: 20px;"[disabled]="f.invalid">Sign in</button>
+             
+               </form>
+               <br>
+        </div>
+      </div>
+    </div>
+</body>

@@ -236,7 +236,7 @@
 				</div>
 				<div class="modal-body">
 
-					<mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0" id="customLoadingTemplate">
+					<mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0" #customLoadingTemplate>
 						<mat-tab  label="Sign In" color="primary" active>
 							<ng-template mat-tab-label>
 								<span>&nbsp;Sign In</span>

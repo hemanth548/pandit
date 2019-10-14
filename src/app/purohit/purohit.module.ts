@@ -15,11 +15,12 @@ import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PurohitComponent } from './purohit.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 @NgModule({
-  declarations: [PurohitdashboardComponent, PurohitservicesComponent, PurohitprofileComponent, PurohitpasswordComponent, PurohitComponent],
+  declarations: [PurohitdashboardComponent, PurohitservicesComponent, PurohitprofileComponent, PurohitpasswordComponent, PurohitComponent, HomeComponent],
   imports: [
     CommonModule,
     FormsModule,

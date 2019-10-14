@@ -1,94 +1,93 @@
 <div class="head">
-  <!--Navbar -->
-
-  <nav class="mb-1 navbar navbar-expand-lg navbar-dark deep-orange col-12">
-    <div class="visible-block mx-auto">
-      <a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a routerLink="/purohitdashboard" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/purohitprofile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/purohitservices">Services</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Dropdown
-          </a>
-          <div class="dropdown-menu">
-            <a style="font-size:16px;" class="dropdown-item">Action</a>
-            <a style="font-size:16px;" class="dropdown-item">Another action</a>
-            <a style="font-size:16px;" class="dropdown-item">Something else here</a>
-          </div>
-        </li>
-      </ul>
-      <div class="mr-3">
-        <div class="row">
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-notify" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-envelope fa-lg"></i>
+    <!--Navbar -->
+  
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark deep-orange col-12">
+      <div class="visible-block mx-auto">
+        <a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a routerLink="/home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/purohitprofile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/purohitservices">Services</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Dropdown
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-notify">
-              <li class="app-notification">
-                <a>
-                  <div class="row">
-                    <div class="mx-3">
-                      <span class="fa-stack fa-2x"><span class="fa fa-circle fa-stack-2x text-warn"></span><span
-                          class="fa fa-envelope fa-stack-1x fa-center"></span></span>
-                    </div>
-                    <div class="my-3">
-                      <p class="app-notification__message">Dhiraj sent you an email</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="app-notification">
-                <a>
-                  <div class="row">
-                    <div class="mx-3">
-                      <span class="fa-stack fa-2x"><span class="fa fa-circle fa-stack-2x text-warn"></span><span
-                          class="fa fa-envelope fa-stack-1x fa-center"></span></span>
-                    </div>
-                    <div class="my-3">
-                      <p class="app-notification__message">Dhiraj sent you a message</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </div>
-          </div>
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <i class="fa fa-user fa-lg"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a style="font-size:16px;" class="dropdown-item" routerLink="/purohitprofile">Profile</a>
+            <div class="dropdown-menu">
+              <a style="font-size:16px;" class="dropdown-item">Action</a>
               <a style="font-size:16px;" class="dropdown-item">Another action</a>
-              <a style="font-size:16px;" class="waves-light dropdown-item" (click)="logOutAction()"
-                mdbWavesEffect>Logout</a>
+              <a style="font-size:16px;" class="dropdown-item">Something else here</a>
             </div>
+          </li>
+        </ul>
+        <div class="mr-3">
+          <div class="row">
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-notify" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-envelope fa-lg"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-notify">
+                <li class="app-notification">
+                  <a>
+                    <div class="row">
+                      <div class="mx-3">
+                        <span class="fa-stack fa-2x"><span class="fa fa-circle fa-stack-2x text-warn"></span><span
+                            class="fa fa-envelope fa-stack-1x fa-center"></span></span>
+                      </div>
+                      <div class="my-3">
+                        <p class="app-notification__message">Dhiraj sent you an email</p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="app-notification">
+                  <a>
+                    <div class="row">
+                      <div class="mx-3">
+                        <span class="fa-stack fa-2x"><span class="fa fa-circle fa-stack-2x text-warn"></span><span
+                            class="fa fa-envelope fa-stack-1x fa-center"></span></span>
+                      </div>
+                      <div class="my-3">
+                        <p class="app-notification__message">Dhiraj sent you a message</p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </div>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fa fa-user fa-lg"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a style="font-size:16px;" class="dropdown-item" routerLink="/purohitprofile">Profile</a>
+                <a style="font-size:16px;" class="dropdown-item">Another action</a>
+                <a style="font-size:16px;" class="waves-light dropdown-item" (click)="logOutAction()"
+                  mdbWavesEffect>Logout</a>
+              </div>
+            </div>
+  
           </div>
-
         </div>
       </div>
-    </div>
-  </nav>
-</div>
-<!--/.Navbar -->
+    </nav>
+  </div>
+  <!--/.Navbar -->
 
-
-<div class="col-12">
-  <router-outlet></router-outlet>
-</div>
+  <div class="col-12" style="background-color: white;;">
+    <router-outlet></router-outlet>
+  </div>

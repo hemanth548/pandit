@@ -5,11 +5,13 @@ import { PurohitpasswordComponent } from './purohitpassword/purohitpassword.comp
 import { AuthGuard } from '../gaurds/auth.guard';
 import { PurohitdashboardComponent } from './purohitdashboard/purohitdashboard.component';
 import { PurohitComponent } from './purohit.component';
+import { HomeComponent } from './home/home.component';
 
 
 export const Purohitroutes: Routes = [
     {path:'',component:PurohitComponent,canActivate:[AuthGuard],
     children:[
+    {path:'home',component:HomeComponent},
     {path:'purohit',component:PurohitComponent},
     {path:'purohitdashboard',component:PurohitdashboardComponent},
     {path:'purohitservices',component:PurohitservicesComponent},

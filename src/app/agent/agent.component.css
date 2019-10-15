@@ -3,9 +3,9 @@
       }    
       .card {
         height: 80px;
-        border-radius: 6px;
+        border-radius: 5px;
         color: #aaa;
-        overflow: hidden;
+
       }
       
       h1 {

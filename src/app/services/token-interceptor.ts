@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
-import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Injectable({
@@ -11,10 +10,9 @@ import { NgxSpinnerService } from "ngx-spinner";
 
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(public auth: AuthService, private spinnerService: NgxSpinnerService) { }
+  constructor(public auth: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.spinnerService.show();
     request = request.clone({
 
       setHeaders: {

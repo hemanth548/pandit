@@ -84,5 +84,10 @@ ul{
   .dropdown-item:hover{
     background-color: rgba(0,0,0, 0.3);
     transition:ease 0.2s;
+    border-radius: 5px;
+
   }
- 
+ .fix{
+   position: fixed;
+   z-index: 1;
+ }

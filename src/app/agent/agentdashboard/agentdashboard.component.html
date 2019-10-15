@@ -1,43 +1,59 @@
 <body>
   <div class="fixed-nav-bar">
-      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark deep-orange"  [containerInside]="false" >
-        <mdb-navbar-brand><code class="mx-auto"routerLink="/agentdashboard"style="color:orangered;font-size:27px;font-weight:590;padding:8px 20px;">PUROHIT</code></mdb-navbar-brand>
-            <links>
-              <div class="visible-block animated slideInDown col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 mx-auto">
-                  <h2 style="color:white;font-weight:550;">Welcome&nbsp;{{fname|uppercase}}&nbsp;{{lname|uppercase}}</h2>
-                </div>
-            <ul class="navbar-nav ml-auto">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark deep-orange" [containerInside]="false">
+      <mdb-navbar-brand><code class="mx-auto" routerLink="/agentdashboard"
+          style="color:orangered;font-size:27px;font-weight:590;padding:8px 20px;">PUROHIT</code></mdb-navbar-brand>
+      <links>
+        <div class="visible-block animated slideInDown col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 mx-auto">
+          <h2 style="color:white;font-weight:550;">Welcome&nbsp;{{fname|uppercase}}&nbsp;{{lname|uppercase}}</h2>
+        </div>
+        <ul class="navbar-nav ml-auto">
 
           <div class="btn-group visible-block " mdbDropdown>
-            <i title="{{fname|uppercase}}&nbsp;{{lname|uppercase}}&#13;{{email|lowercase}}" class="fa fa-user-circle-o abc" style="font-size: 30px;color:white;" aria-hidden="true" data-toggle="dropdown" mdbDropdownToggle></i>
+            <i title="{{fname|uppercase}}&nbsp;{{lname|uppercase}}&#13;{{email|lowercase}}"
+              class="fa fa-user-circle-o abc" style="font-size: 30px;color:white;" aria-hidden="true"
+              data-toggle="dropdown" mdbDropdownToggle></i>
             <div class="dropdown-menu dropdown-menu-right visible-inline">
-          <p class="dropdown-item nav-link waves-light abc" style="color:black;font-size: 16px;font-weight:545;padding:5px 20px;"mdbWavesEffect><img style="width:50px;height:75px;"src="./assets/srini.png">&nbsp;&nbsp;{{fname|uppercase}}&nbsp;{{lname|uppercase}}</p>
-          <p class="dropdown-item nav-link waves-light abc" style="color:black;font-size: 16px;font-weight:545;padding:5px 20px;"mdbWavesEffect>{{roll}}</p>
-          <p class="dropdown-item nav-link waves-light abc" (click)="logOutAction()" style="color:black;font-size: 16px;font-weight:545;padding:5px 20px;"mdbWavesEffect><i style="color:black"class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</p></div>
-        </div>
+              <p class="dropdown-item nav-link waves-light abc"
+                style="color:black;font-size: 16px;font-weight:545;padding:5px 20px;" mdbWavesEffect><img
+                  style="width:50px;height:75px;"
+                  src="./assets/srini.png">&nbsp;&nbsp;{{fname|uppercase}}&nbsp;{{lname|uppercase}}</p>
+              <p class="dropdown-item nav-link waves-light abc"
+                style="color:black;font-size: 16px;font-weight:545;padding:5px 20px;" mdbWavesEffect>{{roll}}</p>
+              <p class="dropdown-item nav-link waves-light abc" (click)="logOutAction()"
+                style="color:black;font-size: 16px;font-weight:545;padding:5px 20px;" mdbWavesEffect><i
+                  style="color:black" class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</p>
+            </div>
+          </div>
         </ul>
-        </links>
-        </mdb-navbar>
-      </div>
-    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12 deep-orange "style="margin-top:52px;">
-      <br>
-      <div>
-        <img src="./assets/logo3.png" class="logo_image">
-      </div>
-      <br><br>
-      <div style="margin-left:-50px;">
-      <ul> 
-        <li routerLink="/agentdashboard/{{agent_id}}" routerLinkActive="active-link">&nbsp;<i class="fa fa-dashboard"></i>&nbsp;Dashboard</li>
-        <li routerLink="/agentbooking" routerLinkActive="active-link">&nbsp;<i class="fa fa-book"></i>&nbsp;Bookings</li>
-        <li routerLink="/agentpandits" routerLinkActive="active-link">&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;Pandits</li>
-        <li routerLink="/agentprofile" routerLinkActive="active-link">&nbsp;<i class="fa fa-bell"></i>&nbsp;Services</li>
-        <li routerLink="/agentpanditservices" routerLinkActive="active-link">&nbsp;<i class="fa fa-laptop"></i>&nbsp;Pandit&nbsp;Services</li>
-        <li routerLink="/agentcategory" routerLinkActive="active-link">&nbsp;<i class="fa fa-list"></i>&nbsp;Categories</li>
-             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </links>
+    </mdb-navbar>
+  </div>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-12 col-xs-12 deep-orange fix" style="margin-top:52px;">
+    <br>
+    <div>
+      <img src="./assets/logo3.png" class="logo_image">
+    </div>
+    <br><br>
+    <div style="margin-left:-50px;">
+      <ul>
+        <li routerLink="/agentdashboard/{{agent_id}}" routerLinkActive="active-link">&nbsp;<i
+            class="fa fa-dashboard"></i>&nbsp;Dashboard</li>
+        <li routerLink="/agentbooking" routerLinkActive="active-link">&nbsp;<i class="fa fa-book"></i>&nbsp;Bookings
+        </li>
+        <li routerLink="/agentpandits" routerLinkActive="active-link">&nbsp;<i
+            class="fa fa-user"></i>&nbsp;&nbsp;Pandits</li>
+        <li routerLink="/agentprofile" routerLinkActive="active-link">&nbsp;<i class="fa fa-bell"></i>&nbsp;Services
+        </li>
+        <li routerLink="/agentpanditservices" routerLinkActive="active-link">&nbsp;<i
+            class="fa fa-laptop"></i>&nbsp;Pandit&nbsp;Services</li>
+        <li routerLink="/agentcategory" routerLinkActive="active-link">&nbsp;<i class="fa fa-list"></i>&nbsp;Categories
+        </li>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       </ul>
     </div>
-    </div>
-    <div class="col-xl-10 col-lg-9 col-md-9 col-sm-12 col-xs-12" style="margin-top:70px;">
-      <router-outlet></router-outlet>
-    </div>
-  </body>
+  </div>
+  <div class="col-xl-10 col-lg-9 col-md-9 col-sm-12 col-xs-12 float-right" style="margin-top:70px;">
+    <router-outlet></router-outlet>
+  </div>
+</body>

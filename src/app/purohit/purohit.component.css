@@ -2,7 +2,6 @@
     background: orangered;
     font-size: 18px;
     font-family: 'sans-serif';
-    
   }
   .dropdown-item{
     font-size: 18px;
@@ -11,6 +10,7 @@
   }
   .dropdown-item:hover{
     background-color:rgba(0, 0, 0, 0.3); 
+    border-radius:5px;
   }
   a{
     text-decoration: none;
@@ -46,4 +46,13 @@
   transition: ease-in 0.3s;
   border-radius: 5px;
   }
-  
+  a:active,a:focus,li:active, li:focus{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+
+  }
+  nav{
+    position: fixed;
+    z-index: 999;
+    margin-top: -0px;
+  }

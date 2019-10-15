@@ -1,10 +1,9 @@
 .fa {
     padding: 10px;
     font-size: 20px;
-    width: 60px;
+    width: 40px;
     text-align: center;
     text-decoration: none;
-    margin: 5px 5px;
     border-radius:35px;
   }
   
@@ -46,3 +45,70 @@
      align-content: 'center';
      margin-top: 10px;;
   }
+.card {
+  height: 120px;
+  border-radius: 6px;
+  color: white;
+  width:800px;
+}
+.festival-date{
+font-size:30px;
+align-content: center;
+align-items: center;
+font-weight: 700;
+  }
+.festival-day{
+  font-size:25px;
+}
+.festival-data{
+  font-family:'Verdana,Geneva,Arial,"Comic Sans MS","Book Antiqua",sans-serif';
+  font-size:16px;
+  color:black;
+}
+h2{
+ font-family:'Verdana,Geneva,Arial,"Comic Sans MS","Book Antiqua",sans-serif';
+}
+a{
+  text-decoration: none;
+}
+.offer-code{
+  word-break: break-word;
+  font-family: 'Montserrat';
+  font-size:18px;
+  font-weight: 700;
+  color:black;
+  letter-spacing: 1px;;
+}
+.box {
+  border-radius: 6px;
+  color: white;
+}
+.shop-box {
+  border-radius: 6px;
+  color: white;
+}
+body{
+  color:black;
+  font-size: 18px;
+  font-family: "Amazon Ember",Arial,sans-serif;
+}
+.price-drop{
+  color:red;
+  font-size: 20px;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  word-spacing: -5px;
+}
+.blur{
+  -webkit-trasform: translate(60%, -60%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index:-1;
+  color:black;
+  border: 3px solid orangered;
+  font-weight: 600;
+  font-size:18px;
+  // -webkit-filter:blur(10px);
+  // -moz-filter: blur(10px);
+}

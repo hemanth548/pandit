@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
-import { NgxSpinnerService } from "ngx-spinner";
 import { PlatformLocation } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { MatTabChangeEvent } from '@angular/material';
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit {
   res: any;
 
 
-  constructor(private toastr: ToastrService, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private spinner: NgxSpinnerService, private titleService: Title) {
+  constructor(private toastr: ToastrService, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
 
     const newTitle = "Purohit - Web Platform for Puja and Poojari Bookings";
 
@@ -62,7 +61,7 @@ export class LoginComponent implements OnInit {
     $(window).on('load', function () {
       setTimeout(function () {
         $('#adModal').modal();
-      }, 3000);
+      }, 4000);
     });
   }
 
@@ -82,7 +81,7 @@ export class LoginComponent implements OnInit {
       this.authService.purohitloginAction(formData).subscribe(
         res => {
           console.log(res);
-          this.res=res;
+          this.res = res;
           localStorage.setItem("purohitmobile", this.res.data.mobile);
           localStorage.setItem("purohitpandit_id", this.res.data.pandit_id);
           localStorage.setItem("purohitfname", this.res.data.fname);
@@ -91,7 +90,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("purohittoken", this.res.token);
           localStorage.setItem("purohitotp", this.res.data.otp);
           if (this.res.token) {
-            this.routerNavigate.navigate(['purohit']);
+            this.routerNavigate.navigate(['purohithome']);
           }
           this.loading = false;
 
@@ -204,6 +203,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.submitted = true;
     if (this.PurohitRegisterForm.invalid) {
+      this.loading = false;
       return;
     }
     else {
@@ -290,17 +290,8 @@ export class LoginComponent implements OnInit {
       }
     }
   }
-  // load() {
-  //   window.location.reload();
-  //   this.val=false;
-
-  // }
   ngOnInit() {
-    // this.filteredOptions = this.myControl.valueChanges
-    //   .pipe(
-    //     startWith(''),
-    //     map(value => this._filter(value))
-    //   );
+
 
     this.TrafficLoginForm = this.fb.group({
       mobile: [null, [Validators.pattern("[0-9]{10}$"), Validators.required]],
@@ -322,25 +313,6 @@ export class LoginComponent implements OnInit {
     this.f = this.fb.group({
       ot: [null, [Validators.required, Validators.pattern("[0-9]{6}$")]],
     })
-    // Validators.maxLength(10), Validators.minLength(10)
-    //   $(".toggle-password").click(function () {
-
-    //     $(this).toggleClass("fa-eye fa-eye-slash");
-    //     var input = $($(this).attr("toggle"));
-    //     if (input.attr("type") == "password") {
-    //       input.attr("type", "text");
-    //     } else {
-    //       input.attr("type", "password");
-    //     }
-    //   });  
-    // }
-
-    // autocomplete
-    // private _filter(value: string): string[] {
-    //   const filterValue = value.toLowerCase();
-
-    //   return this.options.filter(option => option.toLowerCase().includes(filterValue));
-    // }
   }
   act(s) {
     this.submitted = true;
@@ -378,11 +350,6 @@ export class LoginComponent implements OnInit {
     this.val2 = false;
     this.f.reset();
   }
-  // cls(){
-  //   $('#btn-login').html('<i class="fa fa-sign-in" aria-hidden="true"></i> Sign In').attr('disabled', false);
-  //   this.valf=true;
-  //   this.val2=false;
-  // }
   handleEvent(e) {
     if (e.action == "done") {
       this.submitstatus = true;

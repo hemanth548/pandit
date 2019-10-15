@@ -14,7 +14,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
-import { NgxSpinnerModule } from "ngx-spinner";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
@@ -48,7 +47,6 @@ import { TypingAnimationDirective } from 'angular-typing-animation'
     MatSnackBarModule,
     // NoopAnimationsModule,
     MatBottomSheetModule,
-    NgxSpinnerModule,
     MDBBootstrapModule,
     MatTabsModule,
     MatIconModule,

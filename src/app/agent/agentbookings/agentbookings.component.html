@@ -10,17 +10,14 @@
   <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
     <div class="form-midline waves-light " mdbWavesEffect>
       <div class="md-form">
-        <input class="form-control" [(ngModel)]="term" type="text" placeholder="Search"
-          style="font-size:16px">
+        <input class="form-control" [(ngModel)]="term" type="text" placeholder="Search" style="font-size:16px">
       </div>
     </div>
   </div>
 </div>
 
 <div class="table-responsive">
-  <table
-    class="table table-hover table-bordered"
-    id="my-table">
+  <table class="table table-hover table-bordered" id="my-table">
     <thead>
       <tr>
         <th>Booking&nbsp;ID</th>
@@ -29,16 +26,12 @@
         <th>OTP</th>
         <th>Pandit&nbsp;ID</th>
         <th>Yajman&nbsp;ID</th>
-        <th>Status</th>
         <th>Total&nbsp;Cost</th>
         <th>Address</th>
         <th>Payment&nbsp;Mode</th>
         <th>No&nbsp;Of&nbsp;Bhokta</th>
         <th>No&nbsp;Of&nbsp;Suhasini</th>
-
-        <!-- <th>Map</th> -->
-
-
+        <th>Status</th>
       </tr>
     </thead>
     <div *ngIf="loading">
@@ -183,19 +176,19 @@
         <td>{{a.otp}}</td>
         <td>{{a.pandit_id}}</td>
         <td>{{a.yajman_id}}</td>
-        <td>{{a.status}}</td>
         <td>{{a.total_cost}}</td>
-        <!-- <td>{{a.yajman_contact}}</td> -->
         <td>{{a.address}}</td>
         <td>{{a.payment_mode}}</td>
         <td>{{a.noofbhokta}}</td>
         <td>{{a.noofsuhasini}}</td>
-        <!-- <td>
-                            <agm-map [latitude]=a.lat [longitude]=a.lng>
-                              <agm-marker [latitude]=a.lat [longitude]=a.lng></agm-marker>
-                            </agm-map>
-                      </td> -->
-
+        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:red;"><br>New Booking</i>
+        </td>
+        <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x'
+            style="color:rgba(255, 68, 0, 0.733);"><br>Accepted</i></td>
+        <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x'
+            style="color:rgb(101, 167, 101);"><br>Started</i></td>
+        <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x'
+            style="color:green;"><br>Completed</i></td>
 
       </tr>
     </tbody>
@@ -204,18 +197,18 @@
 </div>
 <br>
 <div class="row container">
-    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12 float-left">
-      <div class="row">
-      <div><span style="font-size: 18px;font-weight:550;color:black;  font-family: 'sans-serif' ">Items per page&nbsp;</span></div>
-     <div><select [(ngModel)]="page">
-        <option value=5>5</option>
-        <option value=10>10</option>
-        <option value=15>15</option>
-      </select></div> 
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 float-right" style="font-size:16px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12 float-left">
+    <div class="row">
+      <div><span style="font-size: 18px;font-weight:550;color:black;  font-family: 'sans-serif' ">Items per
+          page&nbsp;</span></div>
+      <div><select [(ngModel)]="page">
+          <option value=5>5</option>
+          <option value=10>10</option>
+          <option value=15>15</option>
+        </select></div>
     </div>
   </div>
-
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 float-right" style="font-size:16px;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

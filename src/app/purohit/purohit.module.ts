@@ -12,10 +12,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PurohitComponent } from './purohit.component';
 import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -29,7 +29,6 @@ import { HomeComponent } from './home/home.component';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     NgxPaginationModule,
-    NgxSpinnerModule,
     MatSlideToggleModule,
     MDBBootstrapModule,
     NoopAnimationsModule,
@@ -43,14 +42,14 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     BrowserModule,
     // NoopAnimationsModule,
-    NgxSpinnerModule,
     MDBBootstrapModule,
     RouterModule,
     MatTabsModule,
     MatIconModule,
     MatSelectModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: '',
+
     })
   ],
 })

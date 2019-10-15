@@ -4,7 +4,6 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <!-- use {{k}}-- if service is required -->
           <h1 class="modal-title" id="exampleModalLongTitle">Update Details</h1>
           <span type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;">
             <span aria-hidden="true">&times;</span>
@@ -19,15 +18,12 @@
               <label>Duration</label>
               <input type="text" name="duration" formControlName="duration" class="form-control"
                 placeholder="Duration in hours" />
-              <!-- <input type="number"name="pandit_service_id" disabled formControlName="pandit_service_id"required  class="form" placeholder="Pandit Service ID" disabled/> -->
-
               <label>Samagri cost</label>
               <input type="text" name="samagri_cost" formControlName="samagri_cost" class="form-control"
                 placeholder="Samagri Cost" />
               <label>No of pandits</label>
               <input type="text" name="noofpandits" formControlName="noofpandits" class="form-control"
                 placeholder="No of Pandits" />
-              <!-- <textarea name="description" formControlName="description"  class="form" placeholder="Description "></textarea> -->
               <label>Samagri</label>
               <textarea type="text" name="samagri" formControlName="samagri" class="form-control" placeholder="Samagri"
                 style="height:140px;"></textarea>
@@ -44,7 +40,7 @@
       </div>
     </div>
   </div>
-<div class="row">
+  <div class="row">
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 float-left">
       <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
         class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
@@ -54,16 +50,13 @@
     <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 float-right'>
       <div class="form-midline waves-light " mdbWavesEffect>
         <div class="md-form">
-          <input class="form-control-search" [(ngModel)]="term" type="text" placeholder="Search"
-            style="font-size:16px">
+          <input class="form-control-search" [(ngModel)]="term" type="text" placeholder="Search" style="font-size:16px">
         </div>
       </div>
     </div>
   </div>
-    <div class="table-responsive">
-    <table
-      class="table table-hover table-bordered"
-      id="my-table">
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered" id="my-table">
       <thead>
         <tr>
           <th>Pandit&nbsp;Service&nbsp;ID</th>

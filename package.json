@@ -27,6 +27,7 @@
     "angular-d3-charts": "^5.0.0",
     "angular-maps": "^6.0.1",
     "angular-material-source": "github:angular/material",
+    "angular-ng-autocomplete": "^1.1.14",
     "angular-toastr": "^2.1.1",
     "angular-typing-animation": "^0.5.4",
     "animate.css": "^3.7.2",

@@ -10,9 +10,7 @@ p{
   font-size:16px;
   text-align: center;
 }
-button{
-  color:white;
-}
+
 a{
   font-size:16px;
   text-decoration: none;
@@ -105,27 +103,7 @@ width:550px;
 .cursor{
   cursor: pointer;
 }
-.search{
-padding: 0 16px;
-border-radius: 5px 5px 5px 5px;
-border: 0;
-outline: 0 none;
-font-size: 16px;
-height: 36px;
-width: 305px;
-transition: 0.5s;
 
-}
-.search:focus{
-  padding: 0 16px;
-border-radius: 5px 5px 5px 5px;
-border: 0;
-outline: 0 none;
-font-size: 16px;
-height: 36px;
-width: 805px;
-transition: 0.5s;
-}
 input{
   // -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
@@ -202,12 +180,61 @@ code:hover{
   padding: 1px 5px;
 
 }
-.nav-item:hover, .nav-link:hover{
-background-color: rgba(0,0,0,0.2);
+.nav-link:hover{
+background-color: rgba(0,0,0,0.5);
 transition: ease-in-out 0.2s;
 border-radius: 5px;
 }
 
 
-
+h2{
+ font-family:'Verdana,Geneva,Arial,"Comic Sans MS","Book Antiqua",sans-serif';
+}
+a{
+  text-decoration: none;
+}
+.offer-code{
+  word-break: break-word;
+  font-family: 'Montserrat';
+  font-size:18px;
+  font-weight: 700;
+  color:black;
+  letter-spacing: 1px;;
+}
+.box {
+  border-radius: 6px;
+  color: white;
+}
+.shop-box {
+  border-radius: 6px;
+  color: white;
+}
+body{
+  color:black;
+  font-size: 18px;
+  font-family: "Amazon Ember",Arial,sans-serif;
+}
+.price-drop{
+  color:red;
+  font-size: 20px;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  word-spacing: -5px;
+}
+.blurbtn{
+  -webkit-trasform: translate(60%, -60%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index:-1;
+  color:black;
+  border: 3px solid orangered;
+  font-weight: 600;
+  font-size:18px;
+  // -webkit-filter:blur(10px);
+  // -moz-filter: blur(10px);
+}
+.search{
+  border-radius: 10px;
+}
 

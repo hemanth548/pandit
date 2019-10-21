@@ -8,48 +8,62 @@
 		}
 
 		.animate {
-			-webkit-animation: animatezoom 0.6s;
-			animation: animatezoom 0.6s
+			-webkit-animation: animatezoom 2s;
+			animation: animatezoom 2s
 		}
 	</style>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg deep-orange ">
-		<div class="visible-block mx-auto">
-			<a routerLink="/"><code
-					style="background-color:white;color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
-		</div>
-		<div class="collapse navbar-collapse visible-xs-block text-left col-xs-12 visible-md-block visible-lg-block"
-			id="navbarSupportedContent">
-			<div class="visible-block navbar-nav mr-auto">
-				<li class="nav-item active">
+		<nav class="mb-1 navbar navbar-expand-lg navbar-dark deep-orange col-12">
+				<div class="visible-block mx-auto">
+				  <a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
+				</div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+			aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
 					<a class="nav-link" routerLink="/purohitdashboard">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/purohitdashboard">Temple Services</a>
+					<a class="nav-link" routerLink="/purohitdashboard">Temple&nbsp;Services</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" routerLink="/purohitdashboard">Shop</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://www.ojas-it.com/about.php">About US</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="https://www.ojas-it.com/contact.php">Contact US</a>
+					<a class="nav-link" href="https://www.ojas-it.com/about.php">About&nbsp;US</a>
 				</li>
 
-			</div>
-			<div class="ml-md-auto">
+			</ul>
+			<div class="col-xl-4 col-lg-4 col-md-8 col-sm-12 col-xs-12">
 				<div class="row">
-					<div class=""><input type="search" class="search" title="Search for products and more"
-							placeholder="Search for products, pooja and pujaris" aria-label="Search"></div>
-					<div class="btn-group ml-md-0" mdbDropdown>
-						<i class="fa fa-user-circle-o fa-2x my-sm-0  ml-sm-2" style="color:white;padding:2px 15px;"
-							aria-hidden="true" mdbDropdownToggle title="Login/Register"></i>
+					<div class="col-10 search">
+						<ng-autocomplete placeHolder="search for products and pujari" historyIdentifier="data"
+							[data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
+							(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+							[itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
+							[historyListMaxNumber]=8>
+						</ng-autocomplete>
+						<!-- implement isLoading after you get an API -->
+						<ng-template #itemTemplate let-item>
+							<a [innerHTML]="item.name"></a>
+						</ng-template>
+
+						<ng-template #notFoundTemplate let-notFound>
+							<div [innerHTML]="notFound"></div>
+						</ng-template>
+					</div>
+					<div class="btn-group" mdbDropdown>
+						<i class="fa fa-user-circle-o fa-2x" style="color:white;padding:5px 0px;" aria-hidden="true"
+							mdbDropdownToggle title="Login/Register"></i>
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item nav-link waves-light" (click)="basicModal.show()"
-								style="font-size: 20px;color:orangered;padding:5px 15px;" mdbWavesEffect>SignIn/
+								style="font-size: 20px;color:orangered;padding:5px 20px;" mdbWavesEffect>SignIn/
 								SignUp</a>
 						</div>
 					</div>
@@ -58,11 +72,11 @@
 		</div>
 	</nav>
 
-	<div style="margin-top:-20px;" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"
-		data-interval="2800">
+	<div style="margin-top:-3px;" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"
+		data-interval="3500">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100 img-responsive img-fluid" style="height:400px;" src="./assets/corsal22.png"
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal22.png"
 					alt="First slide">
 			</div>
 			<div class="carousel-item">
@@ -89,7 +103,7 @@
 	</div>
 
 
-	<a routerLink="/agentbooking">
+	<a (click)="basicModal.show()">
 		<div class="container wow animated slideInUp col-5 mx-auto card hidden-xs" style="margin-top:-120px;z-index:1;">
 			<div class="row">
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xs-2 ">
@@ -109,49 +123,64 @@
 			</div>
 		</div>
 	</a>
-	<div class="container wow animated slideInUp mx-auto" data-wow-delay="2s" data-interval="5000">
+	<div class="box col-12 slideInUp animated container wow" data-wow-delay="5s" data-interval="5000">
 		<div class="row">
-			<div routerLink="agentdashboard" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<a class="view overlay zoom" (click)="basicModal.show()">
-					<div class="card ss ">
-						<div class="mx-auto">
-							<h4 class="text-center">20% cashback upto Rs.300</h4>
-							<img class="mx-auto" src="./assets/offer.png"><br>
-							<h4 class="text-center ">USE: PAYPRANI</h4>
-
-						</div>
+			<div class="shop-box col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mx-auto text-dark ">
+				<div class="text-center p-1">
+					<h2>E-Handicrafts Pure Brass Pooja thali Set</h2>
+				</div>
+				<div>
+					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-deepam.jpg">
+				</div>
+				<div class="row">
+					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 float-left text-left">
+						<span>M.R.P:</span><i class="price-drop"><span class="fa fa-rupee fa-lg"></span><span
+								style="text-decoration: line-through;">&nbsp;600</span></i>
+						<br>
+						<span>Price: </span><span class="fa fa-rupee fa-lg"></span><span>400</span>
 					</div>
-				</a>
+					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 my-5 text-right">
+						<button class="btn blurbtn">SHOP NOW</button>
+					</div>
+				</div>
 			</div>
-			<br>
-
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<a class="view overlay zoom" (click)="basicModal.show()">
-					<div class="card ss">
-						<div class="mx-auto">
-							<h4 class="text-center">50% cashback upto Rs.500</h4>
-							<img class="mx-auto" src="./assets/offer.png"><br>
-							<h4 class="text-center ">USE: PAYPRANIT</h4>
-						</div>
+			<div class="shop-box col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mx-auto text-dark ">
+				<div class="text-center p-1">
+					<h2>E-Handicrafts Pure Brass Pooja thali Set</h2>
+				</div>
+				<div>
+					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-deepam.jpg">
+				</div>
+				<div class="row">
+					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 float-left text-left">
+						<span>M.R.P:</span><i class="price-drop"><span class="fa fa-rupee fa-lg"></span><span
+								style="text-decoration: line-through;">&nbsp;600</span></i>
+						<br>
+						<span>Price: </span><span class="fa fa-rupee fa-lg"></span><span>400</span>
 					</div>
-				</a>
-				<br>
-
+					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 my-5 text-right">
+						<button class="btn blurbtn">SHOP NOW</button>
+					</div>
+				</div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-				<a class="view overlay zoom" (click)="basicModal.show()">
-					<div class="card ss">
-						<div class="mx-auto">
-							<h4 class="text-center">60% cashback upto Rs.600</h4>
-							<img class="mx-auto" src="./assets/offer.png"><br>
-							<h4 class="text-center">USE: PAYPUJ</h4>
-
-
-						</div>
+			<div class="shop-box col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mx-auto text-dark ">
+				<div class="text-center p-1">
+					<h2>PILGRIMAIDE Ganesh Pooja Kit Premium</h2>
+				</div>
+				<div>
+					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-pack.jpg">
+				</div>
+				<div class="row">
+					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 float-left text-left">
+						<span>M.R.P:</span><i class="price-drop"><span class="fa fa-rupee fa-lg"></span><span
+								style="text-decoration: line-through;">&nbsp;500</span></i>
+						<br>
+						<span>Price: </span><span class="fa fa-rupee fa-lg"></span><span>400</span>
 					</div>
-				</a>
-				<br>
-
+					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 my-5 text-right ">
+						<button class="btn blurbtn ">SHOP NOW</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -7,7 +7,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -21,8 +20,9 @@ import { CountdownModule } from 'ngx-countdown';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { NgxLoadingModule } from 'ngx-loading';
 import { TypingAnimationDirective } from 'angular-typing-animation'
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 
 
@@ -40,18 +40,18 @@ import { TypingAnimationDirective } from 'angular-typing-animation'
     MatCheckboxModule,
     MatRadioModule,
     MatInputModule,
+    AutocompleteLibModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     BrowserModule,
     MatDialogModule,
-    MatSnackBarModule,
-    // NoopAnimationsModule,
     MatBottomSheetModule,
     MDBBootstrapModule,
     MatTabsModule,
     MatIconModule,
     CountdownModule,
     RouterModule,
+    MatSnackBarModule,
     MatAutocompleteModule,
     ToastrModule.forRoot(),
     NgxLoadingModule.forRoot({
@@ -61,8 +61,6 @@ import { TypingAnimationDirective } from 'angular-typing-animation'
         secondaryColour: '#ffffff', 
         tertiaryColour: '#ffffff'
     })
-
-   
   ],
   entryComponents: [
     AdminloginComponent

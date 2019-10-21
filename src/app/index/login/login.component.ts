@@ -8,12 +8,9 @@ import Swal from 'sweetalert2';
 import { PlatformLocation } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { MatTabChangeEvent } from '@angular/material';
-import { Observable } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { HttpResponse } from '@angular/common/http';
-
 declare var require: any
-
 declare var $: any;
 var capsLock = require("capslock");
 
@@ -37,17 +34,14 @@ export class LoginComponent implements OnInit {
   f: FormGroup;
   submitted = false;
   submitstatus = false;
-
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
   res: any;
 
-
   constructor(private toastr: ToastrService, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
+  
 
+
+    
     const newTitle = "Purohit - Web Platform for Puja and Poojari Bookings";
-
     this.titleService.setTitle(newTitle);
 
     capsLock.observe(function (status) {
@@ -57,6 +51,7 @@ export class LoginComponent implements OnInit {
         window.alert("Warning! Caps Lock is ON");
       }
     });
+
 
     $(window).on('load', function () {
       setTimeout(function () {
@@ -313,7 +308,9 @@ export class LoginComponent implements OnInit {
     this.f = this.fb.group({
       ot: [null, [Validators.required, Validators.pattern("[0-9]{6}$")]],
     })
+   
   }
+ 
   act(s) {
     this.submitted = true;
     if (this.ff.invalid) {
@@ -372,6 +369,59 @@ export class LoginComponent implements OnInit {
   }
   onLinkClick(event: MatTabChangeEvent) {
     this.submitted = false;
+  }
+
+
+
+  keyword = 'name';
+  data = [
+     {
+       id: 1,
+       name: 'Usa'
+     },
+     {
+       id: 2,
+       name: 'England'
+     },
+     {
+      id: 3,
+      name: 'India'
+    },
+    {
+      id: 4,
+      name: 'Austraila'
+    },
+    {
+      id: 5,
+      name: 'Russia'
+    },
+    {
+      id: 6,
+      name: 'China'
+    },
+    {
+      id: 7,
+      name: 'Canada'
+    },
+    {
+      id: 8,
+      name: 'Newzland'
+    },
+  ];
+ 
+ 
+  selectEvent(item) {
+console.log(item);
+
+  }
+ 
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  
+  onFocused(e){
+    // do something when input is focused
   }
 
 }

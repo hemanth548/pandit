@@ -20,7 +20,7 @@ export class AgentprofileComponent implements OnInit {
   updateserviceurl: any = "http://192.168.1.55:3040/api/services/updateservice";
   getcategoryurl: any = "http://192.168.1.55:3040/api/services/getCategory ";
   term: any;
-  p: any;
+  p=3;
 
   submitted = false;
   f: FormGroup;

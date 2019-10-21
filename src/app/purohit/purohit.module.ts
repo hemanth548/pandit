@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PurohitdashboardComponent } from './purohitdashboard/purohitdashboard.component';
 import { PurohitservicesComponent } from './purohitservices/purohitservices.component';
 import { PurohitprofileComponent } from './purohitprofile/purohitprofile.component';
-import { PurohitpasswordComponent } from './purohitpassword/purohitpassword.component';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -20,7 +19,7 @@ import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [PurohitdashboardComponent, PurohitservicesComponent, PurohitprofileComponent, PurohitpasswordComponent, PurohitComponent, HomeComponent],
+  declarations: [PurohitdashboardComponent, PurohitservicesComponent, PurohitprofileComponent, PurohitComponent, HomeComponent],
   imports: [
     CommonModule,
     FormsModule,

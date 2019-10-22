@@ -30,7 +30,6 @@ export class AgentdashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
   } 
 logOutAction() {
   if (this.authService.logOutAction()) {

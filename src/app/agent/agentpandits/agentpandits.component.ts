@@ -21,13 +21,12 @@ export class AgentpanditsComponent implements OnInit {
   agent_id = localStorage.getItem("agent_id");
   page = 10;
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   truePandit: any = 1;
   falsePandit: any = 0;
   caturl: any = "http://192.168.1.55:3040/api/pandit/getAllPandits";
   verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
+  panditImageURL:any = "http://115.112.122.99:3040/api/images/";
   result: any;
   result2: any;
 
@@ -41,13 +40,12 @@ export class AgentpanditsComponent implements OnInit {
   }
   zoom: number = 8;
 
-
   getAllPandits() {
     this.ht.get(this.caturl).subscribe(resp => {
       this.result2 = resp;
       this.result = this.result2.data,
         this.loading = false,
-        console.log(resp)
+        console.log(this.result)
     })
   }
 

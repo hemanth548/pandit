@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./agentprofile.component.css']
 })
 export class AgentprofileComponent implements OnInit {
-  page = 3;
+  page = 10;
 
   addserviceurl: any = "http://192.168.1.55:3040/api/services/addservice";
   getAllServicesurl: any = "http://192.168.1.55:3040/api/services/getAllServices";

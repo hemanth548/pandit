@@ -1,19 +1,19 @@
 <div class="row">
-    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-        <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+    <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
       class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
         class="fa fa-download">&nbsp;Download PDF</i></button>
   </div>
 
   <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
-      <div class="form-midline waves-light " mdbWavesEffect>
+    <div class="form-midline waves-light " mdbWavesEffect>
       <div class="md-form">
         <input class="form-control" [(ngModel)]="term" type="text" placeholder="Search" style="font-size:16px">
       </div>
     </div>
   </div>
   <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
 
@@ -21,17 +21,17 @@
   <table class="table table-hover table-striped" id="my-table">
     <thead>
       <tr>
-        <th>Booking&nbsp;ID</th>
+        <th>Booking_ID</th>
         <th>Date</th>
         <th>Time</th>
         <th>OTP</th>
-        <th>Pandit&nbsp;ID</th>
-        <th>Yajman&nbsp;ID</th>
-        <th>Total&nbsp;Cost</th>
+        <th>Pandit_ID</th>
+        <th>Yajman_ID</th>
+        <th>Total_Cost</th>
         <th>Address</th>
-        <th>Payment&nbsp;Mode</th>
-        <th>No&nbsp;Of&nbsp;Bhokta</th>
-        <th>No&nbsp;Of&nbsp;Suhasini</th>
+        <th>Payment_Mode</th>
+        <th>No_Of_Bhokta</th>
+        <th>No_Of_Suhasini</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -190,7 +190,6 @@
             style="color:rgb(101, 167, 101);"><br>Started</i></td>
         <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x'
             style="color:green;"><br>Completed</i></td>
-
       </tr>
     </tbody>
   </table>

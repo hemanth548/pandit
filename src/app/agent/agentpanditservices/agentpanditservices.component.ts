@@ -18,7 +18,7 @@ export class AgentpanditservicesComponent implements OnInit {
   result2: any;
   term: any;
   p: any;
-  page = 3;
+  page = 10;
 
   res;
   loading = true;

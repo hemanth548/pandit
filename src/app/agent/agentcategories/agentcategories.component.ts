@@ -14,7 +14,7 @@ export class AgentcategoriesComponent implements OnInit {
   resultt: any;
   resultt2: any;
   term: any;
-  page = 3;
+  page = 10;
   p: any;
 
   loading = true;

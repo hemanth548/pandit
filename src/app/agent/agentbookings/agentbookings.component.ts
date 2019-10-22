@@ -20,7 +20,7 @@ export class AgentbookingsComponent implements OnInit {
   term: any;
   p: any;
   length: any;
-  page = 3;
+  page = 10;
   url: any = "http://192.168.1.55:3040/api/booking/getAllBookings";
   result: any;
   date;

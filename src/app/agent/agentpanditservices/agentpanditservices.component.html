@@ -41,36 +41,36 @@
     </div>
   </div>
   <div class="row">
-      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-          <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
-            class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
-              class="fa fa-download">&nbsp;Download PDF</i></button>
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+      <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
+        class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
+          class="fa fa-download">&nbsp;Download PDF</i></button>
+    </div>
+    <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+      <div class="form-midline waves-light " mdbWavesEffect>
+        <div class="md-form">
+          <input class="form-control-search" name="term" [(ngModel)]="term" type="text" placeholder="Search">
         </div>
-      <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
-          <div class="form-midline waves-light " mdbWavesEffect>
-            <div class="md-form">
-              <input class="form-control-search"name="term" [(ngModel)]="term" type="text" placeholder="Search">
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
-          </div>
-  
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
 
   </div>
   <div class="table-responsive">
     <table class="table table-hover table-striped" id="my-table">
       <thead>
         <tr>
-          <th>Pandit&nbsp;Service&nbsp;ID</th>
+          <th>Pandit_Service_ID</th>
           <th>Description</th>
           <th>Samagri</th>
           <th>Cost</th>
           <th>Duration</th>
-          <th>Pandit&nbsp;ID</th>
+          <th>Pandit_ID</th>
           <th>Pandits</th>
-          <th>Samagri&nbsp;cost</th>
+          <th>Samagri_Cost</th>
           <th>Update</th>
         </tr>
       </thead>

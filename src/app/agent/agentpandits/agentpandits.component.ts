@@ -19,15 +19,15 @@ export class AgentpanditsComponent implements OnInit {
   p: any;
   fname = localStorage.getItem("fname");
   agent_id = localStorage.getItem("agent_id");
-  page = 3;
+  page = 10;
 
   ngOnInit(): void {
 
   }
-  truePandit:any=1;
-  falsePandit:any=0;
+  truePandit: any = 1;
+  falsePandit: any = 0;
   caturl: any = "http://192.168.1.55:3040/api/pandit/getAllPandits";
-  verifyPanditURL:any = "http://115.112.122.99:3040/api/pandit/approveReject";
+  verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
   result: any;
   result2: any;
 
@@ -42,10 +42,10 @@ export class AgentpanditsComponent implements OnInit {
   zoom: number = 8;
 
 
-  getAllPandits(){
+  getAllPandits() {
     this.ht.get(this.caturl).subscribe(resp => {
-    this.result2 = resp;
-        this.result = this.result2.data,
+      this.result2 = resp;
+      this.result = this.result2.data,
         this.loading = false,
         console.log(resp)
     })
@@ -72,19 +72,19 @@ export class AgentpanditsComponent implements OnInit {
 
   }
 
-  verifyPandit(pandit_id:any, isVerified:any){
-    this.loading=true;
+  verifyPandit(pandit_id: any, isVerified: any) {
+    this.loading = true;
     isVerified = this.truePandit;
-    this.ht.patch(this.verifyPanditURL,{isVerified, pandit_id}).subscribe(respToVerify=>{
+    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(respToVerify => {
       this.getAllPandits(),
         this.verifiedToaster()
     })
   }
-  rejectPandit(pandit_id:any, isVerified:any){
+  rejectPandit(pandit_id: any, isVerified: any) {
     isVerified = this.falsePandit;
-    this.ht.patch(this.verifyPanditURL,{isVerified, pandit_id}).subscribe(resp=>{
+    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(resp => {
       this.getAllPandits(),
-      this.rejectedToaster() 
+        this.rejectedToaster()
     })
   }
 
@@ -98,7 +98,7 @@ export class AgentpanditsComponent implements OnInit {
       enableHtml: true,
       easing: 'ease-in',
       easeTime: 100,
-      titleClass:"success",
+      titleClass: "success",
       progressAnimation: 'decreasing',
     });
   }
@@ -113,7 +113,7 @@ export class AgentpanditsComponent implements OnInit {
       enableHtml: true,
       easing: 'ease-in',
       easeTime: 100,
-      titleClass:"success",
+      titleClass: "success",
       progressAnimation: 'decreasing',
     });
   }

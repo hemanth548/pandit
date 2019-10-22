@@ -21,7 +21,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxLoadingModule } from 'ngx-loading';
-import { TypingAnimationDirective } from 'angular-typing-animation'
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 
@@ -32,7 +31,7 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 
 @NgModule({
-  declarations: [LoginComponent,AdminloginComponent,TypingAnimationDirective],
+  declarations: [LoginComponent,AdminloginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

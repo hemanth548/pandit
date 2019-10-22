@@ -87,7 +87,3 @@ ul{
     border-radius: 5px;
 
   }
- .fix{
-   position: fixed;
-   z-index: 1;
- }

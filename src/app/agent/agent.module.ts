@@ -19,6 +19,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -34,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     MDBBootstrapModule,
+    MatPaginatorModule,
     NoopAnimationsModule,
     MatInputModule,
     BrowserAnimationsModule,

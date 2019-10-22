@@ -1,17 +1,20 @@
-div{
-  font-family: "sans-serif";
-  font-size:16px;
-}
 th {
-    font-size:18px;
-    font-family: "sans-serif";
+  font-size:18px;  
+  font-family: "sans-serif";
+  font-weight: 550;
+  column-gap: 50px;
+  column-span: initial;
 
 }
 td {
-    font-size: 16px;
-    font-family: "sans-serif";
-
+font-family: "sans-serif";
+font-size: 16px;
+word-wrap: break-word;
+white-space: nowrap;
+column-gap: 50px;
+column-span: initial;
 }
+
 
 .form{
   width: 100%;
@@ -42,7 +45,6 @@ td {
   transition: all 0.3s;
   outline: none;
   font-size: 16px;
-  font-family: "sans-serif";
 
 
 } 
@@ -58,7 +60,6 @@ height:33px;
   transition: all 0.3s;
   outline: none;
   font-size: 16px;
-  font-family: "sans-serif";
 
 
 } 
@@ -99,10 +100,7 @@ label{
   font-weight: 500;
 
 }
-input{
-  font-family: "sans-serif";
-  font-size: 16px;
-}
+
 select{
   width:230px;
   height:30px;

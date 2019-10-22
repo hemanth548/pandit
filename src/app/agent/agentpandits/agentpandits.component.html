@@ -1,46 +1,46 @@
 <body>
   <div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
-        class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
-          class="fa fa-download">&nbsp;Download PDF</i></button>
-    </div>
-    <!-- <div class="mx-auto col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 " style="font-size:20px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div> -->
-    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-      <div class="form-midline waves-light " mdbWavesEffect>
-        <div class="md-form">
-          <input class="form-control" name="termsearch1" [(ngModel)]="termsearch1" type="text" placeholder="Search"
-            style="font-size:16px">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+          <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
+            class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
+              class="fa fa-download">&nbsp;Download PDF</i></button>
         </div>
-      </div>
-    </div>
+      <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+          <div class="form-midline waves-light " mdbWavesEffect>
+            <div class="md-form">
+              <input class="form-control" name="termsearch1" [(ngModel)]="termsearch1" type="text" placeholder="Search"
+                style="font-size:16px">
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+  
+
   </div>
   <div class="table-responsive">
-    <table class="table table-hover table-bordered" id="my-table">
+    <table class="table table-hover table-borderless " id="my-table">
 
       <thead>
         <tr>
-          <th>Pandit&nbsp;ID</th>
-          <th>First&nbsp;Name</th>
-          <!-- <th>Last&nbsp;Name</th> -->
-          <th>Mobile</th>
-          <!-- <th>ID&nbsp;URL</th> -->
-          <th>Address&nbsp;Proof</th>
-          <th>Email</th>
-          <th>Sakha</th>
-          <th>Gotra</th>
-          <th>Veda</th>
-          <th>Region</th>
-          <th>Experience</th>
-          <th>Degree</th>
-          <th>University</th>
-          <th>Specialization</th>
-          <th>Location</th>
-          <th>Bhokta_cost</th>
-          <th>Suhasini_cost</th>
-
+          <th colspan="2">Pandit&nbsp;ID</th>
+          <th colspan="2">First&nbsp;Name</th>
+          <th colspan="2">Image</th>
+          <th colspan="2">Mobile</th>
+          <th colspan="2">Address&nbsp;Proof</th>
+          <th colspan="2">Email</th>
+          <th colspan="2">Sakha</th>
+          <th colspan="2">Gotra</th>
+          <th colspan="2">Veda</th>
+          <th colspan="2">Region</th>
+          <th colspan="2">Experience</th>
+          <th colspan="2">Degree</th>
+          <th colspan="2">University</th>
+          <th colspan="2">Specialization</th>
+          <th colspan="2">Location</th>
+          <th colspan="2">Bhokta_cost</th>
+          <th colspan="2">Suhasini_cost</th>
         </tr>
       </thead>
       <div *ngIf="loading">
@@ -179,39 +179,31 @@
       <tbody>
 
         <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: page, currentPage: p }">
-          <td>{{a.pandit_id}}</td>
-          <td>{{a.fname}}</td>
-          <td>{{a.mobile}}</td>
-          <td>{{a.addressproofurl}}</td>
-          <td>{{a.email}}</td>
-          <td>{{a.sakha}}</td>
-          <td>{{a.gotra}}</td>
-          <td>{{a.veda}}</td>
-          <td>{{a.region}}</td>
-          <td>{{a.experience}}</td>
-          <td>{{a.degree}}</td>
-          <td>{{a.university}}</td>
-          <td>{{a.specialization}}</td>
-          <td>{{a.location}}</td>
-          <td>{{a.bhokta_cost}}</td>
-          <td>{{a.suhasini_cost}}</td>
+          <td colspan="2" >{{a.pandit_id}}</td>
+          <td colspan="2">{{a.fname}}</td>
+          <td colspan="2"><img class="img-responsive"src="./assets/srini.png"></td>
+          <td colspan="2">{{a.mobile}}</td>
+          <td colspan="2">{{a.addressproofurl}}</td>
+          <td colspan="2">{{a.email}}</td>
+          <td colspan="2">{{a.sakha}}</td>
+          <td colspan="2">{{a.gotra}}</td>
+          <td colspan="2">{{a.veda}}</td>
+          <td colspan="2">{{a.region}}</td>
+          <td colspan="2">{{a.experience}}</td>
+          <td colspan="2">{{a.degree}}</td>
+          <td colspan="2">{{a.university}}</td>
+          <td colspan="2">{{a.specialization}}</td>
+          <td colspan="2">{{a.location}}</td>
+          <td colspan="2">{{a.bhokta_cost}}</td>
+          <td colspan="2">{{a.suhasini_cost}}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <br>
   <div class="row container">
-    <div class="col-xl-7 col-lg-8 col-md-8 col-sm-8 col-xs-12 float-left">
-      <span style="font-size: 18px;font-weight:550;  font-family: 'sans-serif';">Items per page&nbsp;</span>
-      <select [(ngModel)]="page">
-        <option value=5>5</option>
-        <option value=10>10</option>
-        <option value=15>15</option>
-      </select>
-    </div>
-    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 float-right" style="font-size:16px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+   
+   
   </div>
   <br>
   <div class="col-12 mx-auto">
@@ -222,12 +214,12 @@
           <span>&nbsp;Verified Pandit</span>
         </ng-template>
         <div class="row">
-          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 float-left">
             <button title="Download PDF" (click)="downloadpdfverifiedpandits()" style="font-size: 16px;padding:10px;"
               mdbBtn class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
                 class="fa fa-download">&nbsp;Download PDF</i></button>
           </div>
-          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+          <div class='col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-12'>
             <div class="form-midline waves-light " mdbWavesEffect>
               <div class="md-form">
                 <input class="form-control" name="termsearch2" [(ngModel)]="termsearch2" type="text"
@@ -237,9 +229,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover table-bordered" id="table-verified-pandits">
-
-            <thead>
+          <table class="table table-hover table-striped" id="table-verified-pandits">
               <tr>
                 <th>Pandit&nbsp;ID</th>
                 <th>First&nbsp;Name</th>
@@ -257,8 +247,8 @@
                 <th>Location</th>
                 <th>Bhokta_cost</th>
                 <th>Suhasini_cost</th>
+                <th>Status</th>
               </tr>
-            </thead>
             <div *ngIf="loading">
               <div class="col-4 mx-auto">
                 <div class="lds-css ng-scope">
@@ -392,9 +382,7 @@
                 </div>
               </div>
             </div>
-            <tbody>
-
-              <tr *ngFor="let a of result | filter:termsearch2">
+              <tr *ngFor="let a of result | filter:termsearch2 | paginate: { itemsPerPage: page, currentPage: p }">
                 <td *ngIf="a.isVerified">{{a.pandit_id}}</td>
                 <td *ngIf="a.isVerified">{{a.fname}}</td>
                 <td *ngIf="a.isVerified">{{a.mobile}}</td>
@@ -411,8 +399,12 @@
                 <td *ngIf="a.isVerified">{{a.location}}</td>
                 <td *ngIf="a.isVerified">{{a.bhokta_cost}}</td>
                 <td *ngIf="a.isVerified">{{a.suhasini_cost}}</td>
+                <td *ngIf="a.isVerified">
+                  <button style="background-color: green;" class="btn"(click)="verifyPandit(a.pandit_id, a.isVerified)">Accept</button>
+                  <br>
+                  <button style="background-color: red;" class="btn"(click)="rejectPandit(a.pandit_id,a.isVerified)">Reject</button>
+                </td>
               </tr>
-            </tbody>
           </table>
         </div>
         <br>
@@ -423,13 +415,13 @@
           <span>&nbsp;Unverified Pandit</span>
         </ng-template>
         <div class="row">
-          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 float-left">
             <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
               class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
                 class="fa fa-download">&nbsp;Download PDF</i></button>
           </div>
 
-          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+          <div class='col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-12'>
             <div class="form-midline waves-light " mdbWavesEffect>
               <div class="md-form">
                 <input class="form-control" name="termsearch3" [(ngModel)]="termsearch3" type="text"
@@ -439,7 +431,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover table-bordered" id="table-unverified-pandits">
+          <table class="table table-hover table-striped" id="table-unverified-pandits">
 
             <tr>
               <th>Pandit&nbsp;ID</th>
@@ -458,6 +450,7 @@
               <th>Location</th>
               <th>Bhokta_cost</th>
               <th>Suhasini_cost</th>
+              <th>Status</th>
             </tr>
             <div *ngIf="loading">
               <div class="col-4 mx-auto">
@@ -609,6 +602,11 @@
               <td *ngIf="!a.isVerified">{{a.location}}</td>
               <td *ngIf="!a.isVerified">{{a.bhokta_cost}}</td>
               <td *ngIf="!a.isVerified">{{a.suhasini_cost}}</td>
+              <td *ngIf="!a.isVerified">
+                <button style="background-color: green;" class="btn"(click)="verifyPandit(a.pandit_id, a.isVerified)">Accept</button>
+                <br>
+                <button style="background-color: red;" class="btn"(click)="rejectPandit(a.pandit_id, a.isVerified)">Reject</button>
+              </td>
             </tr>
           </table>
         </div>

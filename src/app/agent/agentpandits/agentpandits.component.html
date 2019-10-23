@@ -20,7 +20,7 @@
 
   </div>
   <div class="table-responsive">
-    <table class="table table-hover table-striped " id="my-table">
+    <table class="table table-hover " id="my-table">
 
       <thead>
         <tr>
@@ -181,8 +181,8 @@
         <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: page, currentPage: p }">
           <td colspan="2">{{a.pandit_id}}</td>
           <td colspan="2">{{a.fname}}</td>
-          <td colspan="2" *ngIf="a.idproofurl"><img class="img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
-          <td colspan="2" *ngIf="!a.idproofurl"><img class="img-responsive" src="./assets/usericon.jpg"></td>
+          <td colspan="2" *ngIf="a.idproofurl"><img class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
+          <td colspan="2" *ngIf="!a.idproofurl"><img class="pandit-image img-responsive" src="./assets/usericon.png"></td>
           <td colspan="2">{{a.mobile}}</td>
           <td colspan="2">{{a.addressproofurl}}</td>
           <td colspan="2">{{a.email}}</td>
@@ -230,7 +230,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover table-striped" id="table-verified-pandits">
+          <table class="table table-hover " id="table-verified-pandits">
             <tr>
               <th>Pandit_ID</th>
               <th>First_Name</th>
@@ -390,12 +390,12 @@
 
               <td *ngIf="a.isVerified && a.idproofurl">
                 <div>
-                  <img class="img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                  <img class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
                 </div>
               </td>
               <td *ngIf="a.isVerified && !a.idproofurl">
                 <div>
-                  <img class="img-responsive" src="./assets/usericon.jpg">
+                  <img class="pandit-image img-responsive" src="./assets/usericon.png">
                 </div>
               </td>
 
@@ -447,7 +447,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover table-striped " id="table-unverified-pandits">
+          <table class="table table-hover  " id="table-unverified-pandits">
 
             <tr>
               <th>Pandit_ID</th>
@@ -607,12 +607,12 @@
               <td *ngIf="!a.isVerified">{{a.fname}}</td>
               <td *ngIf="a.idproofurl && !a.isVerified">
                   <div>
-                    <img class="img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                    <img class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
                   </div>
                 </td>
                 <td *ngIf="!a.idproofurl && !a.isVerified">
                   <div>
-                    <img class="img-responsive" src="./assets/usericon.jpg">
+                    <img class="pandit-image img-responsive" src="./assets/usericon.png">
                   </div>
                 </td>
               <td *ngIf="!a.isVerified">{{a.mobile}}</td>

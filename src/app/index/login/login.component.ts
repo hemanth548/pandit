@@ -75,7 +75,6 @@ export class LoginComponent implements OnInit {
     if (this.roll == 'Purohit') {
       this.authService.purohitloginAction(formData).subscribe(
         res => {
-          console.log(res);
           this.res = res;
           localStorage.setItem("purohitmobile", this.res.data.mobile);
           localStorage.setItem("purohitpandit_id", this.res.data.pandit_id);
@@ -84,8 +83,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("purohitemail", this.res.data.email);
           localStorage.setItem("purohittoken", this.res.token);
           localStorage.setItem("purohitotp", this.res.data.otp);
+          localStorage.setItem("panditIdProof",this.res.data.idproofurl);
+          localStorage.setItem("p-role","Purohit");
+          console.log(this.res)
           if (this.res.token) {
-            this.routerNavigate.navigate(['purohithome']);
+            this.routerNavigate.navigate(['purohithome',this.res.data.pandit_id]);
           }
           this.loading = false;
 
@@ -127,6 +129,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("fname", formData.fname);
           localStorage.setItem("lname", formData.lname);
           localStorage.setItem("email", formData.email);
+          localStorage.setItem("Y-role","Yajman");
+
           this.routerNavigate.navigate(['yajmandashboard']);
         },
         (err: HttpResponse<any>) => {
@@ -163,7 +167,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("lname", this.res.data.lname);
         localStorage.setItem("email", this.res.data.email);
         localStorage.setItem("agent_id", this.res.data.agent_id);
-        localStorage.setItem("role", formData.gender);
+        localStorage.setItem("A-role","Agent");
         localStorage.setItem("token", this.res.token);
         console.log(this.res)
         if (this.res.token) {

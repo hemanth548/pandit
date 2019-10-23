@@ -22,7 +22,7 @@ export class AgentdashboardComponent implements OnInit {
     this.lname=localStorage.getItem("lname");
     this.email=localStorage.getItem("email");
     this.agent_id=localStorage.getItem("agent_id");
-    this.roll=localStorage.getItem("role");
+    this.roll=localStorage.getItem("A-role");
     const newTitle="Dashboard of "+this.fname.toUpperCase( )+" : "+this.agent_id;
 
     this.titleService.setTitle( newTitle );

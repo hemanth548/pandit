@@ -33,7 +33,7 @@ export class AgentcategoriesComponent implements OnInit {
 
   }
   downloadpdf() {
-    const doc = new jsPDF();
+    const doc = new jsPDF('l',"mm","a2");
     doc.autoTable({ html: '#my-table', theme: 'striped' });
     doc.save('categories.pdf');
 

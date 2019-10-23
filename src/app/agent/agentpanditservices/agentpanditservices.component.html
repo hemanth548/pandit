@@ -10,7 +10,7 @@
           </span>
         </div>
         <div class="modal-body">
-          <form [formGroup]="f" (ngSubmit)="act(f.value);f.reset();">
+          <form [formGroup]="f" (ngSubmit)="act(f.value);">
             <div class="col-12 wow animated slideInLeft form-group" data-wow-delay=".5s">
               <label>Cost</label>
               <input type="text" name="cost" formControlName="cost" class="form-control" placeholder="cost" />
@@ -30,8 +30,8 @@
             </div>
             <div class="form-group btn-container col-5 float-right">
 
-              <button type="submit" mdbBtn mdbWavesEffect name="submit">Save changes</button>
-              <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal" (click)="f.reset()">Close</button>
+              <button type="submit" mdbBtn mdbWavesEffect name="submit" [disabled]="f.untouched">Save changes</button>
+              <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal" [disabled]="f.touched" (click)="closeToaster()">Close</button>
             </div>
           </form>
         </div>

@@ -21,12 +21,12 @@ export class AgentpanditsComponent implements OnInit {
   agent_id = localStorage.getItem("agent_id");
   page = 10;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   truePandit: any = 1;
   falsePandit: any = 0;
   caturl: any = "http://192.168.1.55:3040/api/pandit/getAllPandits";
   verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
-  panditImageURL:any = "http://115.112.122.99:3040/api/images/";
+  panditImageURL: any = "http://115.112.122.99:3040/api/images/";
   result: any;
   result2: any;
 
@@ -50,21 +50,19 @@ export class AgentpanditsComponent implements OnInit {
   }
 
   downloadpdf() {
-    const doc = new jsPDF({
-      orientation: 'extended',
-    });
+    const doc = new jsPDF('l',"mm","a2");
     doc.autoTable({ html: '#my-table', theme: 'striped' });
     doc.save('Pandits.pdf');
 
   }
   downloadpdfverifiedpandits() {
-    const doc = new jsPDF();
+    const doc = new jsPDF('p', 'mm', 'a4');
     doc.autoTable({ html: '#table-verified-pandits', theme: 'striped' });
     doc.save('Verified_Pandits.pdf');
 
   }
   downloadpdfunverifiedpandits() {
-    const doc = new jsPDF();
+    const doc = new jsPDF('p', 'mm', 'a4');
     doc.autoTable({ html: '#table-unverified-pandits', theme: 'striped' });
     doc.save('Unverified_Pandits.pdf');
 

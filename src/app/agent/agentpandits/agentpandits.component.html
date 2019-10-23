@@ -384,7 +384,7 @@
                 </div>
               </div>
             </div>
-            <tr *ngFor="let a of result | filter:termsearch2 | paginate: { itemsPerPage: page, currentPage: p }">
+            <tr *ngFor="let a of result | filter:termsearch2">
               <td *ngIf="a.isVerified">{{a.pandit_id}}</td>
               <td *ngIf="a.isVerified">{{a.fname}}</td>    
 
@@ -414,10 +414,7 @@
               <td *ngIf="a.isVerified">{{a.bhokta_cost}}</td>
               <td *ngIf="a.isVerified">{{a.suhasini_cost}}</td>
               <td *ngIf="a.isVerified">
-                <button style="background-color: green;" class="btn"
-                  (click)="verifyPandit(a.pandit_id, a.isVerified)">Approve</button>
-                <br>
-                <button style="background-color: red;" class="btn"
+                  <button style="background-color: red;" class="btn"
                   (click)="rejectPandit(a.pandit_id,a.isVerified)">&nbsp;&nbsp;Reject&nbsp;&nbsp;</button>
               </td>
             </tr>
@@ -632,9 +629,7 @@
               <td *ngIf="!a.isVerified">
                 <button style="background-color: green;" class="btn"
                   (click)="verifyPandit(a.pandit_id, a.isVerified)">Approve</button>
-                <br>
-                <button style="background-color: red;" class="btn"
-                  (click)="rejectPandit(a.pandit_id, a.isVerified)">&nbsp;&nbsp;Reject&nbsp;&nbsp;</button>
+               
               </td>
             </tr>
           </table>

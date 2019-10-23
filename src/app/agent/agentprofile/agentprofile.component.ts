@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { Title } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-agentprofile',
@@ -36,7 +37,7 @@ export class AgentprofileComponent implements OnInit {
   fname: any;
   agent_id: any;
 
-  constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title) {
+  constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
     this.fname = localStorage.getItem("fname");
     this.agent_id = localStorage.getItem("agent_id");
     const newTitle = "Services of " + this.fname.toUpperCase() + " : " + this.agent_id;
@@ -45,13 +46,10 @@ export class AgentprofileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.ht.get(this.getAllServicesurl).subscribe(res => {
-    this.res2 = res;
-      this.res = this.res2.data;
-      this.loading = false
-    });
-    this.ht.get(this.getcategoryurl).subscribe(res => { this.result2 = res, this.result = this.result2.data });
 
+    this.getAllServices();
+    this.getCategory();
+    
     this.f = this.fb.group({
       samagri: [null, Validators.required],
       noofpandits: [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,2}$")]],
@@ -76,7 +74,19 @@ export class AgentprofileComponent implements OnInit {
     });
 
   }
-
+  getAllServices() {
+    this.ht.get(this.getAllServicesurl).subscribe(res => {
+      this.res2 = res;
+      this.res = this.res2.data;
+      this.loading = false
+    });
+  }
+  getCategory(){
+    this.ht.get(this.getcategoryurl).subscribe(res => 
+      { this.result2 = res,
+        this.result = this.result2.data
+       });
+  }
   funs(formdata) {
     this.k = formdata.service_id
 
@@ -94,15 +104,14 @@ export class AgentprofileComponent implements OnInit {
 
   act(v) {
     this.submitted = true;
-    console.log(v);
     if (this.formadd.invalid) {
-      console.log("form is invalid")
       return;
     }
     else {
       this.formadd.reset();
       this.ht.post(this.addserviceurl, { "description": v.description, "samagri": v.samagri, "cost": v.cost, "duration": v.duration, "category_id": v.category_id, "noofpandits": v.noofpandits }).subscribe(resp1 => {
-        this.ht.get(this.getAllServicesurl).subscribe(resp => { this.res2 = resp, this.res = this.res2.data })
+        this.getAllServices(),
+        this.addServicesToaster()
       });
       this.submitted = false;
 
@@ -115,30 +124,84 @@ export class AgentprofileComponent implements OnInit {
       return;
     }
     this.ht.patch(this.updateserviceurl, { "samagri": v.samagri, "cost": v.cost, "duration": v.duration, "service_id": v.service_id, "category_id": v.category_id, "noofpandits": v.noofpandits }).subscribe(resp1 => {
-      this.ht.get(this.getAllServicesurl).subscribe(resp => { this.res2 = resp, this.res = this.res2.data })
+      this.getAllServices(),
+      this.changesToaster()
     })
     this.submitted = false;
   }
   del(p) {
     this.ht.post(this.deleteserviceurl, { "service_id": p.service_id }).subscribe(resp1 => {
-      this.ht.get(this.getAllServicesurl).subscribe(resp => { this.res2 = resp, this.res = this.res2.data }),
-        Swal.fire({
-          title: 'Deleted data with Service ID ' + p.service_id,
-          type: 'warning',
-          timer: 2000,
-          customClass: 'swal-height',
-          showConfirmButton: false,
-        })
+      this.getAllServices(),
+      this.verifiedToaster()
     })
   }
   downloadpdf() {
-    const doc = new jsPDF();
-    doc.autoTable({ html: '#my-table' });
+    const doc = new jsPDF('l',"mm","a2");
+    doc.autoTable({ html: '#my-table'});
     doc.save('service.pdf');
 
   }
   rest() {
     this.submitted = false;
     this.formadd.reset();
+  }
+  addServicesToaster() {
+    this.toastr.success('<font color=\"black\" size=\"4px\">Add Service Success</font>', "", {
+      closeButton: false,
+      timeOut: 4000,
+      progressBar: false,
+      onActivateTick: true,
+      tapToDismiss: true,
+      enableHtml: true,
+      easing: 'swing',
+      easeTime: 100,
+      titleClass: "success",
+      progressAnimation: 'decreasing',
+    });
+  }
+
+  changesToaster() {
+    this.toastr.success('<font color=\"black\" size=\"4px\">Saved Successfully</font>', "", {
+      closeButton: false,
+      timeOut: 4000,
+      progressBar: false,
+      onActivateTick: true,
+      tapToDismiss: true,
+      enableHtml: true,
+      easing: 'swing',
+      easeTime: 100,
+      titleClass: "success",
+      progressAnimation: 'decreasing',
+    });
+  }
+
+  verifiedToaster() {
+    this.toastr.warning('<font color=\"black\" size=\"4px\"> Deleted Successfully</font>', "", {
+      closeButton: false,
+      timeOut: 4000,
+      progressBar: false,
+      onActivateTick: true,
+      tapToDismiss: true,
+      enableHtml: true,
+      easing: 'ease-in',
+      easeTime: 100,
+      titleClass: "success",
+      progressAnimation: 'decreasing',
+    });
+  }
+
+  closeToaster() {
+    this.toastr.warning('<font color=\"black\" size=\"4px\">No changes are done</font>', '', {
+      closeButton: false,
+      timeOut: 5000,
+      progressBar: false,
+      onActivateTick: true,
+      tapToDismiss: true,
+      enableHtml: true,
+      easing: 'swing-in',
+      easeTime: 100,
+      titleClass: "success",
+      progressAnimation: 'decreasing',
+    });
   }
 }

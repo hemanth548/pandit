@@ -11,7 +11,6 @@ import { AgentcategoriesComponent } from './agentcategories/agentcategories.comp
 import { AgentbookingsComponent } from './agentbookings/agentbookings.component';
 import { AgentComponent } from './agent.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { AgmCoreModule } from '@agm/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatInputModule } from '@angular/material/input';
@@ -49,9 +48,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RouterModule,
     MatTabsModule,
     MatIconModule,
-    AgmCoreModule.forRoot({
-      apiKey: ''
-    })
   ],
 
 })

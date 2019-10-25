@@ -1,24 +1,9 @@
-<html>
+<div style="background-color: #f4f2e4;">
 
-<head>
-	<style>
-		body {
-			font-family: sans-serif;
-			font-size: 16px;
-		}
-
-		.animate {
-			-webkit-animation: animatezoom 2s;
-			animation: animatezoom 2s
-		}
-	</style>
-</head>
-
-<body>
-		<nav class="mb-1 navbar navbar-expand-lg navbar-dark deep-orange col-12">
-				<div class="visible-block mx-auto">
-				  <a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
-				</div>
+	<nav class="navbar navbar-expand-lg navbar-dark deep-orange col-12">
+		<div class="visible-block mx-auto">
+			<a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
+		</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
 			aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -30,7 +15,7 @@
 					<a class="nav-link" routerLink="/purohitdashboard">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/purohitdashboard">Temple&nbsp;Services</a>
+					<a class="nav-link" routerLink="/purohitdashboard">Services</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" routerLink="/purohitdashboard">Shop</a>
@@ -40,16 +25,15 @@
 				</li>
 
 			</ul>
-			<div class="col-xl-4 col-lg-4 col-md-8 col-sm-12 col-xs-12">
+			<div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12">
 				<div class="row">
-					<div class="col-10 search">
-						<ng-autocomplete placeHolder="search for products and pujari" historyIdentifier="data"
+					<div class="col-10">
+						<ng-autocomplete class="ng-autocomplete" placeHolder="search for products and pujari"
 							[data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
 							(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
 							[itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
 							[historyListMaxNumber]=8>
 						</ng-autocomplete>
-						<!-- implement isLoading after you get an API -->
 						<ng-template #itemTemplate let-item>
 							<a [innerHTML]="item.name"></a>
 						</ng-template>
@@ -58,36 +42,39 @@
 							<div [innerHTML]="notFound"></div>
 						</ng-template>
 					</div>
-					<div class="btn-group" mdbDropdown>
-						<i class="fa fa-user-circle-o fa-2x" style="color:white;padding:5px 0px;" aria-hidden="true"
-							mdbDropdownToggle title="Login/Register"></i>
-						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item nav-link waves-light" (click)="basicModal.show()"
-								style="font-size: 20px;color:orangered;padding:5px 20px;" mdbWavesEffect>SignIn/
-								SignUp</a>
-						</div>
-					</div>
+					<div class="col-1 text-center">
+						<i class="fa fa-user fa-3x" style="color:white;padding:5px 0px;" (click)="basicModal.show()"
+							aria-hidden="true" title="Login/Register"></i></div>
+					<div class="col-1 text-center">&nbsp;&nbsp;<i class="fa fa-shopping-cart fa-3x"
+							style="color:white;padding:5px 0px;" aria-hidden="true"></i></div>
 				</div>
 			</div>
 		</div>
 	</nav>
 
-	<div style="margin-top:-3px;" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"
+	<div id="carouselExampleFade" class="col-11 mx-auto carousel slide carousel-fade" data-ride="carousel"
 		data-interval="3500">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal22.png"
-					alt="First slide">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:500px;"
+					src="./assets/corsal22.png" alt="First slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal.jpg"
-					alt="second slide">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:500px;"
+					src="./assets/kalasham.JPG" alt="second slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100 img-responsive img-fluid" style="max-height:400px;" src="./assets/corsal2.jpg"
-					alt="third slide">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:500px;"
+					src="./assets/satyanarajana_pooja.jpg" alt="third slide">
 			</div>
-
+			<div class="carousel-item">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:500px;" src="./assets/thaali.JPG"
+					alt="fourth slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100 img-responsive img-fluid" style="max-height:500px;"
+					src="./assets/vakka_aaku.JPG" alt="fifth slide">
+			</div>
 
 		</div>
 
@@ -130,7 +117,7 @@
 					<h2>E-Handicrafts Pure Brass Pooja thali Set</h2>
 				</div>
 				<div>
-					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-deepam.jpg">
+					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-deepam.png">
 				</div>
 				<div class="row">
 					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 float-left text-left">
@@ -149,7 +136,7 @@
 					<h2>E-Handicrafts Pure Brass Pooja thali Set</h2>
 				</div>
 				<div>
-					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-deepam.jpg">
+					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-deepam.png">
 				</div>
 				<div class="row">
 					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 float-left text-left">
@@ -165,10 +152,10 @@
 			</div>
 			<div class="shop-box col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mx-auto text-dark ">
 				<div class="text-center p-1">
-					<h2>PILGRIMAIDE Ganesh Pooja Kit Premium</h2>
+					<h2>PILGRIMAIDE Ganesh Pooja Kit</h2>
 				</div>
 				<div>
-					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-pack.jpg">
+					<img class="mx-auto img-fluid img-responsive" src="./assets/poojasamagri-pack.png">
 				</div>
 				<div class="row">
 					<div class=" col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 float-left text-left">
@@ -184,7 +171,7 @@
 			</div>
 		</div>
 	</div>
-	<div mdbModal #basicModal="mdbModal" class="modal fade center " tabindex="-1" role="dialog"
+	<div mdbModal #basicModal="mdbModal" class="modal fade bottom " tabindex="-1" role="dialog"
 		aria-labelledby="myBasicModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -454,54 +441,19 @@
 		</div>
 	</div>
 
-
-	<div mdbModal id="adModal" class="modal fade right" role="dialog" tabindex="-1" aria-labelledby="myModalLabel"
-		aria-hidden="true">
-
-		<div class="modal-dialog modal-side modal-bottom-right modal-lg" role="document">
-
-
-			<div class="modal-content blur" style="margin-left:100px;margin-bottom:-150px;">
-				<div class="modal-header">
-					<h2 style="color:white;" class="modal-title w-100" id="myModalLabel">Special Offer</h2>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="animated slideInDown text-center col-4 my-auto">
-							<i style="color:orangered;font-size:110px;" class="fa fa-shopping-cart"></i>
-						</div>
-						<div class="col-8">
-							<div class="col-12 text-center">
-								<span style="color:white;">
-									NAVARATRI KOLU/GOLU
-								</span>
-								<br><br>
-								<span style="color:white;">
-									DEEPAVALI
-								</span>
-								<br><br>
-								<a (click)="basicModal.show()" style="border: 2px dotted white">
-									Pre-Order Now
-								</a>
-							</div>
-							<br><br>
-							<div class="col-12 text-center">
-								<code
-									style="color:red;font-size: 18px;font-weight: 600;padding:5px 15px;">USE: H48K57R</code>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-
-				</div>
+  
+	  <!-- Modal -->
+	  <div class="modal fade animated slideInDown" id="adModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+		  <div class="modal-content">
+			<div class="modal-body">
+					<button style="margin-top: 30px;"type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+				<a (click)="basicModal.show()" data-dismiss="modal">  <img class="img-responsive img-fluid" src="./assets/diwali-banner.jpg">
+			 </a>
 			</div>
+		  </div>
 		</div>
-	</div>
-	<!-- Side Modal Top Right -->
-</body>
-
-</html>
+	  </div>
+</div>

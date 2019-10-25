@@ -398,7 +398,6 @@
                   <img class="pandit-image img-responsive" src="./assets/usericon.png">
                 </div>
               </td>
-
               <td *ngIf="a.isVerified">{{a.mobile}}</td>
               <td *ngIf="a.isVerified">{{a.addressproofurl}}</td>
               <td *ngIf="a.isVerified">{{a.email}}</td>
@@ -604,12 +603,12 @@
               <td *ngIf="!a.isVerified">{{a.fname}}</td>
               <td *ngIf="a.idproofurl && !a.isVerified">
                   <div>
-                    <img class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                    <img class="pandit-image img-fluid img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
                   </div>
                 </td>
                 <td *ngIf="!a.idproofurl && !a.isVerified">
                   <div>
-                    <img class="pandit-image img-responsive" src="./assets/usericon.png">
+                    <img class="pandit-image img-fluid img-responsive" src="./assets/usericon.png">
                   </div>
                 </td>
               <td *ngIf="!a.isVerified">{{a.mobile}}</td>

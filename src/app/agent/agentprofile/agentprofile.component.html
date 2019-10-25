@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLongTitle">Update Details</h1>
+        <h1 class="modal-title">Update Details</h1>
         <span type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span style="color:orangered;" (click)="f.reset();">&times;</span>
         </span>
@@ -85,7 +85,7 @@
           </div>
           <div class="form-group btn-container col-5 float-right">
 
-            <button type="submit" mdbBtn mdbWavesEffect name="submit"[disabled]="f.untouched">Save changes</button>
+            <button type="submit" mdbBtn mdbWavesEffect name="submit" [disabled]="f.untouched" data-dismiss = "modal">Save changes</button>
             <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal" [disabled]="f.touched" (click)="closeToaster()">Close</button>
           </div>
         </form>

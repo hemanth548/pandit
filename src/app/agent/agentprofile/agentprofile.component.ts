@@ -37,6 +37,9 @@ export class AgentprofileComponent implements OnInit {
   fname: any;
   agent_id: any;
 
+  deleteConfirmStatus:boolean = false;
+  count: number;
+
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
     this.fname = localStorage.getItem("fname");
     this.agent_id = localStorage.getItem("agent_id");
@@ -130,11 +133,24 @@ export class AgentprofileComponent implements OnInit {
     this.submitted = false;
   }
   del(p) {
-    this.ht.post(this.deleteserviceurl, { "service_id": p.service_id }).subscribe(resp1 => {
-      this.getAllServices(),
-      this.verifiedToaster()
+    this.toastr.warning('<font color=\"black\" size=\"3px\">Click to Confirm Delete Service</font>', "", {
+      closeButton: false,
+      timeOut: 5000,
+      progressBar: false,
+      onActivateTick: true,
+      // tapToDismiss: true,
+      enableHtml: true,
+      easing: 'ease-in',
+      easeTime: 100,
+      titleClass: "success",
+      progressAnimation: 'decreasing',
+    }).onTap.subscribe(() => {  
+      this.ht.post(this.deleteserviceurl, { "service_id": p.service_id }).subscribe(resp1 => {
+        this.getAllServices(),
+          this.verifiedToaster()
+      });
     })
-  }
+    }
   downloadpdf() {
     const doc = new jsPDF('l',"mm","a2");
     doc.autoTable({ html: '#my-table'});
@@ -157,6 +173,7 @@ export class AgentprofileComponent implements OnInit {
       easeTime: 100,
       titleClass: "success",
       progressAnimation: 'decreasing',
+      
     });
   }
 
@@ -174,9 +191,9 @@ export class AgentprofileComponent implements OnInit {
       progressAnimation: 'decreasing',
     });
   }
-
+  
   verifiedToaster() {
-    this.toastr.warning('<font color=\"black\" size=\"4px\"> Deleted Successfully</font>', "", {
+    this.toastr.success('<font color=\"black\" size=\"4px\"> Deleted Successfully</font>', "", {
       closeButton: false,
       timeOut: 4000,
       progressBar: false,

@@ -9,7 +9,7 @@
         </span>
       </div>
       <div class="modal-body">
-        <form [formGroup]="f" (ngSubmit)="actup(f.value)">
+        <form [formGroup]="f" >
           <div class="col-12 wow animated slideInLeft form-group" data-wow-delay=".5s">
             <div class="form-group">
               <label>Cost</label>
@@ -85,8 +85,8 @@
           </div>
           <div class="form-group btn-container col-5 float-right">
 
-            <button type="submit" mdbBtn mdbWavesEffect name="submit" [disabled]="f.untouched" data-dismiss = "modal">Save changes</button>
-            <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal" [disabled]="f.touched" (click)="closeToaster()">Close</button>
+            <button type="submit" mdbBtn mdbWavesEffect name="submit" [disabled]="f.invalid" (click)="actup(f.value)" data-dismiss="modal">Save changes</button>
+            <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal"(click)="closeToaster()">Close</button>
           </div>
         </form>
       </div>
@@ -99,17 +99,17 @@
 <!-- Modal -->
 <div>
   <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn
-    style="padding:10px 20px;font-size:15px;" mdbWavesEffect><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add
+    style="padding:10px 20px;font-size:15px;" mdbWavesEffect [disabled]=""><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add
     Service</button>
 </div>
-<div class="modal fade" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
+<div class="modal fade scrollable" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
   <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 
 
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLongTitle">&nbsp;Add Service</h1>
+        <h1 class="modal-title">&nbsp;Add Service</h1>
         <span type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;"
           (click)="rest()">
           <span style="color:orangered;" aria-hidden="true">&times;</span>
@@ -118,7 +118,7 @@
       <div class="modal-body">
         <div class="col-10 mx-auto">
           <br>
-          <form [formGroup]="formadd" (ngSubmit)="act(formadd.value)">
+          <form [formGroup]="formadd">
             <div class="col-xs-12 animated slideInLeft form-group" data-wow-delay=".9s">
               <div class="form-group">
                 <label>Choose your Pooja Category</label>
@@ -156,15 +156,6 @@
                   <p *ngIf="formadd.get('duration').errors.pattern">Minimum 1 hour, Maximum 9-9-9 hours only</p>
                 </div>
               </div>
-              <!-- <div class="form-group">
-                    <input name="subject1" formControlName="category_id" class="form-control" placeholder="Category_id"type="text"
-                    [ngClass]="{ 'is-invalid': submitted && formadd.get('category_id').errors}">
-                  <div *ngIf="submitted && formadd.get('category_id').errors" class="invalid-feedback">
-                    <p *ngIf="formadd.get('category_id').errors.required">Number is required</p>
-                    <p *ngIf="formadd.get('category_id').errors.pattern">4 Digit number is required</p>
-                  </div>
-                </div> -->
-
               <div class="form-group">
                 <label>Cost</label>
                 <input name="cost" formControlName="cost" class="form-control" placeholder="Cost" type="text"
@@ -199,10 +190,12 @@
             </div>
 
             <div class="float-right">
-              <button type="submit" mdbBtn class="waves-light" style="padding:10px 20px;font-size:15px;"
+              <button type="submit" mdbBtn class="waves-light" style="padding:10px 20px;font-size:16px;" (click)="act(formadd.value)"
                 mdbWavesEffect>&nbsp;Add Service</button>
+                <button type="close" mdbBtn class="waves-light" style="padding:10px 20px;font-size:16px;" (click)="rest()" data-dismiss="modal"
+                mdbWavesEffect>&nbsp;Cancel</button>
             </div>
-          </form>
+          </form> 
 
         </div>
 

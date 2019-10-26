@@ -88,7 +88,7 @@ this.getPanditServices();
 
   verifiedToaster() {
     this.toastr.success('<font color=\"black\" size=\"4px\"> Saved Successfully</font>', '', {
-      closeButton: false,
+      closeButton: true,
       timeOut: 4000,
       progressBar: false,
       onActivateTick: true,
@@ -103,7 +103,7 @@ this.getPanditServices();
 
   closeToaster() {
     this.toastr.warning('<font color=\"black\" size=\"4px\">No changes are done</font>', '', {
-      closeButton: false,
+      closeButton: true,
       timeOut: 4000,
       progressBar: false,
       onActivateTick: true,

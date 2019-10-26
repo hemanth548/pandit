@@ -20,6 +20,7 @@ export class PurohitComponent implements OnInit {
   purohitemail: any;
   purohitpandit_id: string;
   purohitotp: string;
+  purohitIdProof: string;
 
   constructor(private authService: AuthService, private routerNavigate: Router, private titleService: Title) {
     this.purohitfname = localStorage.getItem("purohitfname");
@@ -27,6 +28,8 @@ export class PurohitComponent implements OnInit {
     this.purohitemail = localStorage.getItem("purohitemail");
     this.purohitpandit_id = localStorage.getItem("purohitpandit_id");
     this.purohitotp = localStorage.getItem("purohitotp");
+    this.purohitIdProof = localStorage.getItem("purohitIdProof");
+
     const newTitle = "Dashboard - " + this.purohitfname.toUpperCase() + " : " + this.purohitpandit_id;
 
     this.titleService.setTitle(newTitle);

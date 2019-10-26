@@ -29,6 +29,7 @@
 				<div class="row">
 					<div class="col-10">
 						<ng-autocomplete class="ng-autocomplete" placeHolder="search for products and pujari"
+							historyIdentifier="true"
 							[data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
 							(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
 							[itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
@@ -171,7 +172,7 @@
 			</div>
 		</div>
 	</div>
-	<div mdbModal #basicModal="mdbModal" class="modal fade bottom " tabindex="-1" role="dialog"
+	<div mdbModal #basicModal="mdbModal" class="modal fade top " tabindex="-1" role="dialog"
 		aria-labelledby="myBasicModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -445,14 +446,12 @@
 	  <!-- Modal -->
 	  <div class="modal fade animated slideInDown" id="adModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-		  <div class="modal-content">
-			<div class="modal-body">
-					<button style="margin-top: 30px;"type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+		  <div class="modal-content bg-transparent">
+					<button style="margin-top: 15px;"type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span class="fa fa-close fa-4x deep-orange"aria-hidden="true"></span>
 						  </button>
 				<a (click)="basicModal.show()" data-dismiss="modal">  <img class="img-responsive img-fluid" src="./assets/diwali-banner.jpg">
 			 </a>
-			</div>
 		  </div>
 		</div>
 	  </div>

@@ -37,8 +37,6 @@ export class AgentprofileComponent implements OnInit {
   fname: any;
   agent_id: any;
 
-  deleteConfirmStatus:boolean = false;
-  count: number;
 
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
     this.fname = localStorage.getItem("fname");
@@ -134,7 +132,7 @@ export class AgentprofileComponent implements OnInit {
   }
   del(p) {
     this.toastr.warning('<font color=\"black\" size=\"3px\">Click to Confirm Delete Service</font>', "", {
-      closeButton: false,
+      closeButton: true,
       timeOut: 5000,
       progressBar: false,
       onActivateTick: true,
@@ -163,8 +161,8 @@ export class AgentprofileComponent implements OnInit {
   }
   addServicesToaster() {
     this.toastr.success('<font color=\"black\" size=\"4px\">Add Service Success</font>', "", {
-      closeButton: false,
-      timeOut: 4000,
+      closeButton: true,
+      timeOut: 5000,
       progressBar: false,
       onActivateTick: true,
       tapToDismiss: true,
@@ -179,8 +177,8 @@ export class AgentprofileComponent implements OnInit {
 
   changesToaster() {
     this.toastr.success('<font color=\"black\" size=\"4px\">Saved Successfully</font>', "", {
-      closeButton: false,
-      timeOut: 4000,
+      closeButton: true,
+      timeOut: 5000,
       progressBar: false,
       onActivateTick: true,
       tapToDismiss: true,
@@ -194,8 +192,8 @@ export class AgentprofileComponent implements OnInit {
   
   verifiedToaster() {
     this.toastr.success('<font color=\"black\" size=\"4px\"> Deleted Successfully</font>', "", {
-      closeButton: false,
-      timeOut: 4000,
+      closeButton: true,
+      timeOut: 5000,
       progressBar: false,
       onActivateTick: true,
       tapToDismiss: true,
@@ -209,7 +207,7 @@ export class AgentprofileComponent implements OnInit {
 
   closeToaster() {
     this.toastr.warning('<font color=\"black\" size=\"4px\">No changes are done</font>', '', {
-      closeButton: false,
+      closeButton: true,
       timeOut: 5000,
       progressBar: false,
       onActivateTick: true,

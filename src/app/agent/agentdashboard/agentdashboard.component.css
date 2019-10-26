@@ -30,15 +30,7 @@ code{
 code:hover{
   cursor: pointer;
 }
-.active-link{
-  /* background: #304852; */
-  text-decoration: none;
-  padding: 10px 30px;
-  transition: 0.1s ease-in;
-  font-size: 18px;
-/* width:267px; */
-outline:none;
-}
+
 li{
   text-decoration: none;
   font-size: 18px;
@@ -46,10 +38,9 @@ li{
   padding: 10px 30px;
   cursor: pointer;
   /* width:267px; */
-
   list-style:none !important;
 }
-li:hover, li:focus {
+li:hover, .active-link {
   background: #f6fcff2d;
   text-decoration: none;
   border-left: 15px solid rgb(255, 255, 254);
@@ -87,3 +78,7 @@ ul{
     border-radius: 5px;
 
   }
+mdb-navbar{
+  border-radius: -5px !important;
+
+}

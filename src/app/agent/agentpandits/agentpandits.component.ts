@@ -86,7 +86,7 @@ export class AgentpanditsComponent implements OnInit {
 
   verifiedToaster() {
     this.toastr.success('<font color=\"black\" size=\"4px\">Pandit Verified Successfully</font>', '', {
-      closeButton: false,
+      closeButton: true,
       timeOut: 5000,
       progressBar: false,
       onActivateTick: true,
@@ -101,7 +101,7 @@ export class AgentpanditsComponent implements OnInit {
 
   rejectedToaster() {
     this.toastr.success('<font color=\"black\" size=\"4px\">Pandit Rejected Successfully</font>', '', {
-      closeButton: false,
+      closeButton: true,
       timeOut: 5000,
       progressBar: false,
       onActivateTick: true,

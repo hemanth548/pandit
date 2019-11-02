@@ -37,9 +37,6 @@ export class LoginComponent implements OnInit {
   res: any;
 
   constructor(private toastr: ToastrService, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
-  
-
-
     
     const newTitle = "Purohit - Web Platform for Puja and Poojari Bookings";
     this.titleService.setTitle(newTitle);
@@ -374,59 +371,6 @@ export class LoginComponent implements OnInit {
   }
   onLinkClick(event: MatTabChangeEvent) {
     this.submitted = false;
-  }
-
-
-
-  keyword = 'name';
-  data = [
-     {
-       id: 1,
-       name: 'Usa'
-     },
-     {
-       id: 2,
-       name: 'England'
-     },
-     {
-      id: 3,
-      name: 'India'
-    },
-    {
-      id: 4,
-      name: 'Austraila'
-    },
-    {
-      id: 5,
-      name: 'Russia'
-    },
-    {
-      id: 6,
-      name: 'China'
-    },
-    {
-      id: 7,
-      name: 'Canada'
-    },
-    {
-      id: 8,
-      name: 'Newzland'
-    },
-  ];
- 
- 
-  selectEvent(item) {
-console.log(item);
-
-  }
- 
-  onChangeSearch(val: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
-  }
-  
-  onFocused(e){
-    // do something when input is focused
   }
 
 }

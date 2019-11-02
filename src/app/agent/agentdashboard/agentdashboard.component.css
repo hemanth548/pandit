@@ -8,77 +8,67 @@
     a:hover{
       text-decoration: none;
     }
-   
-
-.logo_image
-{
-width:100%;
- max-height: 150px;
-}    
-.abc:hover{
-  color:white;
-  transition: 0.10s ease-in;
-  cursor: pointer;
-}
-.abc{
-  color:black;
-  transition: 0.10s ease-in;
-}
-code{
-  cursor: pointer;
-}
-code:hover{
-  cursor: pointer;
-}
 
 li{
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   color:white;
   padding: 10px 30px;
   cursor: pointer;
-  /* width:267px; */
-  list-style:none !important;
+  font-family: Lato,sans-serif!important;
+    list-style:none !important;
+  font-weight: 600;
+    color: #eee2e2;
+    letter-spacing: 1px;
+    position: relative;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+    transition: 0.2s;
 }
 li:hover, .active-link {
   background: #f6fcff2d;
   text-decoration: none;
-  border-left: 15px solid rgb(255, 255, 254);
-  border:2px solid white;
+  /* border-left: 15px solid rgb(255, 255, 254); */
+  /* border:2px solid rgb(247, 115, 63); */
   transition: 0.18s ease-in;
   padding: 10px 35px;
-  /* width:267px; */
   outline-width: 0;
-  font-size: 18px;
-  width:109%;
+  font-size: 15px;
+  width:auto;
+  align-content: center;
+  transition: 0.2s;
+  font-family: 'Syntax';
+border-radius: 10px;
 }
-ul{
-  margin-left: -5px;
-}
+
 .fixed-nav-bar{
-  position: fixed;
-  z-index: 999;
-  width:100%;
+  background-image: linear-gradient(orangered,rgba(255, 68, 0, 0.815) );
 }
-.dropdown-menu{
-  font-size: 18px;
-  font-family: "sans-serif";
-  width:250px;
-  padding:10px;
-  }
-  .dropdown-item{
-    font-size: 25px;
-    font-family: "sans-serif"; 
-    padding:10px;
-    border-radius:5px;
-  }
+.fixed-nav-bar2{
+  background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664));
+  margin-top: -20px;
+}
+.dropdown-item{
+  transition: 0.2s;
+}
   .dropdown-item:hover{
-    background-color: rgba(0,0,0, 0.3);
+    background-color: rgba(0, 0, 0, 0.144);
     transition:ease 0.2s;
     border-radius: 5px;
 
   }
 mdb-navbar{
-  border-radius: -5px !important;
-
+  border-radius: 0px !important;
+}
+h2{
+  color:white;
+  font-weight:550;
+}
+.navbar{
+  border-radius: 0px !important;
+  outline: 0 none;
 }

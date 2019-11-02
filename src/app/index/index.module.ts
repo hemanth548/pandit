@@ -19,9 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { CountdownModule } from 'ngx-countdown';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxLoadingModule } from 'ngx-loading';
-import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 
 
@@ -39,7 +37,6 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     MatCheckboxModule,
     MatRadioModule,
     MatInputModule,
-    AutocompleteLibModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -51,7 +48,6 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     CountdownModule,
     RouterModule,
     MatSnackBarModule,
-    MatAutocompleteModule,
     ToastrModule.forRoot(),
     NgxLoadingModule.forRoot({
         backdropBackgroundColour: 'rgba(0,0,0,0.5)', 

@@ -1,25 +1,19 @@
-<div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-success">
-        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 my-5 text-center mx-auto ">
-            <label class="hoverable" for="fileInput">
-                <img class="img img-fluid" [src]="url ? url :'./assets/purohitdefaulticon.png'">
-                <div class="hover-text bg-transparent text-dark">
-                    Upload&nbsp;Image
-                </div>
-            </label>
-            <br />
-            <input id="fileInput" type='file' (change)="onSelectFile($event)">
+<div style="background-color: #e7da80;">
+    <div class="col-8 mx-auto bg-success">
+            <div class="col-12 my-5 mx-auto">
+                <label class="hoverable" for="fileInput">
+                    <img class="img img-fluid" [src]="url ? url :'./assets/purohitdefaulticon.png'">
+                    <div class="hover-text bg-transparent text-dark">
+                        Upload&nbsp;Image
+                    </div>
+                </label>
+                <br />
+                <input id="fileInput" type='file' (change)="onSelectFile($event)">
+            </div>
+            <div class="col-12 my-auto">
+                <h1>{{fname}} &nbsp; {{lname}}</h1>
+                <h3>{{email}}</h3>
+                <h3>{{role}}</h3>
+            </div>
         </div>
-        <br><br><br>
-        <div class="col-xl-5 col-lg-7 col-md-12 col-sm-12 col-xs-12 my-lg-5 my-xl-5 my-md-none my-sm-none my-xs-none text-left">
-            <h1>{{fname}} &nbsp; {{lname}}</h1>
-            <h3>{{email}}</h3>
-            <h3>{{role}}</h3>
-        </div>
-    </div>
-
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
-    </div>
-
 </div>

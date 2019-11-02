@@ -1,57 +1,46 @@
-<div style="background-color: #f4f2e4;">
+	<nav class="fixed-nav-bar navbar navbar-expand-md navbar-collapse-md">
+		<a class="navbar-brand"><code class="mx-auto" routerLink="/agentdashboard"
+			style="color:orangered;font-size:27px;font-weight:590;padding:8px 20px;">PUROHIT</code></a>
+			<button id="nav-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDiv2" aria-expanded="false" aria-label="Toggle navigation">
+				<b style="font-size: 20px;font-weight:600;color:white;">MENU</b>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarDiv2">
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 mx-auto d-flex">
 
-	<nav class="navbar navbar-expand-lg navbar-dark deep-orange col-12">
-		<div class="visible-block mx-auto">
-			<a routerLink="/"><code style="color:orangered;font-size:32px;font-weight:590;">PUROHIT</code></a>
-		</div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-			aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+
+			<input class="search input text-center"  placeholder="search for pooja and pujari"><button class="search-button fa fa-search fa-2x"></button>
+
+
+			  </div>
+			  <div class="animated slideInDown pl-4 my-4">
+				<a class="fa fa-user fa-3x" style="color:white;padding:5px 20px;" (click)="basicModal.show()"></a>
+				<a class="fa fa-shopping-cart fa-3x" style="color:white;padding:5px 20px;" aria-hidden="true"></a>
+				<a class="fa fa-phone fa-3x" style="color:white;padding:5px 20px;" aria-hidden="true"></a>
+			  </div>
+			  </div>
+ </nav>
+
+
+	  <nav class="fixed-nav-bar2 navbar navbar-expand-md navbar-dark">
+		<div class="container">
+			<button id="nav-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDiv" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" routerLink="/purohitdashboard">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" routerLink="/purohitdashboard">Services</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" routerLink="/purohitdashboard">Shop</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="https://www.ojas-it.com/about.php">About&nbsp;US</a>
-				</li>
-
-			</ul>
-			<div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12">
-				<div class="row">
-					<div class="col-10">
-						<ng-autocomplete class="ng-autocomplete" placeHolder="search for products and pujari"
-							historyIdentifier="true"
-							[data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
-							(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
-							[itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
-							[historyListMaxNumber]=8>
-						</ng-autocomplete>
-						<ng-template #itemTemplate let-item>
-							<a [innerHTML]="item.name"></a>
-						</ng-template>
-
-						<ng-template #notFoundTemplate let-notFound>
-							<div [innerHTML]="notFound"></div>
-						</ng-template>
-					</div>
-					<div class="col-1 text-center">
-						<i class="fa fa-user fa-3x" style="color:white;padding:5px 0px;" (click)="basicModal.show()"
-							aria-hidden="true" title="Login/Register"></i></div>
-					<div class="col-1 text-center">&nbsp;&nbsp;<i class="fa fa-shopping-cart fa-3x"
-							style="color:white;padding:5px 0px;" aria-hidden="true"></i></div>
-				</div>
+			<div class="collapse navbar-collapse justify-content-center" id="navbarDiv">
+				<ul class="navbar-nav">
+				<li routerLink="/" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">Home</li>
+				<li routerLink="/" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">Services</li>
+				<li routerLink="/" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">Shop</li>
+				<li routerLink="/" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">About us</li>
+				</ul>
 			</div>
 		</div>
-	</nav>
+	  </nav>
+
+
+
+
 
 	<div id="carouselExampleFade" class="col-11 mx-auto carousel slide carousel-fade" data-ride="carousel"
 		data-interval="3500">
@@ -92,21 +81,17 @@
 
 
 	<a (click)="basicModal.show()">
-		<div class="container wow animated slideInUp col-5 mx-auto card hidden-xs" style="margin-top:-120px;z-index:1;">
+		<div class="container animated slideInUp col-5 mx-auto card hidden-xs hidden-sm hidden-md" style="margin-top:-70px;z-index:1;">
 			<div class="row">
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xs-2 ">
-					<div class="my-5 "><img class="img-fluid img-responsive" src="./assets/offerdash.png"></div>
+					<div class="my-4"><img class="img-fluid img-responsive" src="./assets/offerdash.png"></div>
 				</div>
 				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-xs-10">
 
-
-
-					<p class="count1">SAVE UPTO RS300 ON FIRST BOOKING</p>
 					<br>
-					<p class="count2">USE PROMOCODE: FIRST</p>
-
-
-
+					<span class="count1">SAVE UPTO </span><span class="fa fa-rupee"></span><span class="count1">&nbsp;<span class="count2" style="color:orangered">300</span> ON FIRST BOOKING</span>
+					<br>
+					<span class="count3">Save upto 20% | Use code FIRST on App</span>
 				</div>
 			</div>
 		</div>
@@ -455,4 +440,3 @@
 		  </div>
 		</div>
 	  </div>
-</div>

@@ -2,31 +2,43 @@
   font-size:16px;
 }
 th {
-    font-size:19px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    word-spacing: 2px;
-    line-clamp: inherit;
-    font-weight: 550;
-  }
-td {
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-  word-spacing: 2px;
-  line-clamp: inherit;
+  font-family: 'Syntax';
+  line-height: 1.5;
+  font-size:18px;
+  font-weight: 550;
+  text-align: inherit;
+  padding:0.75rem;
+  word-wrap: break-word;
+  white-space: nowrap;
+  text-transform: uppercase;
+
+
 
 }
+td {
+font-family: 'Charlotte Sans';
+word-spacing: 2px;
+line-clamp: inherit;
+font-size: 17px;
+word-wrap: break-word;
+white-space: nowrap;
+line-height: 1.5;
+text-align: inherit;
+}
+
 button{
     background-color: orangered;
     opacity:0.9;
     color:white;
     font-size: 16px;
-    font-family: "sans-serif";
+    font-family: 'Syntax';
 
   
   }
   button:hover{
     color:white;
     font-size: 16px;
-    font-family: "sans-serif";
+    font-family: 'Syntax';
   
   }
   select{
@@ -36,6 +48,6 @@ button{
     font-size: 18px;
     z-index: 1;
     padding:2px;
-    font-family: "sans-serif";
+    font-family: 'Syntax';
 
   }

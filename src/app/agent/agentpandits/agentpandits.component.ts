@@ -92,8 +92,8 @@ export class AgentpanditsComponent implements OnInit {
       onActivateTick: true,
       tapToDismiss: true,
       enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
+      easing: 'swing',
+      easeTime: 500,
       titleClass: "success",
       progressAnimation: 'decreasing',
     });
@@ -107,8 +107,8 @@ export class AgentpanditsComponent implements OnInit {
       onActivateTick: true,
       tapToDismiss: true,
       enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
+      easing: 'swing',
+      easeTime: 500,
       titleClass: "success",
       progressAnimation: 'decreasing',
     });

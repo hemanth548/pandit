@@ -1,219 +1,225 @@
-<body>
-  <div class="row">
-    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-      <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
-        class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
-          class="fa fa-download">&nbsp;Download PDF</i></button>
-    </div>
-    <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
-      <div class="form-midline waves-light " mdbWavesEffect>
-        <div class="md-form">
-          <input class="form-control" name="termsearch1" [(ngModel)]="termsearch1" type="text" placeholder="Search"
-            style="font-size:16px">
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
 
-
-  </div>
-  <div class="table-responsive">
-    <table class="table table-hover " id="my-table">
-
-      <thead>
-        <tr>
-          <th colspan="2">Pandit_ID</th>
-          <th colspan="2">First_Name</th>
-          <th colspan="2">Image</th>
-          <th colspan="2">Mobile</th>
-          <th colspan="2">Address_Proof</th>
-          <th colspan="2">Email</th>
-          <th colspan="2">Sakha</th>
-          <th colspan="2">Gotra</th>
-          <th colspan="2">Veda</th>
-          <th colspan="2">Region</th>
-          <th colspan="2">Experience</th>
-          <th colspan="2">Degree</th>
-          <th colspan="2">University</th>
-          <th colspan="2">Specialization</th>
-          <th colspan="2">Location</th>
-          <th colspan="2">Bhokta_Cost</th>
-          <th colspan="2">Suhasini_Cost</th>
-        </tr>
-      </thead>
-      <div *ngIf="loading">
-        <div class="col-4 mx-auto">
-          <div class="lds-css ng-scope">
-            <div class="lds-spinner" style="width:100%;height:100%">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <style type="text/css">
-              @keyframes lds-spinner {
-                0% {
-                  opacity: 1;
-                }
-
-                100% {
-                  opacity: 0;
-                }
-              }
-
-              @-webkit-keyframes lds-spinner {
-                0% {
-                  opacity: 1;
-                }
-
-                100% {
-                  opacity: 0;
-                }
-              }
-
-              .lds-spinner {
-                position: relative;
-              }
-
-              .lds-spinner div {
-                top: 45px;
-                position: absolute;
-                -webkit-animation: lds-spinner linear 1.3s infinite;
-                animation: lds-spinner linear 1.3s infinite;
-                background: #fd6a0fea;
-                width: 12px;
-                height: 30px;
-                border-radius: 40%;
-                -webkit-transform-origin: 0px 55px;
-                transform-origin: 0px 55px;
-              }
-
-              .lds-spinner div:nth-child(1) {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-                -webkit-animation-delay: -1.17s;
-                animation-delay: -1.17s;
-              }
-
-              .lds-spinner div:nth-child(2) {
-                -webkit-transform: rotate(36deg);
-                transform: rotate(36deg);
-                -webkit-animation-delay: -1.04s;
-                animation-delay: -1.04s;
-              }
-
-              .lds-spinner div:nth-child(3) {
-                -webkit-transform: rotate(72deg);
-                transform: rotate(72deg);
-                -webkit-animation-delay: -0.91s;
-                animation-delay: -0.91s;
-              }
-
-              .lds-spinner div:nth-child(4) {
-                -webkit-transform: rotate(108deg);
-                transform: rotate(108deg);
-                -webkit-animation-delay: -0.78s;
-                animation-delay: -0.78s;
-              }
-
-              .lds-spinner div:nth-child(5) {
-                -webkit-transform: rotate(144deg);
-                transform: rotate(144deg);
-                -webkit-animation-delay: -0.65s;
-                animation-delay: -0.65s;
-              }
-
-              .lds-spinner div:nth-child(6) {
-                -webkit-transform: rotate(180deg);
-                transform: rotate(180deg);
-                -webkit-animation-delay: -0.52s;
-                animation-delay: -0.52s;
-              }
-
-              .lds-spinner div:nth-child(7) {
-                -webkit-transform: rotate(216deg);
-                transform: rotate(216deg);
-                -webkit-animation-delay: -0.39s;
-                animation-delay: -0.39s;
-              }
-
-              .lds-spinner div:nth-child(8) {
-                -webkit-transform: rotate(252deg);
-                transform: rotate(252deg);
-                -webkit-animation-delay: -0.26s;
-                animation-delay: -0.26s;
-              }
-
-              .lds-spinner div:nth-child(9) {
-                -webkit-transform: rotate(288deg);
-                transform: rotate(288deg);
-                -webkit-animation-delay: -0.13s;
-                animation-delay: -0.13s;
-              }
-
-              .lds-spinner div:nth-child(10) {
-                -webkit-transform: rotate(324deg);
-                transform: rotate(324deg);
-                -webkit-animation-delay: 0s;
-                animation-delay: 0s;
-              }
-
-              .lds-spinner {
-                width: 200px !important;
-                height: 200px !important;
-                -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-                transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-              }
-            </style>
-          </div>
-        </div>
-      </div>
-      <tbody>
-
-        <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: page, currentPage: p }">
-          <td colspan="2">{{a.pandit_id}}</td>
-          <td colspan="2">{{a.fname}}</td>
-          <td colspan="2" *ngIf="a.idproofurl"><img class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
-          <td colspan="2" *ngIf="!a.idproofurl"><img class="pandit-image img-responsive" src="./assets/usericon.png"></td>
-          <td colspan="2">{{a.mobile}}</td>
-          <td colspan="2">{{a.addressproofurl}}</td>
-          <td colspan="2">{{a.email}}</td>
-          <td colspan="2">{{a.sakha}}</td>
-          <td colspan="2">{{a.gotra}}</td>
-          <td colspan="2">{{a.veda}}</td>
-          <td colspan="2">{{a.region}}</td>
-          <td colspan="2">{{a.experience}}</td>
-          <td colspan="2">{{a.degree}}</td>
-          <td colspan="2">{{a.university}}</td>
-          <td colspan="2">{{a.specialization}}</td>
-          <td colspan="2">{{a.location}}</td>
-          <td colspan="2">{{a.bhokta_cost}}</td>
-          <td colspan="2">{{a.suhasini_cost}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <br>
-  <div class="row container">
-
-
-  </div>
-  <br>
   <div class="col-12 mx-auto">
     <mat-tab-group>
+        <mat-tab label="All Pandit">
+            <ng-template mat-tab-label #ngt1>
+                <mat-icon>group&nbsp;</mat-icon>
+              <span>&nbsp;All Pandit</span>
+            </ng-template>
+            <br>
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+                  <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
+                    class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
+                      class="fa fa-download">&nbsp;Download PDF</i></button>
+                </div>
+                <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+                  <div class="form-midline waves-light " mdbWavesEffect>
+                    <div class="md-form">
+                      <input class="form-control" name="termsearch1" [(ngModel)]="termsearch1" type="text" placeholder="Search"
+                        style="font-size:16px">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            
+            
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover " id="my-table">
+            
+                  <thead>
+                    <tr>
+                      <th colspan="2">Pandit ID</th>
+                      <th colspan="2">First Name</th>
+                      <th colspan="2">Image</th>
+                      <th colspan="2">Mobile</th>
+                      <th colspan="2">Address Proof</th>
+                      <th colspan="2">Email</th>
+                      <th colspan="2">Sakha</th>
+                      <th colspan="2">Gotra</th>
+                      <th colspan="2">Veda</th>
+                      <th colspan="2">Region</th>
+                      <th colspan="2">Experience</th>
+                      <th colspan="2">Degree</th>
+                      <th colspan="2">University</th>
+                      <th colspan="2">Specialization</th>
+                      <th colspan="2">Location</th>
+                      <th colspan="2">Bhokta Cost</th>
+                      <th colspan="2">Suhasini Cost</th>
+                    </tr>
+                  </thead>
+                  <div *ngIf="loading">
+                    <div class="col-4 mx-auto">
+                      <div class="lds-css ng-scope">
+                        <div class="lds-spinner" style="width:100%;height:100%">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <style type="text/css">
+                          @keyframes lds-spinner {
+                            0% {
+                              opacity: 1;
+                            }
+            
+                            100% {
+                              opacity: 0;
+                            }
+                          }
+            
+                          @-webkit-keyframes lds-spinner {
+                            0% {
+                              opacity: 1;
+                            }
+            
+                            100% {
+                              opacity: 0;
+                            }
+                          }
+            
+                          .lds-spinner {
+                            position: relative;
+                          }
+            
+                          .lds-spinner div {
+                            top: 45px;
+                            position: absolute;
+                            -webkit-animation: lds-spinner linear 1.3s infinite;
+                            animation: lds-spinner linear 1.3s infinite;
+                            background: #fd6a0fea;
+                            width: 12px;
+                            height: 30px;
+                            border-radius: 40%;
+                            -webkit-transform-origin: 0px 55px;
+                            transform-origin: 0px 55px;
+                          }
+            
+                          .lds-spinner div:nth-child(1) {
+                            -webkit-transform: rotate(0deg);
+                            transform: rotate(0deg);
+                            -webkit-animation-delay: -1.17s;
+                            animation-delay: -1.17s;
+                          }
+            
+                          .lds-spinner div:nth-child(2) {
+                            -webkit-transform: rotate(36deg);
+                            transform: rotate(36deg);
+                            -webkit-animation-delay: -1.04s;
+                            animation-delay: -1.04s;
+                          }
+            
+                          .lds-spinner div:nth-child(3) {
+                            -webkit-transform: rotate(72deg);
+                            transform: rotate(72deg);
+                            -webkit-animation-delay: -0.91s;
+                            animation-delay: -0.91s;
+                          }
+            
+                          .lds-spinner div:nth-child(4) {
+                            -webkit-transform: rotate(108deg);
+                            transform: rotate(108deg);
+                            -webkit-animation-delay: -0.78s;
+                            animation-delay: -0.78s;
+                          }
+            
+                          .lds-spinner div:nth-child(5) {
+                            -webkit-transform: rotate(144deg);
+                            transform: rotate(144deg);
+                            -webkit-animation-delay: -0.65s;
+                            animation-delay: -0.65s;
+                          }
+            
+                          .lds-spinner div:nth-child(6) {
+                            -webkit-transform: rotate(180deg);
+                            transform: rotate(180deg);
+                            -webkit-animation-delay: -0.52s;
+                            animation-delay: -0.52s;
+                          }
+            
+                          .lds-spinner div:nth-child(7) {
+                            -webkit-transform: rotate(216deg);
+                            transform: rotate(216deg);
+                            -webkit-animation-delay: -0.39s;
+                            animation-delay: -0.39s;
+                          }
+            
+                          .lds-spinner div:nth-child(8) {
+                            -webkit-transform: rotate(252deg);
+                            transform: rotate(252deg);
+                            -webkit-animation-delay: -0.26s;
+                            animation-delay: -0.26s;
+                          }
+            
+                          .lds-spinner div:nth-child(9) {
+                            -webkit-transform: rotate(288deg);
+                            transform: rotate(288deg);
+                            -webkit-animation-delay: -0.13s;
+                            animation-delay: -0.13s;
+                          }
+            
+                          .lds-spinner div:nth-child(10) {
+                            -webkit-transform: rotate(324deg);
+                            transform: rotate(324deg);
+                            -webkit-animation-delay: 0s;
+                            animation-delay: 0s;
+                          }
+            
+                          .lds-spinner {
+                            width: 200px !important;
+                            height: 200px !important;
+                            -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+                            transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+                          }
+                        </style>
+                      </div>
+                    </div>
+                  </div>
+                  <tbody>
+            
+                    <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: page, currentPage: p }">
+                      <td colspan="2">{{a.pandit_id}}</td>
+                      <td colspan="2">{{a.fname}}</td>
+                      <td colspan="2" *ngIf="a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
+                      <td colspan="2" *ngIf="!a.idproofurl"><img class="pandit-image img-responsive" src="./assets/usericon.png"></td>
+                      <td colspan="2">{{a.mobile}}</td>
+                      <td colspan="2">{{a.addressproofurl}}</td>
+                      <td colspan="2">{{a.email}}</td>
+                      <td colspan="2">{{a.sakha}}</td>
+                      <td colspan="2">{{a.gotra}}</td>
+                      <td colspan="2">{{a.veda}}</td>
+                      <td colspan="2">{{a.region}}</td>
+                      <td colspan="2">{{a.experience}}</td>
+                      <td colspan="2">{{a.degree}}</td>
+                      <td colspan="2">{{a.university}}</td>
+                      <td colspan="2">{{a.specialization}}</td>
+                      <td colspan="2">{{a.location}}</td>
+                      <td colspan="2">{{a.bhokta_cost}}</td>
+                      <td colspan="2">{{a.suhasini_cost}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="row container">
+            
+            
+              </div>
+          </mat-tab>
       <mat-tab label="Verify Pandit">
         <ng-template mat-tab-label #ngt1>
           <mat-icon>verified_user&nbsp;</mat-icon>
           <span>&nbsp;Verified Pandit</span>
         </ng-template>
+        <br>
         <div class="row">
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 float-left">
             <button title="Download PDF" (click)="downloadpdfverifiedpandits()" style="font-size: 16px;padding:10px;"
@@ -230,13 +236,13 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover " id="table-verified-pandits">
+          <table class="table table-hover" id="table-verified-pandits">
             <tr>
-              <th>Pandit_ID</th>
-              <th>First_Name</th>
+              <th>Pandit ID</th>
+              <th>First Name</th>
               <th>Image</th>
               <th>Mobile</th>
-              <th>Address_Proof</th>
+              <th>Address Proof</th>
               <th>Email</th>
               <th>Sakha</th>
               <th>Gotra</th>
@@ -247,8 +253,8 @@
               <th>University</th>
               <th>Specialization</th>
               <th>Location</th>
-              <th>Bhokta_cost</th>
-              <th>Suhasini_cost</th>
+              <th>Bhokta cost</th>
+              <th>Suhasini cost</th>
               <th>Status</th>
             </tr>
             <div *ngIf="loading">
@@ -390,7 +396,7 @@
 
               <td *ngIf="a.isVerified && a.idproofurl">
                 <div>
-                  <img class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                  <img style="width:50px;height:50px"class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
                 </div>
               </td>
               <td *ngIf="a.isVerified && !a.idproofurl">
@@ -426,6 +432,7 @@
           <mat-icon>cancel&nbsp;</mat-icon>
           <span>&nbsp;Unverified Pandit</span>
         </ng-template>
+        <br>
         <div class="row">
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 float-left">
             <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
@@ -443,14 +450,14 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover  " id="table-unverified-pandits">
+          <table class="table table-hover" id="table-unverified-pandits">
 
             <tr>
-              <th>Pandit_ID</th>
-              <th>First_Name</th>
+              <th>Pandit ID</th>
+              <th>First Name</th>
               <th>Image</th>
               <th>Mobile</th>
-              <th>Address_Proof</th>
+              <th>Address Proof</th>
               <th>Email</th>
               <th>Sakha</th>
               <th>Gotra</th>
@@ -461,8 +468,8 @@
               <th>University</th>
               <th>Specialization</th>
               <th>Location</th>
-              <th>Bhokta_Cost</th>
-              <th>Suhasini_Cost</th>
+              <th>Bhokta Cost</th>
+              <th>Suhasini Cost</th>
               <th>Status</th>
             </tr>
             <div *ngIf="loading">
@@ -603,7 +610,7 @@
               <td *ngIf="!a.isVerified">{{a.fname}}</td>
               <td *ngIf="a.idproofurl && !a.isVerified">
                   <div>
-                    <img class="pandit-image img-fluid img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                    <img style="width:50px;height:50px"class="pandit-image img-fluid img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
                   </div>
                 </td>
                 <td *ngIf="!a.idproofurl && !a.isVerified">
@@ -637,4 +644,3 @@
       </mat-tab>
     </mat-tab-group>
   </div>
-</body>

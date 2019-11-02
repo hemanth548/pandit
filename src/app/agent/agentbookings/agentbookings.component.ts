@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 export class AgentbookingsComponent implements OnInit {
   fname = localStorage.getItem("fname");
   agent_id = localStorage.getItem("agent_id");
-  roll = localStorage.getItem("role");
+  roll = localStorage.getItem("A-role");
   newTitle = "Bookings of " + this.fname.toUpperCase() + " as " + this.roll + " : " + this.agent_id;
   loading = true;
   result2;

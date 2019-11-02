@@ -11,29 +11,11 @@ p{
   text-align: center;
 }
 
-a{
-  font-size:16px;
-  text-decoration: none;
-}
 a:hover{
   text-decoration: none;
-  cursor:pointer;
 }
-i{
-  cursor: pointer;
-  color:white;
-}
-// .card {
-
-//   width: 320px;
-//   height: 28vh;
-//   border-radius: 1px;
-//   color: #aaa;
-//   overflow: hidden;
-  
-// }
 .count{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Syntax";
   font-size:17px;
   color:black;
   font-weight:500;
@@ -75,7 +57,7 @@ i{
 }
 h4{
   padding-top:5px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Syntax";
   color:rgb(46, 43, 43);
   text-decoration: none;
   font-weight:600;
@@ -118,7 +100,7 @@ input{
     outline:none;
     box-shadow: 2px black;
 }
-.nav-link,a{
+.nav-link{
 font-size:18px;
 color:white;
 font-weight:540;
@@ -132,26 +114,38 @@ padding:10px 10px;
   border: 1px solid #ccc;
 
 }
+.fa-rupee{
+  font-size:1.5vw;
+  font-weight: 550;
+  color:rgba(33,33,33,.8);
+}
 .count1{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size:19px;
+  font-family: 'Montserrat';
+  font-size:1.5vw;
   font-weight: 600;
-  color:rgba(33,33,33,.9);
+  color:rgba(33,33,33,.8);
   padding:0px;
   letter-spacing: 1px;
   text-align:center;
 margin-top:20px;
 }
 .count2{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size:19px;
-  // font-weight: 600;
-  color:rgba(33,33,33,.9);
+  font-family:"Syntax";
+  font-size:1.8vw;
+  font-weight: 600;
+  color:rgba(33,33,33,.8);
   padding:0px;
-  letter-spacing: 2px;
-  font-weight: 250;
+  letter-spacing: 1px;
   text-align:center;
-  margin-top: -20px;
+margin-top:20px;
+}
+.count2{
+  font-family:"Syntax";
+  color:rgba(33,33,33,.8);
+  padding:0px;
+  letter-spacing: 1px;
+  text-align:center;
+margin-top:20px;
 }
 p{
   margin:0;
@@ -165,9 +159,6 @@ p{
   z-index:-1;
  
 }
-code:hover{
-  cursor: pointer;
-}
 .nav-item{
   padding: 1px 5px;
 
@@ -180,14 +171,14 @@ border-radius: 5px;
 
 
 h2{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:"Syntax";
 }
 a{
   text-decoration: none;
 }
 .offer-code{
   word-break: break-word;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:"Syntax";
   font-size:18px;
   font-weight: 700;
   color:black;
@@ -204,12 +195,12 @@ a{
 body{
   color:black;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:"Syntax";
 }
 .price-drop{
   color:red;
   font-size: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:"Syntax";
   word-spacing: -5px;
 }
 .blurbtn{
@@ -223,15 +214,76 @@ body{
   border: 3px solid orangered;
   font-weight: 600;
   font-size:18px;
-  // -webkit-filter:blur(10px);
-  // -moz-filter: blur(10px);
+}
+
+.fixed-nav-bar{
+  background-image: linear-gradient(orangered,rgba(255, 68, 0, 0.815) );
+  border-radius: 0px !important;
+
+}
+.fixed-nav-bar2{
+  background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664));
+  margin-top: -20px;
+    border-radius: 0px !important;
+}
+li{
+  text-decoration: none;
+  font-size: 16px;
+  color:white;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-family: Lato,sans-serif!important;
+    list-style:none !important;
+  font-weight: 600;
+    color: #eee2e2;
+    letter-spacing: 1px;
+    position: relative;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.2s;
+}
+li:hover, .active-link{
+  background: #f6fcff2d;
+  text-decoration: none;
+  /* border-left: 15px solid rgb(255, 255, 254); */
+  /* border:2px solid rgb(247, 115, 63); */
+  transition: 0.18s ease-in;
+  padding: 10px 35px;
+  outline-width: 0;
+  font-size: 16px;
+  width:auto;
+  align-content: center;
+  transition: 0.2s;
+  font-family: 'Syntax';
+border-radius: 10px;
 }
 .search{
-  border-radius: 10px;
-}
-.ng-autocomplete{
+  width: 100%;
+height:36px;
+  background:rgb(255, 255, 255);
+  border:1px solid rgba(0, 0, 0, 0.075);
+  color:black !important;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.3s;
+  outline: none;
   font-size: 18px;
-  font-weight: 600;
-  font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue';
+  font-family: "Syntax";
+border-radius: 5px 0  0 5px !important;
+outline: none;
+
+} 
+.search-button{
+  justify-content: flex-end;
+    border: 1px solid #fff;
+    background-color: #fff;
+    height: 36px;
+    width: 44px;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 4px 12px 0 8px;
 }
 

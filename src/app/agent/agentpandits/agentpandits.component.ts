@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 
@@ -48,26 +46,6 @@ export class AgentpanditsComponent implements OnInit {
         console.log(this.result)
     })
   }
-
-  downloadpdf() {
-    const doc = new jsPDF('l',"mm","a2");
-    doc.autoTable({ html: '#my-table', theme: 'striped' });
-    doc.save('Pandits.pdf');
-
-  }
-  downloadpdfverifiedpandits() {
-    const doc = new jsPDF('p', 'mm', 'a4');
-    doc.autoTable({ html: '#table-verified-pandits', theme: 'striped' });
-    doc.save('Verified_Pandits.pdf');
-
-  }
-  downloadpdfunverifiedpandits() {
-    const doc = new jsPDF('p', 'mm', 'a4');
-    doc.autoTable({ html: '#table-unverified-pandits', theme: 'striped' });
-    doc.save('Unverified_Pandits.pdf');
-
-  }
-
   verifyPandit(pandit_id: any, isVerified: any) {
     this.loading = true;
     isVerified = this.truePandit;

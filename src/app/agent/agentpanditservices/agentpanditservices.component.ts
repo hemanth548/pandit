@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Validators, FormBuilder } from '@angular/forms';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 
@@ -43,13 +41,6 @@ this.getPanditServices();
       this.result = this.result2.data,
         this.loading = false
     });
-  }
-
-  downloadpdf() {
-    const doc = new jsPDF('l',"mm","a2");
-    doc.autoTable({ html: '#my-table', theme: 'striped' });
-    doc.save('pandit-service.pdf');
-
   }
   k: any;
   funs(formdata) {

@@ -182,7 +182,9 @@
         <td>{{a.payment_mode}}</td>
         <td>{{a.noofbhokta}}</td>
         <td>{{a.noofsuhasini}}</td>
-        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:red;"><br>New Booking</i>
+        <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled</i>
+        </td>
+        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(204, 34, 34);"><br>New Booking</i>
         </td>
         <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x'
             style="color:rgba(255, 68, 0, 0.733);"><br>Accepted</i></td>

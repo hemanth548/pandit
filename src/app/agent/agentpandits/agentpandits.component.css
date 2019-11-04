@@ -50,3 +50,6 @@ button{
 .pandit-image{
   border-radius: 25px;
 }
+.form-control{
+  font-family: 'Syntax';
+}

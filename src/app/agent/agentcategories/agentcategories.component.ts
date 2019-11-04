@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -32,13 +30,4 @@ export class AgentcategoriesComponent implements OnInit {
   ngOnInit() {
 
   }
-  downloadpdf() {
-    const doc = new jsPDF('l',"mm","a2");
-    doc.autoTable({ html: '#my-table', theme: 'striped' });
-    doc.save('categories.pdf');
-
-  }
-
-
-
 }

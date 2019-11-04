@@ -11,7 +11,7 @@
 
 li{
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   color:white;
   padding: 10px 30px;
   cursor: pointer;
@@ -26,7 +26,6 @@ li{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    font-size: 14px;
     transition: 0.2s;
 }
 li:hover, .active-link {
@@ -40,9 +39,9 @@ li:hover, .active-link {
   font-size: 15px;
   width:auto;
   align-content: center;
-  transition: 0.2s;
   font-family: 'Syntax';
 border-radius: 10px;
+overflow-x: wrap;
 }
 
 .fixed-nav-bar{

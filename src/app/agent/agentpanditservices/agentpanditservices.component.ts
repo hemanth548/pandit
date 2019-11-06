@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./agentpanditservices.component.css']
 })
 export class AgentpanditservicesComponent implements OnInit {
+
   fname: any;
   agent_id: any;
   caturl: any = "http://192.168.1.55:3040/api/panditServices/getAllPanditsServices";
@@ -22,8 +23,8 @@ export class AgentpanditservicesComponent implements OnInit {
   res;
   loading = true;
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
-    this.fname = localStorage.getItem("fname");
-    this.agent_id = localStorage.getItem("agent_id");
+    this.fname = sessionStorage.getItem("fname");
+    this.agent_id = sessionStorage.getItem("agent_id");
     const newTitle = "Pandit Services of " + this.fname.toUpperCase() + " : " + this.agent_id;
     this.titleService.setTitle(newTitle);
 

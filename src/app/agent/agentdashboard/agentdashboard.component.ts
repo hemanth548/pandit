@@ -18,11 +18,11 @@ export class AgentdashboardComponent implements OnInit {
   agent_id:any;
 
   constructor(private authService: AuthService, private routerNavigate: Router, private titleService: Title) { 
-    this.fname=localStorage.getItem("fname");
-    this.lname=localStorage.getItem("lname");
-    this.email=localStorage.getItem("email");
-    this.agent_id=localStorage.getItem("agent_id");
-    this.roll=localStorage.getItem("A-role");
+    this.fname=sessionStorage.getItem("fname");
+    this.lname=sessionStorage.getItem("lname");
+    this.email=sessionStorage.getItem("email");
+    this.agent_id=sessionStorage.getItem("agent_id");
+    this.roll=sessionStorage.getItem("A-role");
     const newTitle="Dashboard of "+this.fname.toUpperCase( )+" : "+this.agent_id;
 
     this.titleService.setTitle( newTitle );

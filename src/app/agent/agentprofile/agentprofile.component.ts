@@ -39,8 +39,8 @@ export class AgentprofileComponent implements OnInit {
 
 
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
-    this.fname = localStorage.getItem("fname");
-    this.agent_id = localStorage.getItem("agent_id");
+    this.fname = sessionStorage.getItem("fname");
+    this.agent_id = sessionStorage.getItem("agent_id");
     const newTitle = "Services of " + this.fname.toUpperCase() + " : " + this.agent_id;
     this.titleService.setTitle(newTitle);
   }

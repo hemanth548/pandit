@@ -23,7 +23,7 @@ export const AgentRoutes: Routes = [{
         { path: 'agentprofile', component: AgentprofileComponent },
         { path: 'agentpanditservices', component: AgentpanditservicesComponent },
         { path: 'agentpandits', component: AgentpanditsComponent },
-        { path: 'agentuser', component: AgentusersComponent },
+        { path: 'agentuser/:agent_id', component: AgentusersComponent },
         { path: 'agentcategory', component: AgentcategoriesComponent },
         { path: 'agentbooking', component: AgentbookingsComponent },
 

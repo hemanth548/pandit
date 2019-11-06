@@ -17,8 +17,8 @@ export class AgentComponent implements OnInit {
 
 
   constructor(private authService: AuthService, private routerNavigate: Router) {
-    this.userName1 = localStorage.getItem("fname");
-    this.userName2 = localStorage.getItem("lname");
+    this.userName1 = sessionStorage.getItem("fname");
+    this.userName2 = sessionStorage.getItem("lname");
 
   }
   ngOnInit() {
@@ -28,7 +28,7 @@ export class AgentComponent implements OnInit {
       $(this).prop('Counter', 0).animate({
         Counter: $(this).text()
       }, {
-        duration: 2000,
+        duration: 3000,
         easing: 'swing',
         step: function (now) {
           $(this).text(Math.ceil(now));

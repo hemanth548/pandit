@@ -10,8 +10,6 @@ import { Title } from '@angular/platform-browser';
 export class PurohitprofileComponent implements OnInit {
   fname: string;
   lname: string;
-  email: string;
-  role: string;
   url: any = "";
   dummyEvent: any;
   constructor(private titleService: Title) { 
@@ -20,10 +18,8 @@ export class PurohitprofileComponent implements OnInit {
   }
   ngOnInit() {
    
-      this.fname=localStorage.getItem('purohitfname').toLocaleUpperCase();
-      this.lname=localStorage.getItem('purohitlname').toLocaleUpperCase();
-      this.email=localStorage.getItem('purohitemail');
-      this.role=localStorage.getItem('p-role');
+      this.fname=sessionStorage.getItem('purohitfname').toLocaleUpperCase();
+      this.lname=sessionStorage.getItem('purohitlname').toLocaleUpperCase();
   }
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {

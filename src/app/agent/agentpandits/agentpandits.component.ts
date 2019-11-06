@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agentpandits',
@@ -10,13 +11,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AgentpanditsComponent implements OnInit {
   loading = true;
+  
   termsearch2: any;
   termsearch1: any;
   termsearch3: any;
 
   p: any;
-  fname = localStorage.getItem("fname");
-  agent_id = localStorage.getItem("agent_id");
+  pp: any;
+  p2: any;
+
+  fname = sessionStorage.getItem("fname");
+  agent_id = sessionStorage.getItem("agent_id");
   page = 10;
 
   ngOnInit(): void { }
@@ -29,7 +34,7 @@ export class AgentpanditsComponent implements OnInit {
   result2: any;
 
 
-  constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrService) {
+  constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrService, private r: Router) {
 
     const newTitle = this.fname.toUpperCase() + " " + this.agent_id + " - Pandits Registered";
     this.titleService.setTitle(newTitle);
@@ -42,8 +47,7 @@ export class AgentpanditsComponent implements OnInit {
     this.ht.get(this.caturl).subscribe(resp => {
       this.result2 = resp;
       this.result = this.result2.data,
-        this.loading = false,
-        console.log(this.result)
+        this.loading = false;
     })
   }
   verifyPandit(pandit_id: any, isVerified: any) {
@@ -90,6 +94,9 @@ export class AgentpanditsComponent implements OnInit {
       titleClass: "success",
       progressAnimation: 'decreasing',
     });
+  }
+  navigatoToDetails(a){
+    this.r.navigate(["agentuser", a.pandit_id])
   }
 
 }

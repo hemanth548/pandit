@@ -11,10 +11,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./agentbookings.component.css']
 })
 export class AgentbookingsComponent implements OnInit {
-  fname = localStorage.getItem("fname");
-  agent_id = localStorage.getItem("agent_id");
-  roll = localStorage.getItem("A-role");
-  newTitle = "Bookings of " + this.fname.toUpperCase() + " as " + this.roll + " : " + this.agent_id;
+  fname = sessionStorage.getItem("fname");
+  agent_id = sessionStorage.getItem("agent_id");
+  newTitle = "Bookings of " + this.fname.toUpperCase() + " - " + this.agent_id;
   loading = true;
   result2;
   term: any;

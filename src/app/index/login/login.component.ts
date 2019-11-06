@@ -73,15 +73,11 @@ export class LoginComponent implements OnInit {
       this.authService.purohitloginAction(formData).subscribe(
         res => {
           this.res = res;
-          localStorage.setItem("purohitmobile", this.res.data.mobile);
-          localStorage.setItem("purohitpandit_id", this.res.data.pandit_id);
-          localStorage.setItem("purohitfname", this.res.data.fname);
-          localStorage.setItem("purohitlname", this.res.data.lname);
-          localStorage.setItem("purohitemail", this.res.data.email);
-          localStorage.setItem("purohittoken", this.res.token);
-          localStorage.setItem("purohitotp", this.res.data.otp);
-          localStorage.setItem("panditIdProof",this.res.data.idproofurl);
-          localStorage.setItem("p-role","Purohit");
+          sessionStorage.setItem("purohitpandit_id", this.res.data.pandit_id);
+          sessionStorage.setItem("purohitfname", this.res.data.fname);
+          sessionStorage.setItem("purohitlname", this.res.data.lname);
+          sessionStorage.setItem("purohittoken", this.res.token);
+          sessionStorage.setItem("panditIdProof",this.res.data.idproofurl);
           console.log(this.res)
           if (this.res.token) {
             this.routerNavigate.navigate(['purohithome',this.res.data.pandit_id]);
@@ -121,13 +117,9 @@ export class LoginComponent implements OnInit {
             customClass: 'swal-height',
             showConfirmButton: false,
           })
-          localStorage.setItem("mobile", formData.mobile);
-          localStorage.setItem("password", formData.password);
-          localStorage.setItem("fname", formData.fname);
-          localStorage.setItem("lname", formData.lname);
-          localStorage.setItem("email", formData.email);
-          localStorage.setItem("Y-role","Yajman");
-
+          sessionStorage.setItem("fname", formData.fname);
+          sessionStorage.setItem("lname", formData.lname);
+          sessionStorage.setItem("yajmantoken", this.res.token);
           this.routerNavigate.navigate(['yajmandashboard']);
         },
         (err: HttpResponse<any>) => {
@@ -158,14 +150,10 @@ export class LoginComponent implements OnInit {
       this.authService.agentloginActions(formData).subscribe(res => {
 
         this.res = res;
-        localStorage.setItem("mobile", this.res.data.mobile);
-        localStorage.setItem("password", this.res.data.password);
-        localStorage.setItem("fname", this.res.data.fname);
-        localStorage.setItem("lname", this.res.data.lname);
-        localStorage.setItem("email", this.res.data.email);
-        localStorage.setItem("agent_id", this.res.data.agent_id);
-        localStorage.setItem("A-role","Agent");
-        localStorage.setItem("token", this.res.token);
+        sessionStorage.setItem("fname", this.res.data.fname);
+        sessionStorage.setItem("lname", this.res.data.lname);
+        sessionStorage.setItem("agent_id", this.res.data.agent_id);
+        sessionStorage.setItem("token", this.res.token);
         console.log(this.res)
         if (this.res.token) {
           this.routerNavigate.navigate(['agentdashboard', this.res.data.agent_id]);

@@ -31,8 +31,8 @@ li{
 li:hover, .active-link {
   background: #f6fcff2d;
   text-decoration: none;
-  /* border-left: 15px solid rgb(255, 255, 254); */
-  /* border:2px solid rgb(247, 115, 63); */
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
   transition: 0.18s ease-in;
   padding: 10px 35px;
   outline-width: 0;

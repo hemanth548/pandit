@@ -27,7 +27,6 @@ export class AgentbookingsComponent implements OnInit {
     this.titleService.setTitle(this.newTitle);
     document.cookie = this.titleService + '=' + this.newTitle;
     this.ht.get(this.url).subscribe(resp => {
-      console.log(resp),
       this.result2 = resp, this.result = this.result2.data; length = this.result2.data.length; this.loading = false
     })
   }

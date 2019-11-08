@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "@fortawesome/fontawesome-free": "^5.10.2",
+    "@ngx-loading-bar/core": "^4.2.0",
+    "@ngx-loading-bar/http-client": "^4.2.0",
     "alertifyjs": "^1.12.0",
     "angular-bootstrap-md": "^8.1.1",
     "angular-material-source": "github:angular/material",

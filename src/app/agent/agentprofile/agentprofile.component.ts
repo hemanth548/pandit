@@ -130,7 +130,7 @@ export class AgentprofileComponent implements OnInit {
     })
     this.submitted = false;
   }
-  del(p) {
+  del(data) {
     this.toastr.warning('<font color=\"black\" size=\"3px\">Click to Confirm Delete Service</font>', "", {
       closeButton: true,
       timeOut: 5000,
@@ -143,7 +143,7 @@ export class AgentprofileComponent implements OnInit {
       titleClass: "success",
       progressAnimation: 'decreasing',
     }).onTap.subscribe(() => {  
-      this.ht.post(this.deleteserviceurl, { "service_id": p.service_id }).subscribe(resp1 => {
+      this.ht.post(this.deleteserviceurl, { "service_id": data.service_id }).subscribe(resp1 => {
         this.getAllServices(),
           this.verifiedToaster()
       });
@@ -205,18 +205,4 @@ export class AgentprofileComponent implements OnInit {
     });
   }
 
-  closeToaster() {
-    this.toastr.warning('<font color=\"black\" size=\"4px\">No changes are done</font>', '', {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'swing-in',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
-  }
 }

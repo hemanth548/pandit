@@ -24,13 +24,10 @@ text-align: inherit;
 }
 
 button{
-    background-color: orangered;
-    opacity:0.9;
+  padding: 10px 14px;
     color:white;
     font-size: 16px;
     font-family: "Syntax";
-
-  
   }
   button:hover{
     color:white;

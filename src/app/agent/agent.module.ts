@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AgentdashboardComponent } from './agentdashboard/agentdashboard.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AgentpanditservicesComponent } from './agentpanditservices/agentpanditservices.component';
 import { AgentprofileComponent } from './agentprofile/agentprofile.component';
 import { AgentpanditsComponent } from './agentpandits/agentpandits.component';
 import { AgentusersComponent } from './agentusers/agentusers.component';
@@ -19,6 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxLoadingModule } from 'ngx-loading';
 
 
 
@@ -27,7 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
-  declarations: [AgentdashboardComponent, AgentpanditservicesComponent, AgentprofileComponent, AgentpanditsComponent, AgentusersComponent, AgentcategoriesComponent, AgentbookingsComponent, AgentComponent],
+  declarations: [AgentdashboardComponent, AgentprofileComponent, AgentpanditsComponent, AgentusersComponent, AgentcategoriesComponent, AgentbookingsComponent, AgentComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -48,6 +48,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RouterModule,
     MatTabsModule,
     MatIconModule,
+    NgxLoadingModule.forRoot({ }),
+
+
   ],
 
 })

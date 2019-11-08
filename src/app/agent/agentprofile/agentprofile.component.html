@@ -3,10 +3,8 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title">Update Details</h1>
-        <span type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span style="color:orangered;" (click)="f.reset();">&times;</span>
-        </span>
+        <h1 >Update Details</h1>
+        <span class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;" (click)="f.reset();">&times;</span>
       </div>
       <div class="modal-body">
         <form [formGroup]="f" >
@@ -83,10 +81,9 @@
               </div>
             </div>
           </div>
-          <div class="form-group btn-container col-5 float-right">
-
-            <button type="submit" mdbBtn mdbWavesEffect name="submit" [disabled]="f.invalid" (click)="actup(f.value)" data-dismiss="modal">Save changes</button>
-            <button mdbBtn mdbWavesEffect class="btn" data-dismiss="modal"(click)="closeToaster()">Close</button>
+          <div class="col-12 text-center">
+            <button type="submit"class="btnSave" mdbBtn mdbWavesEffect name="submit" [disabled]="f.invalid || f.untouched" (click)="actup(f.value)" data-dismiss="modal">Save changes</button>
+            <button class="btnDelete" mdbBtn mdbWavesEffect (click)="del(f.value)" data-dismiss="modal">delete</button>
           </div>
         </form>
       </div>
@@ -98,22 +95,19 @@
 <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa sliding in first-->
 <!-- Modal -->
 <div>
-  <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn
+  <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn class="button-main"
     style="padding:10px 20px;font-size:15px;" mdbWavesEffect [disabled]=""><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add
     Service</button>
 </div>
-<div class="modal fade scrollable" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
+<div class="modal modal-fade scrollable" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
   <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 
 
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title">&nbsp;Add Service</h1>
-        <span type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;"
-          (click)="rest()">
-          <span style="color:orangered;" aria-hidden="true">&times;</span>
-        </span>
+        <h1>&nbsp;Add Service</h1>
+        <span class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;" aria-hidden="true"(click)="rest()">&times;</span>
       </div>
       <div class="modal-body">
         <div class="col-10 mx-auto">
@@ -189,11 +183,9 @@
               </div>
             </div>
 
-            <div class="float-right">
-              <button type="submit" mdbBtn class="waves-light" style="padding:10px 20px;font-size:16px;" (click)="act(formadd.value)"
-                mdbWavesEffect>&nbsp;Add Service</button>
-                <button type="close" mdbBtn class="waves-light" style="padding:10px 20px;font-size:16px;" (click)="rest()" data-dismiss="modal"
-                mdbWavesEffect>&nbsp;Cancel</button>
+            <div class="col-4 mx-auto">
+              <button type="submit" mdbBtn class="button-main waves-light" style="padding:10px 20px;font-size:16px;" (click)="act(formadd.value)"
+                mdbWavesEffect><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</button>
             </div>
           </form> 
 
@@ -208,7 +200,7 @@
   <div class="row">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
       <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
-        class="waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
+        class="button-main waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
           class="fa fa-download">&nbsp;Download PDF</i></button>
     </div>
     <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
@@ -233,10 +225,9 @@
           <th scope="col">Pandits</th>
           <th scope="col">Cost</th>
           <th scope="col">Duration</th>
-          <th scope="col">Samagri</th>
           <th scope="col">Description</th>
-          <th scope="col">Delete</th>
-          <th scope="col">Update</th>
+          <th scope="col">Samagri</th>
+          <!-- <th scope="col">Delete</th> -->
         </tr>
       </thead>
       <div *ngIf="loading">
@@ -373,18 +364,15 @@
         </div>
       </div>
       <tbody>
-        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: page, currentPage: p }">
+        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: page, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2 ">
           <td scope="row">{{a.category_id}}</td>
           <td scope="row">{{a.service_id}}</td>
           <td scope="row">{{a.noofpandits}}</td>
           <td scope="row">{{a.cost}}</td>
           <td scope="row">{{a.duration}}</td>
-          <td scope="row">{{a.samagri}}</td>
           <td scope="row">{{a.description}}</td>
-          <td><span title="delete" (click)="del(a)" class="fa fa-trash " style="color:red;"></span></td>
-          <td><span title="update" (click)="funs(a)" class="fa fa-pencil-square-o" data-toggle="modal"
-              data-target="#exampleModalCenter2 "></span></td>
-          <!-- <td><span (click)="funs(a)" class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"style="font-size: 30px;color:black;"></span></td>  -->
+          <td scope="row">{{a.samagri}}</td>
+          <!-- <td class="text-center"><span title="delete" (click)="del(a)" class="fa fa-trash " style="color:red;"></span></td> -->
         </tr>
       </tbody>
     </table>

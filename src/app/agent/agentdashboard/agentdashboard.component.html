@@ -1,4 +1,5 @@
-<nav class="fixed-nav-bar navbar navbar-expand-md navbar-dark ">
+<div #customLoadingTemplate> 
+   <nav class="fixed-nav-bar navbar navbar-expand-md navbar-dark ">
   <a class="navbar-brand"><code class="mx-auto" routerLink="/agentdashboard"
     style="color:orangered;font-size:27px;font-weight:590;padding:8px 20px;">PUROHIT</code></a>
   <button id="nav-btn1" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +23,8 @@
       <button id="nav-btn" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarDiv" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
-      <div class="collapse navbar-collapse mx-auto mr-lg-0" id="navbarDiv">
-          <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse mx-auto" id="navbarDiv">
+          <ul class="navbar-nav">
             <li routerLink="/agentdashboard/{{agent_id}}" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">&nbsp;<i
               class="fa fa-dashboard"></i>&nbsp;Dashboard</li>
           <li routerLink="/agentbooking" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">&nbsp;<i class="fa fa-book"></i>&nbsp;Bookings
@@ -32,8 +33,6 @@
               class="fa fa-user"></i>&nbsp;&nbsp;Pandits</li>
           <li routerLink="/agentprofile" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">&nbsp;<i class="fa fa-bell"></i>&nbsp;Services
           </li>
-          <li routerLink="/agentpanditservices" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">&nbsp;<i
-              class="fa fa-laptop"></i>&nbsp;Pandit&nbsp;Services</li>
           <li routerLink="/agentcategory" routerLinkActive="active-link" data-toggle="collapse" data-target=".navbar-collapse.show">&nbsp;<i class="fa fa-list"></i>&nbsp;Categories
           </li>
           </ul>
@@ -43,3 +42,7 @@
 <div class="col-12" style='margin-top: 10px;'>
     <router-outlet></router-outlet>
 </div>
+</div>
+<ngx-loading [show]="loading"
+					[config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(0,0,0,0.5)' }"
+					[template]="customLoadingTemplate"></ngx-loading>

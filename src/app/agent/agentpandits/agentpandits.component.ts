@@ -16,13 +16,10 @@ export class AgentpanditsComponent implements OnInit {
   termsearch1: any;
   termsearch3: any;
 
-  p: any;
-  pp: any;
-  p2: any;
 
   fname = sessionStorage.getItem("fname");
   agent_id = sessionStorage.getItem("agent_id");
-  page = 10;
+  pandit_id: any;
 
   ngOnInit(): void { }
   truePandit: any = 1;
@@ -96,7 +93,8 @@ export class AgentpanditsComponent implements OnInit {
     });
   }
   navigatoToDetails(a){
-    this.r.navigate(["agentuser", a.pandit_id])
+    this.pandit_id = a.pandit_id
+    this.r.navigate(["details", this.pandit_id])
   }
 
 }

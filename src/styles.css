@@ -44,14 +44,3 @@
     width:80vh;
     border:5px thin black;
   }
-  html {
-    overflow: scroll;
-    overflow-x: scroll;
-    }
-    ::-webkit-scrollbar {
-    width: 0px; /* remove scrollbar space /
-    background: transparent; / optional: just make scrollbar invisible /
-    }
-    / optional: show position indicator in red */
-
-    }

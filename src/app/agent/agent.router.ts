@@ -2,7 +2,6 @@ import { Routes, ActivatedRoute } from '@angular/router';
 import { AgentdashboardComponent } from '../agent/agentdashboard/agentdashboard.component';
 import { AgentComponent } from './agent.component';
 import { AgentprofileComponent } from './agentprofile/agentprofile.component';
-import { AgentpanditservicesComponent } from './agentpanditservices/agentpanditservices.component';
 import { AgentpanditsComponent } from './agentpandits/agentpandits.component';
 import { AgentusersComponent } from './agentusers/agentusers.component';
 import { AgentcategoriesComponent } from './agentcategories/agentcategories.component';
@@ -21,9 +20,8 @@ export const AgentRoutes: Routes = [{
         { path: 'agentdashboard/:agent_id', component: AgentComponent },
         { path: 'agent', component: AgentComponent },
         { path: 'agentprofile', component: AgentprofileComponent },
-        { path: 'agentpanditservices', component: AgentpanditservicesComponent },
         { path: 'agentpandits', component: AgentpanditsComponent },
-        { path: 'agentuser/:agent_id', component: AgentusersComponent },
+        { path: 'details/:pandit_id', component: AgentusersComponent },
         { path: 'agentcategory', component: AgentcategoriesComponent },
         { path: 'agentbooking', component: AgentbookingsComponent },
 

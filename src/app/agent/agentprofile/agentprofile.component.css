@@ -95,20 +95,32 @@ transition: .3s ease-in;
 #s {
   background-color:rgba(139, 129, 129, 0.671);
 }
-button{
+.button-main{
   background-color: orangered;
-  opacity:0.9;
+  opacity:0.8;
   color:white;
   font-size: 16px;
   font-family: 'Syntax';
-
+  padding:12px 25px;
 }
-button:hover{
+.button-main:hover{
   color:white;
   font-size: 16px;
   font-family: 'Syntax';
-
-
+}
+.btnSave{
+  color:white;
+  background-color: green;
+  font-size: 16px;
+  font-family: 'Syntax';
+  padding:12px 25px;
+}
+.btnDelete{
+  color:white;
+  background-color: red;
+  font-size: 16px;
+  font-family: 'Syntax';
+  padding:12px 25px;
 }
 p{
   text-align: left;
@@ -146,4 +158,6 @@ select{
   font-family: 'Syntax';
 
 }
-
+.modal-title{
+  font-size: large;
+}

@@ -1,23 +1,16 @@
-   i {
-       color:white;
-       font-size:20px;
-     }
-     a{
-      text-decoration: none;
-    }
-    a:hover{
-      text-decoration: none;
-    }
-
+i {
+ color:white;
+ font-size:20px;
+}
 li{
   text-decoration: none;
   font-size: 15px;
   color:white;
-  padding: 10px 30px;
+  padding: 10px 35px;
   cursor: pointer;
   font-family: Lato,sans-serif!important;
     list-style:none !important;
-  font-weight: 600;
+    font-weight: 600;
     color: #eee2e2;
     letter-spacing: 1px;
     position: relative;
@@ -34,14 +27,13 @@ li:hover, .active-link {
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   transition: 0.18s ease-in;
-  padding: 10px 35px;
+  padding: 10px 40px;
   outline-width: 0;
   font-size: 15px;
   width:auto;
   align-content: center;
-  font-family: 'Syntax';
-border-radius: 10px;
-overflow-x: wrap;
+  border-radius: 10px;
+  overflow-x: wrap;
 }
 
 .fixed-nav-bar{

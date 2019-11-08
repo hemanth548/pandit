@@ -7,19 +7,19 @@
               <span>&nbsp;All Pandit</span>
             </ng-template>
             <br>
-            <div class="col-8 float-right ">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 float-right ">
                 <div class="row">
               
-                  <div class='col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+                  <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                     <div class="form-midline waves-light " mdbWavesEffect>
                       <div class="md-form">
                         <input class="form-control" [(ngModel)]="termsearch1" type="text" placeholder="Search" style="font-size:16px">
                       </div>
                     </div>
                   </div>
-                  <div class="col-xl-6 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+                  <!-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" style="font-size:16px;">
                     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="table-responsive">
@@ -181,7 +181,7 @@
                   </div>
                   <tbody>
             
-                    <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: page, currentPage: p }">
+                    <tr *ngFor="let a of result | filter:termsearch1" (click)="navigatoToDetails(a)">
                       <td colspan="2">{{a.pandit_id}}</td>
                       <td colspan="2">{{a.fname}}</td>
                       <td colspan="2" *ngIf="a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
@@ -215,19 +215,18 @@
           <span>&nbsp;Verified Pandit</span>
         </ng-template>
         <br>
-        <div class="col-8 float-right ">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 float-right ">
             <div class="row">
-          
-              <div class='col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+              <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                 <div class="form-midline waves-light " mdbWavesEffect>
                   <div class="md-form">
                     <input class="form-control" [(ngModel)]="termsearch2" type="text" placeholder="Search" style="font-size:16px">
                   </div>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+              <!-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" style="font-size:16px;">
                 <pagination-controls (pageChange)="pp = $event"></pagination-controls>
-              </div>
+              </div> -->
             </div>
           </div>
         <div class="table-responsive">
@@ -385,7 +384,7 @@
                 </div>
               </div>
             </div>
-            <tr *ngFor="let a of result | filter:termsearch2 | paginate: { itemsPerPage: page, currentPage: pp }" (click)="navigatoToDetails(a)">
+            <tr *ngFor="let a of result | filter:termsearch2" (click)="navigatoToDetails(a)">
               <td *ngIf="a.isVerified">{{a.pandit_id}}</td>
               <td *ngIf="a.isVerified">{{a.fname}}</td>    
 
@@ -428,19 +427,19 @@
           <span>&nbsp;Unverified Pandit</span>
         </ng-template>
         <br>
-        <div class="col-8 float-right ">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 float-right ">
             <div class="row">
           
-              <div class='col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+              <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                 <div class="form-midline waves-light " mdbWavesEffect>
                   <div class="md-form">
                     <input class="form-control" [(ngModel)]="termsearch3" type="text" placeholder="Search" style="font-size:16px">
                   </div>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+              <!-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 " style="font-size:16px;">
                 <pagination-controls (pageChange)="p2 = $event"></pagination-controls>
-              </div>
+              </div> -->
             </div>
           </div>
         <div class="table-responsive">
@@ -599,7 +598,7 @@
                 </div>
               </div>
             </div>
-            <tr *ngFor="let a of result | filter:termsearch3 | paginate: { itemsPerPage: page, currentPage: p2 }">
+            <tr *ngFor="let a of result | filter:termsearch3" (click)="navigatoToDetails(a)">
               <td *ngIf="!a.isVerified">{{a.pandit_id}}</td>
               <td *ngIf="!a.isVerified">{{a.fname}}</td>
               <td *ngIf="a.idproofurl && !a.isVerified">

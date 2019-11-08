@@ -49,13 +49,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     RouterModule,
     MatSnackBarModule,
     ToastrModule.forRoot(),
-    NgxLoadingModule.forRoot({
-        backdropBackgroundColour: 'rgba(0,0,0,0.5)', 
-        backdropBorderRadius: '4px',
-        primaryColour: '#ffffff', 
-        secondaryColour: '#ffffff', 
-        tertiaryColour: '#ffffff'
-    })
+    NgxLoadingModule.forRoot({ })
   ],
   entryComponents: [
     AdminloginComponent

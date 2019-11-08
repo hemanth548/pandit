@@ -85,3 +85,4 @@ identity:any;
     return true;
   }
 }
+// Authorization: `${this.auth.getToken()}`

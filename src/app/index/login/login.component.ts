@@ -153,7 +153,6 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("lname", this.res.data.lname);
         sessionStorage.setItem("agent_id", this.res.data.agent_id);
         sessionStorage.setItem("token", this.res.token);
-        console.log(this.res)
         if (this.res.token) {
           this.routerNavigate.navigate(['agentdashboard', this.res.data.agent_id]);
         }

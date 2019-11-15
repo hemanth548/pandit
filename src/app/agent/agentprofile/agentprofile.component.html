@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 >Update Details</h1>
+        <h1 class="col-11 text-center">Update Details</h1>
         <span class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;" (click)="f.reset();">&times;</span>
       </div>
       <div class="modal-body">
@@ -29,7 +29,7 @@
                 <p *ngIf="formadd.get('duration').errors.pattern">Minimum 1 hour, Maximum 9-9-9 hours only</p>
               </div>
             </div>
-            <div class="form-group">
+            <div [hidden]="true" class="form-group">
               <input name="duration" formControlName="service_id" class="form-control" placeholder="Service ID"
                 type="text" autocomplete="off" disabled
                 [ngClass]="{ 'is-invalid': submitted &&formadd.get('duration').errors}">
@@ -94,11 +94,7 @@
 
 <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa sliding in first-->
 <!-- Modal -->
-<div>
-  <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn class="button-main"
-    style="padding:10px 20px;font-size:15px;" mdbWavesEffect [disabled]=""><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add
-    Service</button>
-</div>
+
 <div class="modal modal-fade scrollable" id="modaladd" tabindex="-1" role="dialog" aria-labelledby="modaladd" aria-hidden="true">
   <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -106,7 +102,7 @@
 
     <div class="modal-content">
       <div class="modal-header">
-        <h1>&nbsp;Add Service</h1>
+        <h1 class="col-11 text-center">&nbsp;Add Service</h1>
         <span class="close" data-dismiss="modal" aria-label="Close" style="color:orangered;" aria-hidden="true"(click)="rest()">&times;</span>
       </div>
       <div class="modal-body">
@@ -185,7 +181,7 @@
 
             <div class="col-4 mx-auto">
               <button type="submit" mdbBtn class="button-main waves-light" style="padding:10px 20px;font-size:16px;" (click)="act(formadd.value)"
-                mdbWavesEffect><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</button>
+                mdbWavesEffect><i class="fa fa-plus"></i>&nbsp;Add</button>
             </div>
           </form> 
 
@@ -199,9 +195,8 @@
 <div>
   <div class="row">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-      <button title="Download PDF" (click)="downloadpdf()" style="font-size: 16px;padding:10px;" mdbBtn
-        class="button-main waves-light" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
-          class="fa fa-download">&nbsp;Download PDF</i></button>
+      <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i class="fa fa-download fa-3x"></i></button>
+      <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn class="waves-light pdf" mdbWavesEffect ><i class="fa fa-plus fa-3x"></i></button>
     </div>
     <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
       <div class="form-midline waves-light ">
@@ -211,7 +206,7 @@
       </div>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
     </div>
 
 
@@ -364,7 +359,7 @@
         </div>
       </div>
       <tbody>
-        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: page, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2 ">
+        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: 10, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" title="click to see edit service details">
           <td scope="row">{{a.category_id}}</td>
           <td scope="row">{{a.service_id}}</td>
           <td scope="row">{{a.noofpandits}}</td>

@@ -13,14 +13,11 @@
    list-style: none;
  }
  
-
- .btn {
-   cursor: pointer;
- }
  .ngx-pagination .current {
    padding: 0.1875rem 0.625rem;
-   background: #835e0f !important;
-   color: #fefefe;
+   background-image: linear-gradient(rgb(255, 68, 0), rgba(255, 74, 8, 0.795) ) !important;
+   border-radius: 25px;
+   color: white;
    cursor: default;
  }
 

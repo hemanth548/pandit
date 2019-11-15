@@ -2,37 +2,37 @@
   <div class="row d-flex">
     <div routerLink="/agentbooking" class="card1 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
       <div class="text-center name"><strong class="text-uppercase">New bookings</strong>
-        <div class="text-center count">25</div>
+        <div class="text-center count">{{resp.newBooking}}</div>
       </div>
     </div>
 
     <div routerLink="/agentbooking" class="card1 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
       <div class="text-center name "><strong class="text-uppercase">Active Bookings</strong>
-        <div class="text-center count ">123</div>
+        <div class="text-center count">{{resp.ongoingBooking}}</div>
       </div>
     </div>
 
     <div routerLink="/agentbooking" class="card1 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
       <div class="text-center name "><strong class="text-uppercase">completed</strong>
-        <div class="text-center count">70</div>
+        <div class="text-center count">{{resp.completedBooking}}</div>
       </div>
     </div>
 
     <div routerLink="/agentbooking" class="card2 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
       <div class="text-center name "><strong class="text-uppercase">cancelled</strong>
-        <div class="text-center count">92</div>
+        <div class="text-center count">{{resp.cancelledBooking}}</div>
       </div>
     </div>
 
     <div routerLink="/agentpandits" class="card1 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
       <div class="text-center name"><strong class="text-uppercase">total pandits</strong>
-        <div class="text-center count">400</div>
+        <div class="text-center count">{{resp.totalPandits}}</div>
       </div>
     </div>
 
     <div routerLink="/agentprofile" class="card1 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
       <div class="text-center name"><strong class="text-uppercase">total services</strong>
-        <div class="text-center count">342</div>
+        <div class="text-center count">{{resp.totalServices}}</div>
       </div>
     </div>
   </div>

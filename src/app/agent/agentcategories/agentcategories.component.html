@@ -1,3 +1,4 @@
+<div class="body">
 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 float-right ">
     <div class="row">
     <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
@@ -8,7 +9,7 @@
       </div>
     </div>
     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
     </div>
   </div>
 </div>
@@ -157,7 +158,7 @@
       </div>
     </div>
     <tbody>
-      <tr *ngFor="let a of resultt | filter:term | paginate: { itemsPerPage: page, currentPage: p }">
+      <tr *ngFor="let a of resultt | filter:term | paginate: { itemsPerPage: 8, currentPage: p }">
         <td>{{a.category_id}}</td>
         <td>{{a.catname}}</td>
       </tr>
@@ -165,3 +166,440 @@
   </table>
 
 </div>
+<br><br>
+      <mat-tab-group mat-align-tabs="center" #loadingTemplate>
+          <mat-tab label="Pooja">
+              <ng-template mat-tab-label #ngt1>
+                <mat-icon>pages</mat-icon>
+                <span class="mat-labels">&nbsp;Pooja</span>
+              </ng-template> 
+<div class="col-12">
+  <div class="row">
+    <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12 mx-auto">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="colorOuterpanel"
+        *ngFor="let a of rc11">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="poojaprice">{{a.description}}</span>
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+        <div
+          class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 colorInnerPanel" 
+          style="margin-top: 22px;">
+          <div class="row">
+              <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <strong class="names">Category ID</strong>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+              <small class="namesOrg">{{a.category_id }}</small>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <strong class="names">Cost</strong>
+              </div>
+              <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <small class="namesOrg">{{a.cost }}</small>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <strong class="names">Duration</strong>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                  <small class="namesOrg">{{a.duration }}&nbsp;hours</small>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Total pandits</strong>
+                  </div>
+                  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <small class="namesOrg">{{a.noofpandits }}</small>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <strong class="names">Service ID</strong>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                      <small class="namesOrg ">{{a.service_id }}</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                          <strong class="names">Samagri</strong>
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <small class="namesOrg ">{{a.samagri }}</small>
+                      </div>
+                    </div>
+        </div>
+        </ng-template>
+      </mat-expansion-panel>
+    </div>
+
+    <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12 mx-auto">
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="colorOuterpanel"
+          *ngFor="let a of rc111">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="poojaprice">{{a.description}}</span>
+            </mat-panel-title>
+  
+          </mat-expansion-panel-header>
+          <ng-template matExpansionPanelContent>
+
+          <div
+          class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 colorInnerPanel "
+          style="margin-top: 22px;">
+          <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+              <strong class="names">Category ID</strong>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+              <small class="namesOrg">{{a.category_id }}</small>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+               <strong class="names">Cost</strong>
+              </div>
+              <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <small class="namesOrg">{{a.cost }}</small>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <strong class="names">Duration</strong>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                  <small class="namesOrg">{{a.duration }}&nbsp;hours</small>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                   <strong class="names">Total pandits</strong>
+                  </div>
+                  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <small class="namesOrg">{{a.noofpandits }}</small>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                     <strong class="names">Service ID</strong>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                      <small class="namesOrg ">{{a.service_id }}</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <strong class="names">Samagri</strong>
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <small class="namesOrg ">{{a.samagri }}</small>
+                      </div>
+                    </div>
+        </div>
+        </ng-template>
+        </mat-expansion-panel>
+      </div>
+  </div>
+</div>
+
+</mat-tab>
+<mat-tab label="Yagna">
+  <ng-template mat-tab-label #ngt2>
+    <mat-icon>confirmation_number</mat-icon>
+    <span class="mat-labels">&nbsp;Yagna</span>
+  </ng-template>
+  <div class="col-12">
+      <div class="row">
+        <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12 mx-auto bg-transparent">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="colorOuterpanel"
+            *ngFor="let a of rc22">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="poojaprice">{{a.description}}</span>
+              </mat-panel-title>
+    
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+
+            <div
+              class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 colorInnerPanel"
+              style="margin-top: 22px;">
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Category ID</strong>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                  <small class="namesOrg">{{a.category_id }}</small>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Cost</strong>
+                  </div>
+                  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <small class="namesOrg">{{a.cost }}</small>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <strong class="names">Duration</strong>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                      <small class="namesOrg">{{a.duration }}&nbsp;hours</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                          <strong class="names">Total pandits</strong>
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <small class="namesOrg">{{a.noofpandits }}</small>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <strong class="names">Service ID</strong>
+                        </div>
+                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                          <small class="namesOrg ">{{a.service_id }}</small>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                              <strong class="names">Samagri</strong>
+                          </div>
+                          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <small class="namesOrg ">{{a.samagri }}</small>
+                          </div>
+                        </div>
+            </div>
+            </ng-template>
+          </mat-expansion-panel>
+        </div>
+    
+        <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12 mx-auto bg-transparent">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="colorOuterpanel"
+              *ngFor="let a of rc222">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="poojaprice">{{a.description}}</span>
+                </mat-panel-title>
+      
+              </mat-expansion-panel-header>
+              <ng-template matExpansionPanelContent>
+
+              <div
+              class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 colorInnerPanel"
+              style="margin-top: 22px;">
+              <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <strong class="names">Category ID</strong>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                  <small class="namesOrg">{{a.category_id }}</small>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                   <strong class="names">Cost</strong>
+                  </div>
+                  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <small class="namesOrg">{{a.cost }}</small>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Duration</strong>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                      <small class="namesOrg">{{a.duration }}&nbsp;hours</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                       <strong class="names">Total pandits</strong>
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <small class="namesOrg">{{a.noofpandits }}</small>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                         <strong class="names">Service ID</strong>
+                        </div>
+                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                          <small class="namesOrg ">{{a.service_id }}</small>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <strong class="names">Samagri</strong>
+                          </div>
+                          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <small class="namesOrg ">{{a.samagri }}</small>
+                          </div>
+                        </div>
+            </div>
+            </ng-template>
+            </mat-expansion-panel>
+          </div>
+      </div>
+    </div>
+</mat-tab>
+<mat-tab label="Apar Karma">
+  <ng-template mat-tab-label #ngt3>
+    <mat-icon>adb</mat-icon>
+        <span class="mat-labels">&nbsp;Apar Karma</span>
+  </ng-template>
+  <div class="col-12">
+      <div class="row">
+        <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12 mx-auto bg-transparent">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="colorOuterpanel"
+            *ngFor="let a of rc33">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="poojaprice">{{a.description}}</span>
+              </mat-panel-title>
+    
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+
+            <div
+              class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 colorInnerPanel" 
+              style="margin-top: 22px;">
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Category ID</strong>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                  <small class="namesOrg">{{a.category_id }}</small>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Cost</strong>
+                  </div>
+                  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <small class="namesOrg">{{a.cost }}</small>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <strong class="names">Duration</strong>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                      <small class="namesOrg">{{a.duration }}&nbsp;hours</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                          <strong class="names">Total pandits</strong>
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <small class="namesOrg">{{a.noofpandits }}</small>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <strong class="names">Service ID</strong>
+                        </div>
+                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                          <small class="namesOrg ">{{a.service_id }}</small>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                              <strong class="names">Samagri</strong>
+                          </div>
+                          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <small class="namesOrg ">{{a.samagri }}</small>
+                          </div>
+                        </div>
+            </div>
+            </ng-template>
+          </mat-expansion-panel>
+        </div>
+    
+        <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12 mx-auto bg-transparent">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="colorOuterpanel"
+              *ngFor="let a of rc333">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="poojaprice">{{a.description}}</span>
+                </mat-panel-title>
+      
+              </mat-expansion-panel-header>
+              <ng-template matExpansionPanelContent>
+
+              <div
+              class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 colorInnerPanel"
+              style="margin-top: 22px;">
+              <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <strong class="names">Category ID</strong>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                  <small class="namesOrg">{{a.category_id }}</small>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                   <strong class="names">Cost</strong>
+                  </div>
+                  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <small class="namesOrg">{{a.cost }}</small>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <strong class="names">Duration</strong>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                      <small class="namesOrg">{{a.duration }}&nbsp;hours</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                       <strong class="names">Total pandits</strong>
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <small class="namesOrg">{{a.noofpandits }}</small>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                         <strong class="names">Service ID</strong>
+                        </div>
+                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                          <small class="namesOrg ">{{a.service_id }}</small>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <strong class="names">Samagri</strong>
+                          </div>
+                          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                            <small class="namesOrg ">{{a.samagri }}</small>
+                          </div>
+                        </div>
+            </div>
+            </ng-template>
+            </mat-expansion-panel>
+          </div>
+      </div>
+    </div>
+</mat-tab>
+</mat-tab-group>
+<ngx-loading [show]="loading"
+					[config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(0,0,0,0.5)' }"
+					[template]="loadingTemplate"></ngx-loading>
+</div>
+<br><br>

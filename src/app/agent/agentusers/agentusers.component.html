@@ -1,10 +1,218 @@
+<div class="body" #customLoadingTemplate>
+<div class="hidden-xs hidden-sm float-right">
+    <button (click)="back()" mdbBtn class="waves-light btn-back" mdbWavesEffect><i
+        class="fa fa-arrow-left"></i>&nbsp;Back</button>
+  </div>
+<div class="row">
+  <div class="col-xl-4 col-lg-4 col-md-10 col-sm-12 col-xs-12 mx-auto">
+    <div *ngIf="getresult.experience && getresult.specialization" class="slideInUp animated card col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+      <div class="row">
+          <div class="col-4">
+              <img *ngIf="getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive" src = "http://115.112.122.99:3040/api/images/{{getresult.idproofurl}}">
+              <img *ngIf="!getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive"src="./assets/usericon.png">
+              <span *ngIf="getresult.isVerified" title="verified" class="fa-stack fa-2x dot1 float-right"><span class="my-1 fa fa-check fa-stack-2x"></span></span>
+              <span *ngIf="!getresult.isVerified" title="verified" class="fa-stack fa-2x dot2 float-right"><span class="my-1 fa fa-times fa-stack-2x"></span></span>
+            </div>
+        <div class="col-8">
+      <h1 class="aboutme">About Me!</h1>
+      <p class="aboutmedata">I have {{getresult.experience}} years of Experience and I'm specialized in doing {{getresult.specialization}}</p>
+      <span class="aboutme" *ngIf="getresult.isOnline">status:<span style="color:green; font-size: x-large;">&nbsp;online</span></span>
+      <span class="aboutme" *ngIf="!getresult.isOnline">status:<span style="color:red; font-size: x-large;">&nbsp;offline</span></span>
 
+    </div>
+   
+    </div>
+    </div>
+
+    <div *ngIf="getresult.experience && !getresult.specialization" class="slideInUp animated card col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+      <div class="row">
+          <div class="col-4">
+              <img *ngIf="getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive" src = "http://115.112.122.99:3040/api/images/{{getresult.idproofurl}}">
+              <img *ngIf="!getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive"src="./assets/usericon.png">  
+              <span *ngIf="getresult.isVerified" title="verified pandit" class="fa-stack fa-2x dot1 float-right"><span class="my-1 fa fa-check fa-stack-2x"></span></span>
+              <span *ngIf="!getresult.isVerified" title="unverified pandit" class="fa-stack fa-2x dot2 float-right"><span class="my-1 fa fa-check fa-stack-2x"></span></span>
+          </div>
+        <div class="col-8">
+          <h1 class="aboutme">About Me!</h1>
+          <p class="aboutmedata">I have {{getresult.experience}} years of Experience</p>
+          <span class="aboutme" *ngIf="getresult.isOnline">status:<span style="color:green; font-size: x-large;">&nbsp;online</span></span>
+          <span class="aboutme" *ngIf="!getresult.isOnline">status:<span style="color:red; font-size: x-large;">&nbsp;offline</span></span>
+        </div>
+       
+      </div>
+    </div>
+
+    <div *ngIf="getresult.specialization && !getresult.experience" class="slideInUp animated card col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+            <div class="col-4">
+                <img *ngIf="getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive" src = "http://115.112.122.99:3040/api/images/{{getresult.idproofurl}}">
+                <img *ngIf="!getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive"src="./assets/usericon.png"> 
+                <span *ngIf="getresult.isVerified" title="verified" class="fa-stack fa-2x dot1 float-right"><span class="my-1 fa fa-check fa-stack-2x"></span></span>           
+                <span *ngIf="!getresult.isVerified" title="verified" class="fa-stack fa-2x dot2 float-right"><span class="my-1 fa fa-times fa-stack-2x"></span></span>           
+               </div>
+            <div class="col-8">
+              <h1 class="aboutme">About Me!</h1>
+              <p class="aboutmedata">I'm specialized in doing {{getresult.specialization}}</p>
+              <span class="aboutme" *ngIf="getresult.isOnline">status:<span style="color:green; font-size: x-large;">&nbsp;online</span></span>
+              <span class="aboutme" *ngIf="!getresult.isOnline">status:<span style="color:red; font-size: x-large;">&nbsp;offline</span></span>
+            </div>
+         
+          </div>
+    </div>
+
+    <div *ngIf="!getresult.specialization && !getresult.experience" class="slideInUp animated card col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+
+            <div class="col-4">
+                <img *ngIf="getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive" src = "http://115.112.122.99:3040/api/images/{{getresult.idproofurl}}">
+                <img *ngIf="!getresult.idproofurl" style="width:150px;height:150px" class="PanditImages float-right img-fluid img-responsive"src="./assets/usericon.png"> 
+                <span *ngIf="getresult.isVerified" title="verified" class="fa-stack fa-2x dot1 float-right"><span class="my-1 fa fa-check fa-stack-2x"></span></span>
+                <span *ngIf="!getresult.isVerified" title="verified" class="fa-stack fa-2x dot2 float-right"><span class="my-1 fa fa-times fa-stack-2x"></span></span>           
+               
+              </div>
+              <div class="col-8">
+                  <h1 class="aboutme">About Me!</h1>
+                  <p class="aboutmedata">Experience: --- <br> Specialization: ---</p>
+                  <span class="aboutme" *ngIf="getresult.isOnline">status:<span style="color:green; font-size: x-large;">&nbsp;online</span></span>
+                  <span class="aboutme" *ngIf="!getresult.isOnline">status:<span style="color:red; font-size: x-large;">&nbsp;offline</span></span>
+                </div>
+        </div>
+    </div>
+
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent" style="margin-top: 22px;">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-id-card">&nbsp;</i><strong class="names">Pandit ID</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg text-uppercase">{{getresult.pandit_id}}</small>
+          </div>
+        </div>
+    </div>
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-user">&nbsp;</i><strong class="names">Name</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg text-uppercase">{{getresult.fname}}&nbsp;{{getresult.lname}}</small>
+          </div>
+        </div>
+    </div>
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-phone-square">&nbsp;</i><strong class="names">Mobile</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg text-uppercase">{{getresult.mobile}}</small>
+          </div>
+        </div>
+    </div>
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-envelope">&nbsp;</i><strong class="names">Email</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg">{{getresult.email}}</small>
+          </div>
+        </div>
+    </div>
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-globe">&nbsp;</i><strong class="names">Region</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg text-uppercase">{{getresult.region}}</small>
+          </div>
+        </div>
+    </div>
+  
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-map-marker">&nbsp;</i><strong class="names">Location</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg">{{getresult.location}}</small>
+          </div>
+        </div>
+    </div>
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+        <div class="row">
+          <div class="col-5">
+            <i class="fa fa-university">&nbsp;</i><strong class="names">University</strong>
+          </div>
+          <div class="col-7">
+                <small class="namesOrg text-uppercase ">{{getresult.university}}</small>
+          </div>
+        </div>
+    </div>
+    <div *ngIf="moreDetails">
+        <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+            <div class="row">
+              <div class="col-5">
+                <i class="fa fa-bandcamp">&nbsp;</i><strong class="names">Sakha</strong>
+              </div>
+              <div class="col-7">
+                    <small class="namesOrg text-uppercase">{{getresult.sakha}}</small>
+              </div>
+            </div>
+        </div>
+        <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+            <div class="row">
+              <div class="col-5">
+                <i class="fa fa-ticket">&nbsp;</i><strong class="names">Gotra</strong>
+              </div>
+              <div class="col-7">
+                    <small class="namesOrg text-uppercase">{{getresult.gotra}}</small>
+              </div>
+            </div>
+        </div>
+        <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+            <div class="row">
+              <div class="col-5">
+                <i class="fa fa-clipboard">&nbsp;</i><strong class="names">Veda</strong>
+              </div>
+              <div class="col-7">
+                    <small class="namesOrg text-uppercase">{{getresult.veda}}</small>
+              </div>
+            </div>
+        </div>
+      
+        <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+            <div class="row">
+              <div class="col-5">
+                <i class="fa fa-inr">&nbsp;</i><strong class="names">Bhokta Cost</strong>
+              </div>
+              <div class="col-7">
+                    <small class="namesOrg text-uppercase">{{getresult.bhokta_cost}}</small>
+              </div>
+            </div>
+        </div>
+        <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+            <div class="row">
+              <div class="col-5">
+                <i class="fa fa-inr">&nbsp;</i><strong class="names">Suhasini Cost</strong>
+              </div>
+              <div class="col-7">
+                    <small class="namesOrg text-uppercase">{{getresult.suhasini_cost}}</small>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!moreDetails"class="text-center slideInUp animated"><button title="more details"class="moreDetailsArrow btn btn-primary" (click)="moredetailsfun()"><i class="fa fa-arrow-down"></i></button></div>
+    <div *ngIf="moreDetails"class="text-center slideInUp animated"><button title="more details"class="moreDetailsArrow btn btn-primary" (click)="moredetailsfun()"><i class="fa fa-arrow-up"></i></button></div>
+  </div>
+<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
 <div class="modal modal-fade" id="exampleModalCenter" tabindex="-1"  role="dialog" aria-labelledby="exampleModalCenterTitle"
 aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
     <div class="modal-header">
-      <h1 class="modal-title" id="exampleModalLongTitle">Update Details</h1>
+      <h1 class="modal-title col-11 text-center" id="exampleModalLongTitle">Update Details</h1>
       <button type="button" class="bg-none close" data-dismiss="modal" aria-label="Close">
         <span style="color:orangered" aria-hidden="true">&times;</span>
       </button>
@@ -30,7 +238,7 @@ aria-hidden="true">
         </div>
         <div class="form-group btn-container col-12 text-center">
 
-          <button type="submit" class="btn1" mdbBtn mdbWavesEffect [disabled]="f.invalid" data-dismiss="modal" (click)="act(f.value);">Save changes</button>
+          <button type="submit" class="btnSave" mdbBtn mdbWavesEffect [disabled]="f.invalid" data-dismiss="modal" (click)="act(f.value);">Save changes</button>
         
         </div>
       </form>
@@ -39,36 +247,29 @@ aria-hidden="true">
 </div>
 </div>
 
-<div class="row">
 
-  <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 float-left">
 
-  </div>
-  <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 float-right">
-    <div class="row">
-  
-        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-            <div class="form-midline waves-light" mdbWavesEffect>
-          <div class="md-form">
-            <input class="form-control-search" [(ngModel)]="term" type="text" placeholder="Search" style="font-size:16px">
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="float-right">
-    <button (click)="back()" style="font-size: 16px;padding:10px;" mdbBtn
-    class="waves-light btn-back" style="padding:10px 20px;font-size:16px;" mdbWavesEffect><i
-      class="fa fa-arrow-left">&nbsp;Back</i></button>
-    </div>
-<div class="table-responsive">
-  
+    <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick()">
+        <mat-tab label="All Pandit">
+            <ng-template mat-tab-label #ngtu1>
+                <mat-icon>dvr&nbsp;</mat-icon>
+              <span class="mat-labels">&nbsp;Pandit Services</span>
+            </ng-template> 
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 "></div>          
+                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-midline waves-light" mdbWavesEffect>
+                    <div class="md-form">
+                        <input class="form-control-search" name="search1" [(ngModel)]="term1" type="text" placeholder="Search" style="font-size:16px">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+                  <pagination-controls (pageChange)="p = $event" id="table1" responsive="true"></pagination-controls>
+                </div>
+              </div>
+
 <table class="table table-hover" id="my-table">
-  
   <thead>
     <tr>
       <th>Pandit_Service_ID</th>
@@ -80,142 +281,10 @@ aria-hidden="true">
       <th>Samagri</th>
     </tr>
   </thead>
-  <div *ngIf="loading">
-    <div class="col-4 mx-auto">
-      <div class="lds-css ng-scope">
-        <div class="lds-spinner" style="width:100%;height:100%">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <style type="text/css">
-          @keyframes lds-spinner {
-            0% {
-              opacity: 1;
-            }
 
-            100% {
-              opacity: 0;
-            }
-          }
-
-          @-webkit-keyframes lds-spinner {
-            0% {
-              opacity: 1;
-            }
-
-            100% {
-              opacity: 0;
-            }
-          }
-
-          .lds-spinner {
-            position: relative;
-          }
-
-          .lds-spinner div {
-            top: 45px;
-            position: absolute;
-            -webkit-animation: lds-spinner linear 1.3s infinite;
-            animation: lds-spinner linear 1.3s infinite;
-            background: #fd6a0fea;
-            width: 12px;
-            height: 30px;
-            border-radius: 40%;
-            -webkit-transform-origin: 0px 55px;
-            transform-origin: 0px 55px;
-          }
-
-          .lds-spinner div:nth-child(1) {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-            -webkit-animation-delay: -1.17s;
-            animation-delay: -1.17s;
-          }
-
-          .lds-spinner div:nth-child(2) {
-            -webkit-transform: rotate(36deg);
-            transform: rotate(36deg);
-            -webkit-animation-delay: -1.04s;
-            animation-delay: -1.04s;
-          }
-
-          .lds-spinner div:nth-child(3) {
-            -webkit-transform: rotate(72deg);
-            transform: rotate(72deg);
-            -webkit-animation-delay: -0.91s;
-            animation-delay: -0.91s;
-          }
-
-          .lds-spinner div:nth-child(4) {
-            -webkit-transform: rotate(108deg);
-            transform: rotate(108deg);
-            -webkit-animation-delay: -0.78s;
-            animation-delay: -0.78s;
-          }
-
-          .lds-spinner div:nth-child(5) {
-            -webkit-transform: rotate(144deg);
-            transform: rotate(144deg);
-            -webkit-animation-delay: -0.65s;
-            animation-delay: -0.65s;
-          }
-
-          .lds-spinner div:nth-child(6) {
-            -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-            -webkit-animation-delay: -0.52s;
-            animation-delay: -0.52s;
-          }
-
-          .lds-spinner div:nth-child(7) {
-            -webkit-transform: rotate(216deg);
-            transform: rotate(216deg);
-            -webkit-animation-delay: -0.39s;
-            animation-delay: -0.39s;
-          }
-
-          .lds-spinner div:nth-child(8) {
-            -webkit-transform: rotate(252deg);
-            transform: rotate(252deg);
-            -webkit-animation-delay: -0.26s;
-            animation-delay: -0.26s;
-          }
-
-          .lds-spinner div:nth-child(9) {
-            -webkit-transform: rotate(288deg);
-            transform: rotate(288deg);
-            -webkit-animation-delay: -0.13s;
-            animation-delay: -0.13s;
-          }
-
-          .lds-spinner div:nth-child(10) {
-            -webkit-transform: rotate(324deg);
-            transform: rotate(324deg);
-            -webkit-animation-delay: 0s;
-            animation-delay: 0s;
-          }
-
-          .lds-spinner {
-            width: 200px !important;
-            height: 200px !important;
-            -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-            transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-          }
-        </style>
-      </div>
-    </div>
-  </div>
   <tbody>
 
-    <tr *ngFor="let a of result | filter:term | paginate: { itemsPerPage: page, currentPage: p }" (click)="funs(a)" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter">
+    <tr *ngFor="let a of result | filter:term1 | paginate: { itemsPerPage: 8, currentPage: p, id:'table1' }" (click)="funs(a)" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter" title="click to edit pandit services">
       <td>{{a.pandit_service_id}}</td>
       <td>{{a.description}}</td>   
       <td>{{a.cost}}</td>
@@ -226,5 +295,78 @@ aria-hidden="true">
     </tr>
   </tbody>
 </table>
+</mat-tab>
+<mat-tab label="All Pandit">
+    <ng-template mat-tab-label #ngtu2>
+      <mat-icon>note&nbsp;</mat-icon>
+      <span class="mat-labels">&nbsp;Pandit Bookings</span>
+    </ng-template>
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+          <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
+              class="fa fa-download fa-2x"></i></button>
+        </div>
+      
+        <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+          <div class="form-midline waves-light" mdbWavesEffect>
+            <div class="md-form">
+                <input class="form-control-search" name="search2" [(ngModel)]="term2" type="text" placeholder="Search" style="font-size:16px">
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+          <pagination-controls (pageChange)="p2 = $event" id="table2" responsive="true"></pagination-controls>
+        </div>
+      </div>
+              <table class="table table-hover" id="my-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>OTP</th>
+              <th>Pandit ID</th>
+              <th>Yajman ID</th>
+              <th>Total Cost</th>
+              <th>Address</th>
+              <th>Payment Mode</th>
+              <th>No Of Bhokta</th>
+              <th>No Of Suhasini</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="bookingdata">  
+            <tr *ngFor="let a of bookingdata | filter:term2 | paginate: { itemsPerPage: 8, currentPage: p2, id:'table2'}">
+              <td>{{a.booking_id}}</td>
+              <td>{{a.date}}</td>
+              <td>{{a.time}}</td>
+              <td>{{a.otp}}</td>
+              <td>{{a.pandit_id}}</td>
+              <td>{{a.yajman_id}}</td>
+              <td>{{a.total_cost}}</td>
+              <td>{{a.address}}</td>
+              <td>{{a.payment_mode}}</td>
+              <td>{{a.noofbhokta}}</td>
+              <td>{{a.noofsuhasini}}</td>
+              <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled</i>
+              </td>
+              <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgba(0, 132, 255, 0.89)"><br>New Booking</i>
+              </td>
+              <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x'
+                  style="color:rgb(113, 248, 2);"><br>Accepted</i></td>
+              <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x'
+                  style="color:rgb(5, 158, 5);"><br>Started</i></td>
+              <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x'
+                  style="color:rgb(2, 83, 2);"><br>Completed</i></td>
+            </tr>
+          </tbody>
+        </table>      
+    </mat-tab>
+    </mat-tab-group>
+    
+    </div>
+  </div>
 </div>
- 
+<ngx-loading [show]="loading"
+    [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(0,0,0,0.5)' }"
+    [template]="customLoadingTemplate"></ngx-loading>

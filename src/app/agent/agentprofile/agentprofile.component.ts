@@ -13,7 +13,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./agentprofile.component.css']
 })
 export class AgentprofileComponent implements OnInit {
-  page = 10;
 
   addserviceurl: any = "http://192.168.1.55:3040/api/services/addservice";
   getAllServicesurl: any = "http://192.168.1.55:3040/api/services/getAllServices";
@@ -21,7 +20,6 @@ export class AgentprofileComponent implements OnInit {
   updateserviceurl: any = "http://192.168.1.55:3040/api/services/updateservice";
   getcategoryurl: any = "http://192.168.1.55:3040/api/services/getCategory ";
   term: any;
-  p=3;
 
   submitted = false;
   f: FormGroup;
@@ -37,6 +35,7 @@ export class AgentprofileComponent implements OnInit {
   fname: any;
   agent_id: any;
 
+  p:any
 
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
     this.fname = sessionStorage.getItem("fname");

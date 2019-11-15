@@ -10,7 +10,6 @@ import { MatProgressSpinnerModule, MatPaginatorModule, MatSlideToggleModule, Mat
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { AgmCoreModule } from '@agm/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PurohitComponent } from './purohit.component';
 import { HomeComponent } from './home/home.component';
@@ -46,10 +45,6 @@ import { HomeComponent } from './home/home.component';
     MatTabsModule,
     MatIconModule,
     MatSelectModule,
-    AgmCoreModule.forRoot({
-      apiKey: '',
-
-    })
   ],
 })
 export class PanditModule {

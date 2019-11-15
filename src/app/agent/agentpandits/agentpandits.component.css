@@ -28,6 +28,7 @@ button{
     color:white;
     font-size: 16px;
     font-family: "Syntax";
+    border-radius: 5px;
   }
   button:hover{
     color:white;
@@ -47,6 +48,7 @@ button{
 .pandit-image{
   border-radius: 25px;
 }
-.form-control{
-  font-family: 'Syntax';
+.img{
+  width:50px;
+  height:50px;
 }

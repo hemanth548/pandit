@@ -1,6 +1,7 @@
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 declare var $: any;
 
@@ -12,32 +13,38 @@ declare var $: any;
 export class AgentComponent implements OnInit {
   userName1: any;
   userName2: any;
-  term: any;
-  bookingCount: any;
+  getURL = "http://115.112.122.99:3040/api/agent/getAgentDashboardData";
+  resp;
 
 
-  constructor(private authService: AuthService, private routerNavigate: Router) {
+  constructor(private authService: AuthService, private routerNavigate: Router, private ht:HttpClient) {
     this.userName1 = sessionStorage.getItem("fname");
     this.userName2 = sessionStorage.getItem("lname");
-
+   
   }
   ngOnInit() {
 
-
-    $('.count').each(function () {
-      $(this).prop('Counter', 0).animate({
-        Counter: $(this).text()
-      }, {
-        duration: 3000,
-        easing: 'swing',
-        step: function (now) {
-          $(this).text(Math.ceil(now));
-        }
-      });
-    });
-
+    this.getDashboardData();
+      
   }
-
-
+  getDashboardData(){
+    this.ht.get(this.getURL).subscribe(resp=>{
+      this.resp = resp
+      // this.counter()
+    })
+  }
+  // counter(){
+  // $('.count').each(function () {
+  //   $(this).prop('Counter', 0).animate({
+  //     Counter: $(this).text()
+  //   }, {
+  //     duration: 3000,
+  //     easing: 'swing',
+  //     step: function (now) {
+  //       $(this).text(Math.ceil(now));
+  //     }
+  //   });
+  // });
+  // }
 
 }

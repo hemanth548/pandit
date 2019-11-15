@@ -1,6 +1,4 @@
-*{
-  font-size:16px;
-}
+
 th {
   font-family: 'Syntax';
   line-height: 1.5;
@@ -65,21 +63,7 @@ agm-map {
 
 }
 
-button{
-background-color: orangered;
-opacity:0.8;
-color:white;
-font-size: 16px;
-font-family: "sans-serif";
 
-
-}
-button:hover{
-color:white;
-font-size: 16px;
-font-family: "sans-serif";
-
-}
 select{
   width:230px;
   height:30px;
@@ -88,4 +72,13 @@ select{
   padding:2px;
   font-family: "sans-serif";
   z-index: 1;
+}
+
+.pdf{
+  border-radius: 55%;
+  padding:10px;
+  background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664) );
+}
+.fa-close, .fa-plus-square, .fa-check, .fa-star-half-o, .fa-check-circle{
+  font-size:18px;
 }

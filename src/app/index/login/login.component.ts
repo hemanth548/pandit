@@ -78,7 +78,6 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("purohitlname", this.res.data.lname);
           sessionStorage.setItem("purohittoken", this.res.token);
           sessionStorage.setItem("panditIdProof",this.res.data.idproofurl);
-          console.log(this.res)
           if (this.res.token) {
             this.routerNavigate.navigate(['purohithome',this.res.data.pandit_id]);
           }

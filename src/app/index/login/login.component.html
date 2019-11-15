@@ -11,7 +11,7 @@
 				class="search-button fa fa-search fa-2x"></button>
 		</div>
 		<div class="animated slideInDown pl-4 my-4">
-			<a class="fa fa-user fa-3x" style="color:white;padding:5px 20px;" (click)="basicModal.show()"></a>
+			<a title="Login/ Register" class="fa fa-user fa-3x" style="color:white;padding:5px 20px;" (click)="basicModal.show()"></a>
 			<a class="fa fa-shopping-cart fa-3x" style="color:white;padding:5px 20px;" aria-hidden="true"></a>
 			<a class="fa fa-phone fa-3x" style="color:white;padding:5px 20px;" aria-hidden="true"></a>
 		</div>
@@ -161,10 +161,10 @@
 			</div>
 			<div class="modal-body">
 
-				<mat-tab-group (selectedTabChange)="onLinkClick($event)" [selectedIndex]="0" #customLoadingTemplate>
-					<mat-tab label="Sign In" color="primary" active>
+				<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick($event)" #customLoadingTemplate headerPosition="above">
+					<mat-tab label="Sign In">
 						<ng-template mat-tab-label #ngt1>
-							<span>&nbsp;Sign In</span>
+							<span class="mat-labels">&nbsp;Sign In</span>
 						</ng-template>
 						<form class="container" [formGroup]="TrafficLoginForm"
 							(ngSubmit)="LoginAction(TrafficLoginForm.value);TrafficLoginForm.reset();">

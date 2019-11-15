@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgentdashboardComponent } from './agentdashboard/agentdashboard.component';
 import { RouterModule } from '@angular/router';
@@ -12,13 +12,13 @@ import { AgentComponent } from './agent.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxLoadingModule } from 'ngx-loading';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -37,21 +37,21 @@ import { NgxLoadingModule } from 'ngx-loading';
     MDBBootstrapModule,
     MatPaginatorModule,
     NoopAnimationsModule,
-    MatInputModule,
     BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatInputModule,
     MDBBootstrapModule,
     RouterModule,
     MatTabsModule,
     MatIconModule,
     NgxLoadingModule.forRoot({ }),
+    MatExpansionModule
 
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA],
 
 })
 

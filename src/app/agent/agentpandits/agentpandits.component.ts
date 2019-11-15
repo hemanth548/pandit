@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./agentpandits.component.css']
 })
 export class AgentpanditsComponent implements OnInit {
+  ngOnInit(): void { }
+  constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrService, private r: Router) {
+
+    const newTitle = this.fname.toUpperCase() + " " + this.agent_id + " - Pandits Registered";
+    this.titleService.setTitle(newTitle);
+
+    this.getAllPandits();
+  }
   loading = true;
   
   termsearch2: any;
@@ -21,7 +29,7 @@ export class AgentpanditsComponent implements OnInit {
   agent_id = sessionStorage.getItem("agent_id");
   pandit_id: any;
 
-  ngOnInit(): void { }
+
   truePandit: any = 1;
   falsePandit: any = 0;
   caturl: any = "http://192.168.1.55:3040/api/pandit/getAllPandits";
@@ -29,17 +37,9 @@ export class AgentpanditsComponent implements OnInit {
   panditImageURL: any = "http://115.112.122.99:3040/api/images/";
   result: any;
   result2: any;
+  p1: any;
 
-
-  constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrService, private r: Router) {
-
-    const newTitle = this.fname.toUpperCase() + " " + this.agent_id + " - Pandits Registered";
-    this.titleService.setTitle(newTitle);
-
-    this.getAllPandits();
-  }
-  zoom: number = 8;
-
+  page1: number = 6;
   getAllPandits() {
     this.ht.get(this.caturl).subscribe(resp => {
       this.result2 = resp;

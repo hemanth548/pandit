@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
@@ -8,13 +8,20 @@ import { Location } from '@angular/common';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable'; 
 import { AuthService } from 'src/app/services/auth.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-agentusers',
   templateUrl: './agentusers.component.html',
   styleUrls: ['./agentusers.component.css']
 })
-export class AgentusersComponent implements OnInit {
+export class AgentusersComponent implements OnInit, OnDestroy {
+  private ngUnsubscribe: Subject<any> = new Subject();
+
+  ngOnDestroy(): any {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
   pandit_id: any;
   fname: any;
   agent_id: any;

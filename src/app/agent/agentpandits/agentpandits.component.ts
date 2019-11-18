@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-agentpandits',
@@ -10,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./agentpandits.component.css']
 })
 export class AgentpanditsComponent implements OnInit {
+  
   ngOnInit(): void { }
   constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrManager, private r: Router) {
 
@@ -24,6 +27,7 @@ export class AgentpanditsComponent implements OnInit {
   termsearch1: any;
   termsearch3: any;
 
+  private ngUnsubscribe: Subject<any> = new Subject();
 
   fname = sessionStorage.getItem("fname");
   agent_id = sessionStorage.getItem("agent_id");
@@ -41,7 +45,9 @@ export class AgentpanditsComponent implements OnInit {
 
   page1: number = 6;
   getAllPandits() {
-    this.ht.get(this.caturl).subscribe(resp => {
+    this.ht.get(this.caturl)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(resp => {
       this.result2 = resp;
       this.result = this.result2.data,
         this.loading = false;
@@ -50,14 +56,18 @@ export class AgentpanditsComponent implements OnInit {
   verifyPandit(pandit_id: any, isVerified: any) {
     this.loading = true;
     isVerified = this.truePandit;
-    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(respToVerify => {
+    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id })
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(respToVerify => {
       this.getAllPandits(),
         this.verifiedToaster()
     })
   }
   rejectPandit(pandit_id: any, isVerified: any) {
     isVerified = this.falsePandit;
-    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(resp => {
+    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id })
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(resp => {
       this.getAllPandits(),
         this.rejectedToaster()
     })
@@ -74,5 +84,8 @@ export class AgentpanditsComponent implements OnInit {
     this.pandit_id = a.pandit_id
     this.r.navigate(["details", this.pandit_id])
   }
-
+  ngOnDestroy(): any {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
 }

@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from 'src/app/services/auth.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-agentcategories',
   templateUrl: './agentcategories.component.html',
   styleUrls: ['./agentcategories.component.css']
 })
-export class AgentcategoriesComponent implements OnInit {
+export class AgentcategoriesComponent implements OnInit, OnDestroy {
+   
   panelOpenState = false;
 
   url: any = "http://192.168.1.55:3040/api/services/getCategory ";
@@ -34,6 +37,7 @@ export class AgentcategoriesComponent implements OnInit {
   rc222: any;
   rc33: any;
   rc333: any;
+  private ngUnsubscribe: Subject<any> = new Subject();
 
   constructor(private ht: HttpClient, private titleService: Title, private service:AuthService) {
     const newTitle = "Pooja Categories"
@@ -48,7 +52,9 @@ export class AgentcategoriesComponent implements OnInit {
   }
 
   getPoojaCat(){
-    this.service.getCategories(1001).subscribe(resp=>{
+    this.service.getCategories(1001)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(resp=>{
       this.r1 = resp,
       this.rc1 = this.r1.data,
       this.rc11 = this.rc1.slice(0,this.rc1.length/2),
@@ -57,7 +63,9 @@ export class AgentcategoriesComponent implements OnInit {
     });
   }
   getYagnaCat(){
-    this.service.getCategories(1002).subscribe(resp=>{
+    this.service.getCategories(1002)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(resp=>{
       this.r2 = resp,
       this.rc2 = this.r2.data,
       this.rc22 = this.rc2.slice(0,this.rc2.length/2),
@@ -65,7 +73,9 @@ export class AgentcategoriesComponent implements OnInit {
     });
   }
   getKarmaCat(){
-    this.service.getCategories(1003).subscribe(resp=>{
+    this.service.getCategories(1003)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(resp=>{
       this.r3 = resp,
       this.rc3 = this.r3.data,
       this.rc33 = this.rc3.slice(0,this.rc3.length/2),
@@ -74,10 +84,16 @@ export class AgentcategoriesComponent implements OnInit {
   })
 }
 getCategories(){
-  this.ht.get(this.url).subscribe(resp => {
+  this.ht.get(this.url)
+  .pipe(takeUntil(this.ngUnsubscribe))
+  .subscribe(resp => {
     this.resultt2 = resp;
     this.resultt = this.resultt2.data,
       this.loading = false
   })
+}
+ngOnDestroy(): any {
+  this.ngUnsubscribe.next();
+  this.ngUnsubscribe.complete();
 }
 }

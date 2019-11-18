@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2'
@@ -6,13 +6,15 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { Title } from '@angular/platform-browser';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-agentprofile',
   templateUrl: './agentprofile.component.html',
   styleUrls: ['./agentprofile.component.css']
 })
-export class AgentprofileComponent implements OnInit {
+export class AgentprofileComponent implements OnInit, OnDestroy  {
 
   addserviceurl: any = "http://192.168.1.55:3040/api/services/addservice";
   getAllServicesurl: any = "http://192.168.1.55:3040/api/services/getAllServices";
@@ -37,6 +39,11 @@ export class AgentprofileComponent implements OnInit {
 
   p:any
 
+  private ngUnsubscribe: Subject<any> = new Subject();
+  ngOnDestroy(): any {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrManager) {
     this.fname = sessionStorage.getItem("fname");
     this.agent_id = sessionStorage.getItem("agent_id");
@@ -75,14 +82,18 @@ export class AgentprofileComponent implements OnInit {
 
   }
   getAllServices() {
-    this.ht.get(this.getAllServicesurl).subscribe(res => {
+    this.ht.get(this.getAllServicesurl)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(res => {
       this.res2 = res;
       this.res = this.res2.data;
       this.loading = false
     });
   }
   getCategory(){
-    this.ht.get(this.getcategoryurl).subscribe(res => 
+    this.ht.get(this.getcategoryurl)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(res => 
       { this.result2 = res,
         this.result = this.result2.data
        });
@@ -109,7 +120,9 @@ export class AgentprofileComponent implements OnInit {
     }
     else {
       this.formadd.reset();
-      this.ht.post(this.addserviceurl, { "description": v.description, "samagri": v.samagri, "cost": v.cost, "duration": v.duration, "category_id": v.category_id, "noofpandits": v.noofpandits }).subscribe(resp1 => {
+      this.ht.post(this.addserviceurl, { "description": v.description, "samagri": v.samagri, "cost": v.cost, "duration": v.duration, "category_id": v.category_id, "noofpandits": v.noofpandits })
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(resp1 => {
         this.getAllServices(),
         this.addServicesToaster()
       });
@@ -140,7 +153,9 @@ export class AgentprofileComponent implements OnInit {
       customClass:'swal-height'
     }).then((result) => {
       if (result.value) {
-          this.ht.post(this.deleteserviceurl, { "service_id": data.service_id }).subscribe(resp1 => {
+          this.ht.post(this.deleteserviceurl, { "service_id": data.service_id })
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe(resp1 => {
             this.getAllServices(),
               this.verifiedToaster()
           })

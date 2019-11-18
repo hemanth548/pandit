@@ -146,9 +146,7 @@ select{
   font-family: 'Syntax';
 
 }
-.modal-title{
-  font-size: large;
-}
+
 .pdf{
   border-radius: 55%;
   padding:10px;
@@ -160,4 +158,8 @@ border-radius: 5px;
 color:white;
 font-family: 'Syntax';
 
+}
+.modal-title{
+  font-family: "Syntax";
+  font-size: x-large;
 }

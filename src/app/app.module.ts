@@ -10,14 +10,14 @@ import { IndexComponent } from './index/index.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './services/token-interceptor';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { AdminModule } from './admin/admin.module';
 import { AgentModule } from './agent/agent.module';
 import { YajmanModule } from './yajman/yajman.module';
 import {PanditModule} from './purohit/purohit.module';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material';
-
+import { ToastrModule } from 'ng6-toastr-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -33,7 +33,6 @@ import { MatInputModule } from '@angular/material';
     AppRoutingModule,
     MatFormFieldModule,
     AgentModule,
-    AdminModule,
     YajmanModule,
     PanditModule,
     MDBBootstrapModule,
@@ -42,6 +41,8 @@ import { MatInputModule } from '@angular/material';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     MatInputModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
 
 

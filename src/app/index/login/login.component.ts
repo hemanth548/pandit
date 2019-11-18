@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { PlatformLocation } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrManager } from 'ng6-toastr-notifications';
 import { MatTabChangeEvent } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { HttpResponse } from '@angular/common/http';
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   submitstatus = false;
   res: any;
 
-  constructor(private toastr: ToastrService, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
+  constructor(private toastr: ToastrManager, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
     
     const newTitle = "Purohit - Web Platform for Puja and Poojari Bookings";
     this.titleService.setTitle(newTitle);
@@ -86,21 +86,9 @@ export class LoginComponent implements OnInit {
         },
         (err: HttpResponse<any>) => {
           if (err.status == 400)
-            Swal.fire({
-              title: 'Wrong Credentials',
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false,
-            })
+           this.toastr.errorToastr("<span style='font-size:16px;'>Invalid Credentials</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
           else
-            Swal.fire({
-              title: 'Error logging to Purohit',
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false,
-            });
+           this.toastr.errorToastr("<span style='font-size:16px;'>Seems Something wrong, Please try again</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
           this.loading = false;
         }
       )
@@ -108,14 +96,6 @@ export class LoginComponent implements OnInit {
     if (this.roll == 'Yajman') {
       this.authService.yajmanloginAction(formData).subscribe(
         (res: HttpResponse<any>) => {
-
-          Swal.fire({
-            title: 'login Successful ',
-            type: 'success',
-            timer: 2000,
-            customClass: 'swal-height',
-            showConfirmButton: false,
-          })
           sessionStorage.setItem("fname", formData.fname);
           sessionStorage.setItem("lname", formData.lname);
           sessionStorage.setItem("yajmantoken", this.res.token);
@@ -123,21 +103,9 @@ export class LoginComponent implements OnInit {
         },
         (err: HttpResponse<any>) => {
           if (err.status == 400)
-            Swal.fire({
-              title: 'Wrong Credentials',
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false,
-            })
+          this.toastr.errorToastr("<span style='font-size:16px;'>Invalid Credentials</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
           else
-            Swal.fire({
-              title: 'Error logging to Yajman',
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false,
-            });
+          this.toastr.errorToastr("<span style='font-size:16px;'>Seems Something wrong, Please try again</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
           this.loading = false;
 
         }
@@ -160,21 +128,9 @@ export class LoginComponent implements OnInit {
       },
         err => {
           if (err.status == 400)
-            Swal.fire({
-              title: 'Wrong Credentials',
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false,
-            })
+          this.toastr.errorToastr("<span style='font-size:16px;'>Invalid Credentials</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
           else
-            Swal.fire({
-              title: 'Error logging to Agent',
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false,
-            });
+          this.toastr.errorToastr("<span style='font-size:16px;'>Seems Something wrong, Please try again</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
           this.loading = false;
         }
       );
@@ -309,12 +265,8 @@ export class LoginComponent implements OnInit {
     }
     this.valf = false;
     this.ff.reset();
-    Swal.fire({
-      title: 'OTP sent Successfully \n' + s.mobile,
-      type: 'success',
-      timer: 2500,
-      showConfirmButton: false,
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>OTP sent successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+
     this.val2 = true;
   }
   otp(s) {
@@ -324,13 +276,10 @@ export class LoginComponent implements OnInit {
     }
     if (this.f.valid) {
       this.submitted = false;
+      this.toastr.successToastr("<span style='font-size:16px;'>Password reset successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+
     }
-    Swal.fire({
-      title: 'Reset Successful',
-      type: 'success',
-      timer: 2500,
-      showConfirmButton: false,
-    })
+   this
     this.valf = true;
     this.val2 = false;
     this.f.reset();
@@ -344,20 +293,10 @@ export class LoginComponent implements OnInit {
     }
   }
   showToaster() {
-    this.toastr.success('<font color=\"black\" size=\"4px\">OTP Sent Successfully</font>', '', {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: true,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'ease-in-out',
-      easeTime: 600
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>OTP sent successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
   onLinkClick(event: MatTabChangeEvent) {
     this.submitted = false;
   }
 
 }
-

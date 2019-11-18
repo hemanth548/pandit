@@ -1,7 +1,9 @@
 <div class="body" #customLoadingTemplate>
 <div class="hidden-xs hidden-sm float-right">
-    <button (click)="back()" mdbBtn class="waves-light btn-back" mdbWavesEffect><i
-        class="fa fa-arrow-left"></i>&nbsp;Back</button>
+    <code class="back my-2" (click)="back()" mdbWavesEffect><i
+        class="fa fa-arrow-left"></i>&nbsp;Back</code>
+        <button style="background-color: red;" class="btn"*ngIf="getresult.isVerified" (click)="rejectPandit(getresult.pandit_id, getresult.isVerified)" mdbBtn mdbWavesEffect>Reject</button>
+          <button style="background-color: green;" class="btn" *ngIf="!getresult.isVerified" (click)="verifyPandit(getresult.pandit_id, getresult.isVerified)" mdbBtn mdbWavesEffect>Approve</button>
   </div>
 <div class="row">
   <div class="col-xl-4 col-lg-4 col-md-10 col-sm-12 col-xs-12 mx-auto">

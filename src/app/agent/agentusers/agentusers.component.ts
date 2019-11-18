@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrManager } from 'ng6-toastr-notifications';
 import { Location } from '@angular/common';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable'; 
@@ -39,7 +39,12 @@ export class AgentusersComponent implements OnInit {
   p: any;
   p2: any;
   loading: any;
-  constructor(private location: Location, private activatedRoute: ActivatedRoute, private titleService: Title, private fb: FormBuilder, private toastr: ToastrService, private service: AuthService) {
+  verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
+
+  truePandit: any = 1;
+  falsePandit: any = 0;
+
+  constructor(private location: Location, private activatedRoute: ActivatedRoute, private titleService: Title, private fb: FormBuilder, private toastr: ToastrManager, private service: AuthService,private ht: HttpClient) {
     this.pandit_id = this.activatedRoute.snapshot.params.pandit_id;
     const newTitle = "Pandit Profile - " + this.pandit_id;
     this.titleService.setTitle(newTitle);
@@ -60,7 +65,30 @@ export class AgentusersComponent implements OnInit {
     });
     
   }
+  verifyPandit(pandit_id: any, isVerified: any) {
+    pandit_id = this.pandit_id,
+    this.loading = true,
+    isVerified = this.truePandit,
+    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(respToVerify => {
+      this.getPanditDetails(pandit_id);
+      this.verifiedToaster()
+    })
+  }
+  rejectPandit(pandit_id: any, isVerified: any) {
+    pandit_id = this.pandit_id,
+    isVerified = this.falsePandit,
+    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(resp => {
+      this.getPanditDetails(pandit_id);
+      this.rejectedToaster()
+    })
+  }
+  verifiedPanditToaster() {
+    this.toastr.successToastr("<span style='font-size:16px;'>Pandit Verified Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+  }
 
+  rejectedToaster() {
+    this.toastr.successToastr("<span style='font-size:16px;'>Pandit Rejected Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+  }
 
   downloadpdf() {
     const doc = new jsPDF('l',"mm","a2");
@@ -142,47 +170,14 @@ export class AgentusersComponent implements OnInit {
   }
   verifiedToaster() {
     this.loading = false;
-    this.toastr.success('<font color=\"black\" size=\"4px\"> Saved Successfully</font>', '', {
-      closeButton: true,
-      timeOut: 4000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Saved successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
   dangerToaster() {
     this.loading = false;
-    this.toastr.error('<font color=\"black\" size=\"4px\"> Failed to save data</font>', '', {
-      closeButton: true,
-      timeOut: 4000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Failed to save data</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
   dangerToaster2() {
     this.loading = false;
-    this.toastr.error('<font color=\"black\" size=\"4px\"> Failed to get data from server</font>', '', {
-      closeButton: true,
-      timeOut: 4000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Sorry! Failed to get data</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
 }

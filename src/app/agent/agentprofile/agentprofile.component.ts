@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { Title } from '@angular/platform-browser';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-agentprofile',
@@ -37,7 +37,7 @@ export class AgentprofileComponent implements OnInit {
 
   p:any
 
-  constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrService) {
+  constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrManager) {
     this.fname = sessionStorage.getItem("fname");
     this.agent_id = sessionStorage.getItem("agent_id");
     const newTitle = "Services of " + this.fname.toUpperCase() + " : " + this.agent_id;
@@ -130,23 +130,23 @@ export class AgentprofileComponent implements OnInit {
     this.submitted = false;
   }
   del(data) {
-    this.toastr.warning('<font color=\"black\" size=\"3px\">Click to Confirm Delete Service</font>', "", {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      // tapToDismiss: true,
-      enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    }).onTap.subscribe(() => {  
-      this.ht.post(this.deleteserviceurl, { "service_id": data.service_id }).subscribe(resp1 => {
-        this.getAllServices(),
-          this.verifiedToaster()
-      });
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      customClass:'swal-height'
+    }).then((result) => {
+      if (result.value) {
+          this.ht.post(this.deleteserviceurl, { "service_id": data.service_id }).subscribe(resp1 => {
+            this.getAllServices(),
+              this.verifiedToaster()
+          })
+      }
     })
+
     }
   downloadpdf() {
     const doc = new jsPDF('l',"mm","a2");
@@ -159,49 +159,15 @@ export class AgentprofileComponent implements OnInit {
     this.formadd.reset();
   }
   addServicesToaster() {
-    this.toastr.success('<font color=\"black\" size=\"4px\">Add Service Success</font>', "", {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'swing',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-      
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Add service success</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
 
   changesToaster() {
-    this.toastr.success('<font color=\"black\" size=\"4px\">Saved Successfully</font>', "", {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'swing',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Saved Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
   
   verifiedToaster() {
-    this.toastr.success('<font color=\"black\" size=\"4px\"> Deleted Successfully</font>', "", {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'ease-in',
-      easeTime: 100,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.warningToastr("<span style='font-size:16px;'>Deleted Successfully</span>", "Alert !", {enableHTML: true, animate:'slideFromRight'});
   }
 
 }

@@ -12,12 +12,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { CountdownModule } from 'ngx-countdown';
-import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
 import { NgxLoadingModule } from 'ngx-loading';
 
@@ -29,7 +27,7 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 
 @NgModule({
-  declarations: [LoginComponent,AdminloginComponent],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -48,11 +46,9 @@ import { NgxLoadingModule } from 'ngx-loading';
     CountdownModule,
     RouterModule,
     MatSnackBarModule,
-    ToastrModule.forRoot(),
     NgxLoadingModule.forRoot({ })
   ],
   entryComponents: [
-    AdminloginComponent
 ],
 
 

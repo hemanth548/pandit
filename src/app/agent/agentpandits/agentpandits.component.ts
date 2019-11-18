@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrManager } from 'ng6-toastr-notifications';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AgentpanditsComponent implements OnInit {
   ngOnInit(): void { }
-  constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrService, private r: Router) {
+  constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrManager, private r: Router) {
 
     const newTitle = this.fname.toUpperCase() + " " + this.agent_id + " - Pandits Registered";
     this.titleService.setTitle(newTitle);
@@ -64,33 +64,11 @@ export class AgentpanditsComponent implements OnInit {
   }
 
   verifiedToaster() {
-    this.toastr.success('<font color=\"black\" size=\"4px\">Pandit Verified Successfully</font>', '', {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'swing',
-      easeTime: 500,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Pandit Verified Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
 
   rejectedToaster() {
-    this.toastr.success('<font color=\"black\" size=\"4px\">Pandit Rejected Successfully</font>', '', {
-      closeButton: true,
-      timeOut: 5000,
-      progressBar: false,
-      onActivateTick: true,
-      tapToDismiss: true,
-      enableHtml: true,
-      easing: 'swing',
-      easeTime: 500,
-      titleClass: "success",
-      progressAnimation: 'decreasing',
-    });
+    this.toastr.successToastr("<span style='font-size:16px;'>Pandit Rejected Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
   navigatoToDetails(a){
     this.pandit_id = a.pandit_id

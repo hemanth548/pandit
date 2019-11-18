@@ -103,6 +103,13 @@ th {
     font-family: 'Syntax';
   
   }
+  .btn{
+    font-size: 16px;
+    font-family: 'Syntax';
+    color:white;
+    border-radius:5px;
+
+  }
   label{
     font-size: 18px;
     font-family: 'Syntax';
@@ -123,15 +130,20 @@ th {
   span:hover{
     cursor: pointer;
   }
-  .btn-back{
+  /* .btn{
     padding: 10px 14px;
-      color:white;
-      font-size: 16px;
+      font-size: 17px;
       font-family: "Syntax";
-      background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664) );
-      border-radius: 5px;
+    } */
+    .back{
+      font-size:17px;
+      font-family: "Syntax";
+      color:black;
     }
-.aboutme{
+    .back:hover{
+        cursor: pointer;
+    }
+.aboutme, .modal-title{
   font-family: "Syntax";
   font-size: x-large;
 }

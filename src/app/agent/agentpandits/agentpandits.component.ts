@@ -15,13 +15,14 @@ export class AgentpanditsComponent implements OnInit {
   
   ngOnInit(): void { }
   constructor(private ht: HttpClient, private titleService: Title, private toastr: ToastrManager, private r: Router) {
-
-    const newTitle = this.fname.toUpperCase() + " " + this.agent_id + " - Pandits Registered";
+    const fname = sessionStorage.getItem("fname");
+    const agent_id = sessionStorage.getItem("agent_id");
+    const newTitle = fname.toUpperCase() + " " + agent_id + " - Pandits Registered";
     this.titleService.setTitle(newTitle);
 
     this.getAllPandits();
   }
-  loading = true;
+  loading:boolean = true;
   
   termsearch2: any;
   termsearch1: any;
@@ -29,34 +30,29 @@ export class AgentpanditsComponent implements OnInit {
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
-  fname = sessionStorage.getItem("fname");
-  agent_id = sessionStorage.getItem("agent_id");
   pandit_id: any;
 
-
-  truePandit: any = 1;
-  falsePandit: any = 0;
-  caturl: any = "http://192.168.1.55:3040/api/pandit/getAllPandits";
-  verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
-  panditImageURL: any = "http://115.112.122.99:3040/api/images/";
   result: any;
-  result2: any;
   p1: any;
 
-  page1: number = 6;
   getAllPandits() {
-    this.ht.get(this.caturl)
+    let caturl: any = "http://192.168.1.55:3040/api/pandit/getAllPandits";
+    let result2: any;
+
+    this.ht.get(caturl)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(resp => {
-      this.result2 = resp;
-      this.result = this.result2.data,
+      result2 = resp;
+      this.result = result2.data,
         this.loading = false;
     })
   }
   verifyPandit(pandit_id: any, isVerified: any) {
+    let verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
+
     this.loading = true;
-    isVerified = this.truePandit;
-    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id })
+    isVerified = 1;
+    this.ht.patch(verifyPanditURL, { isVerified, pandit_id })
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(respToVerify => {
       this.getAllPandits(),
@@ -64,8 +60,10 @@ export class AgentpanditsComponent implements OnInit {
     })
   }
   rejectPandit(pandit_id: any, isVerified: any) {
-    isVerified = this.falsePandit;
-    this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id })
+    let verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
+
+    isVerified = 0;
+    this.ht.patch(verifyPanditURL, { isVerified, pandit_id })
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(resp => {
       this.getAllPandits(),

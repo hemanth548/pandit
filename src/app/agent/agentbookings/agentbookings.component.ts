@@ -16,27 +16,29 @@ import { takeUntil } from 'rxjs/operators';
 export class AgentbookingsComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<any> = new Subject();
 
-  fname = sessionStorage.getItem("fname");
-  agent_id = sessionStorage.getItem("agent_id");
-  newTitle = "Bookings of " + this.fname.toUpperCase() + " - " + this.agent_id;
   loading = true;
-  result2;
   term: any;
   p: any;
-  length: any;
-  url: any = "http://192.168.1.55:3040/api/booking/getAllBookings";
+  
   result: any;
-  date;
   constructor(private ht: HttpClient, private authService: AuthService, private routerNavigate: Router, private titleService: Title) {
-    this.titleService.setTitle(this.newTitle);
-    document.cookie = this.titleService + '=' + this.newTitle;
-    this.ht.get(this.url)
+    let fname = sessionStorage.getItem("fname");
+    let agent_id = sessionStorage.getItem("agent_id");
+    let newTitle = "Bookings of " + fname.toUpperCase() + " - " + agent_id;
+    this.titleService.setTitle(newTitle);
+    let url: any = "http://192.168.1.55:3040/api/booking/getAllBookings";
+    this.getBookings(url);
+
+  }
+  ngOnInit() { }
+  getBookings(url){
+    
+   let result2: any
+    this.ht.get(url)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(resp => {
-      this.result2 = resp, this.result = this.result2.data; length = this.result2.data.length; this.loading = false
+      result2 = resp, this.result = result2.data, this.loading = false
     })
-  }
-  ngOnInit() {
   }
   downloadpdf() {
     const doc = new jsPDF('l',"mm","a2");

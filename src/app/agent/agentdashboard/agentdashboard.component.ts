@@ -10,18 +10,15 @@ declare var $:any;
   styleUrls: ['./agentdashboard.component.css']
 })
 export class AgentdashboardComponent implements OnInit {
-  fname:any;
-  lname:any;
-  roll:any;
+fname:any;
+lname: any;
+agent_id: any;
   term:any;
-  email:any;
-  agent_id:any;
-  loading: boolean = false;
+  loading: boolean;
 
   constructor(private authService: AuthService, private routerNavigate: Router, private titleService: Title) { 
     this.fname=sessionStorage.getItem("fname");
     this.lname=sessionStorage.getItem("lname");
-    this.email=sessionStorage.getItem("email");
     this.agent_id=sessionStorage.getItem("agent_id");
     const newTitle="Dashboard of "+this.fname.toUpperCase( )+" : "+this.agent_id;
 
@@ -39,6 +36,8 @@ export class AgentdashboardComponent implements OnInit {
                 ) {
                 this.loading = false;
             }
+            else
+            this.loading = false;
         });
 }
   ngOnInit() {

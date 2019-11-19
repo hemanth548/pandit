@@ -11,89 +11,90 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./agentcategories.component.css']
 })
 export class AgentcategoriesComponent implements OnInit, OnDestroy {
-   
+
   panelOpenState = false;
 
-  url: any = "http://192.168.1.55:3040/api/services/getCategory ";
   resultt: any;
-  resultt2: any;
   term: any;
   p: any;
   loading = true;
-  r1: any;
-  rc1: any;
-  r2: any;
-  rc2: any;
-  r3: any;
-  rc3: any;
-  activeTabIndex: any;
-  showTabs1: boolean;
-  showTabs2: boolean;
-  randomItem: any;
-  length:any;
-  rc111: any;
   rc11: any;
   rc22: any;
-  rc222: any;
   rc33: any;
+  rc111: any;
+  rc222: any;
   rc333: any;
+
   private ngUnsubscribe: Subject<any> = new Subject();
 
-  constructor(private ht: HttpClient, private titleService: Title, private service:AuthService) {
+  constructor(private ht: HttpClient, private titleService: Title, private service: AuthService) {
     const newTitle = "Pooja Categories"
     this.titleService.setTitle(newTitle);
+    let url: any = "http://192.168.1.55:3040/api/services/getCategory ";
+    this.getCategories(url);
+
   }
 
   ngOnInit() {
-    this.getCategories();
     this.getPoojaCat();
     this.getYagnaCat();
     this.getKarmaCat();
   }
 
-  getPoojaCat(){
-    this.service.getCategories(1001)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(resp=>{
-      this.r1 = resp,
-      this.rc1 = this.r1.data,
-      this.rc11 = this.rc1.slice(0,this.rc1.length/2),
-      this.rc111 = this.rc1.slice(this.rc1.length/2,this.rc1.length)
+  getPoojaCat() {
+    let r1: any;
+    let rc1: any;
 
-    });
+    this.service.getCategories(1001)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(resp => {
+        r1 = resp,
+          rc1 = r1.data,
+          this.rc11 = rc1.slice(0, rc1.length / 2),
+          this.rc111 = rc1.slice(rc1.length / 2, rc1.length)
+
+      });
   }
-  getYagnaCat(){
+  getYagnaCat() {
+    let r2: any;
+    let rc2: any;
     this.service.getCategories(1002)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(resp=>{
-      this.r2 = resp,
-      this.rc2 = this.r2.data,
-      this.rc22 = this.rc2.slice(0,this.rc2.length/2),
-      this.rc222 = this.rc2.slice(this.rc2.length/2,this.rc2.length)
-    });
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(resp => {
+        r2 = resp,
+          rc2 = r2.data,
+          this.rc22 = rc2.slice(0, rc2.length / 2),
+          this.rc222 = rc2.slice(rc2.length / 2, rc2.length)
+      });
   }
-  getKarmaCat(){
+  getKarmaCat() {
+
+
+    let r3: any;
+    let rc3: any;
     this.service.getCategories(1003)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(resp=>{
-      this.r3 = resp,
-      this.rc3 = this.r3.data,
-      this.rc33 = this.rc3.slice(0,this.rc3.length/2),
-      this.rc333 = this.rc3.slice(this.rc3.length/2,this.rc3.length),
-      this.loading = false
-  })
-}
-getCategories(){
-  this.ht.get(this.url)
-  .pipe(takeUntil(this.ngUnsubscribe))
-  .subscribe(resp => {
-    this.resultt2 = resp;
-    this.resultt = this.resultt2.data,
-      this.loading = false
-  })
-}
-ngOnDestroy(): any {
-  this.ngUnsubscribe.next();
-  this.ngUnsubscribe.complete();
-}
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(resp => {
+        r3 = resp,
+          rc3 = r3.data,
+          this.rc33 = rc3.slice(0, rc3.length / 2),
+          this.rc333 = rc3.slice(rc3.length / 2, rc3.length),
+          this.loading = false
+      })
+  }
+  getCategories(url) {
+    let resultt2: any;
+
+    this.ht.get(url)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(resp => {
+        resultt2 = resp;
+        this.resultt = resultt2.data,
+          this.loading = false
+      })
+  }
+  ngOnDestroy(): any {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 }

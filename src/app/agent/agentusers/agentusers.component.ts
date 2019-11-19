@@ -23,11 +23,8 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
 }
   pandit_id: any;
-  fname: any;
-  agent_id: any;
 
   result: any;
-  result2: any;
 
   term1: any;
   term2: any;
@@ -36,26 +33,18 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   f:FormGroup;
   moreDetails:boolean;
 
-  result3: any;
   getresult: any;
-  bookingres1: any;
   bookingdata: any;
-  categoryres1: any;
-  categorydata: any;
   matTabChangeValue: boolean;
   p: any;
   p2: any;
-  loading: any;
+  loading: boolean;
   verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
-
-  truePandit: any = 1;
-  falsePandit: any = 0;
 
   constructor(private location: Location, private activatedRoute: ActivatedRoute, private titleService: Title, private fb: FormBuilder, private toastr: ToastrManager, private service: AuthService,private ht: HttpClient) {
     this.pandit_id = this.activatedRoute.snapshot.params.pandit_id;
     const newTitle = "Pandit Profile - " + this.pandit_id;
     this.titleService.setTitle(newTitle);
-    this.loading = true;
     this.getPanditServices(this.pandit_id);
     this.getPanditDetails(this.pandit_id);
    }
@@ -75,7 +64,7 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   verifyPandit(pandit_id: any, isVerified: any) {
     pandit_id = this.pandit_id,
     this.loading = true,
-    isVerified = this.truePandit,
+    isVerified = 1,
     this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(respToVerify => {
       this.getPanditDetails(pandit_id);
       this.verifiedToaster()
@@ -83,7 +72,7 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   }
   rejectPandit(pandit_id: any, isVerified: any) {
     pandit_id = this.pandit_id,
-    isVerified = this.falsePandit,
+    isVerified = 0,
     this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(resp => {
       this.getPanditDetails(pandit_id);
       this.rejectedToaster()
@@ -126,19 +115,25 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   
 
   getPanditServices(pandit_id:any){
+    this.loading = true;
+    let result2: any;
+
   this.service.getPanditServices(pandit_id).subscribe(resp => {
-    this.result2 = resp,
-      this.result = this.result2.data
+    result2 = resp,
+      this.result = result2.data
     },
     err=>{
       this.dangerToaster2()
     })
+    this.loading = false;
   }
 
   getPanditDetails(pandit_id) {
+    this.loading = true;
+    let result3: any;
     this.service.getPanditDetails(pandit_id).subscribe(resp => {
-        this.result3 = resp;
-        this.getresult = this.result3.data
+        result3 = resp;
+        this.getresult = result3.data
       },
       err=>{
         this.dangerToaster2()
@@ -164,10 +159,11 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   }
 
   getPanditBookings(pandit_id){
+    let bookingres1: any;
     this.loading = true;
     this.service.getPanditBookings(pandit_id).subscribe(resp => {
-      this.bookingres1 = resp,
-      this.bookingdata = this.bookingres1.data,
+      bookingres1 = resp,
+      this.bookingdata = bookingres1.data,
       this.matTabChangeValue = true
     },
     err=>{

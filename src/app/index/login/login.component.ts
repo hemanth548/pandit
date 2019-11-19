@@ -10,9 +10,8 @@ import { ToastrManager } from 'ng6-toastr-notifications';
 import { MatTabChangeEvent } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { HttpResponse } from '@angular/common/http';
-declare var require: any
 declare var $: any;
-var capsLock = require("capslock");
+
 
 
 @Component({
@@ -24,10 +23,9 @@ var capsLock = require("capslock");
 export class LoginComponent implements OnInit {
 
   loading = false;
-  val = false;
+  val:boolean = false;
   valf: boolean = true;
   val2: boolean = false;
-  caps: any;
   TrafficLoginForm: FormGroup;
   PurohitRegisterForm: FormGroup;
   ff: FormGroup;
@@ -35,29 +33,14 @@ export class LoginComponent implements OnInit {
   submitted = false;
   submitstatus = false;
   res: any;
+  roll: any;
 
   constructor(private toastr: ToastrManager, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
     
     const newTitle = "Purohit - Web Platform for Puja and Poojari Bookings";
     this.titleService.setTitle(newTitle);
-
-    capsLock.observe(function (status) {
-
-      this.caps = status;
-      if (this.caps == true) {
-        window.alert("Warning! Caps Lock is ON");
-      }
-    });
-
-
-    $(window).on('load', function () {
-      setTimeout(function () {
-        $('#adModal').modal();
-      }, 4000);
-    });
   }
 
-  roll
   onChange(s) {
     this.roll = s.value;
     if (this.roll == "Agent") {
@@ -152,75 +135,38 @@ export class LoginComponent implements OnInit {
       if (this.roll == 'Purohit') {
         (await this.authService.purohitregisterAction(formData)).subscribe(
           (res: HttpResponse<any>) => {
-            Swal.fire({
-              title: 'Registration Successful ' + formData.fname + "\n Please Login as Purohit",
-              type: 'success',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false
-            })
 
+            this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
           },
           (err: HttpResponse<any>) => {
-            Swal.fire({
-              title: '<span style="color:red;font-size:20px;">Registration UnSuccessful ' + formData.fname + "\n already registered user</span>",
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false
-            })
-
+            this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
           }
 
         );
         this.loading = false;
       }
       if (this.roll == 'Yajman') {
+        this.loading = true;
         (await this.authService.yajmanRegisterAction(formData)).subscribe(
           (res: HttpResponse<any>) => {
-            this.loading = false;
-            Swal.fire({
-              title: 'Registration Successful ' + formData.fname + "\n Please Login for Yajman",
-              type: 'success',
-              timer: 2000,
-              confirmButtonText: 'OK'
-            })
-
+            this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
           },
           (err: HttpResponse<any>) => {
             this.loading = false;
-            Swal.fire({
-              title: '<span style="color:red;font-size:20px;">Registration UnSuccessful ' + formData.fname + "</span>",
-              type: 'warning',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false
-            })
-
+            this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
           }
         );
+        this.loading = false;
       }
       if (this.roll == 'Agent') {
+        this.loading = true;
+
         (await this.authService.agentregisterAction(formData)).subscribe(
           (res: HttpResponse<any>) => {
-            Swal.fire({
-              title: 'Registration Successful ' + formData.fname + "\n Please Login as Agent",
-              type: 'success',
-              timer: 2000,
-              customClass: 'swal-height',
-              showConfirmButton: false
-            })
-
+            this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
           },
           (err: HttpResponse<any>) => {
-            Swal.fire({
-              title: '<span style="color:red;font-size:20px;"><p>Note: City is Mandatory</p></span>\n',
-              type: 'warning',
-              timer: 3000,
-              customClass: 'swal-height2',
-              showConfirmButton: false
-            })
-
+            this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
           }
 
 

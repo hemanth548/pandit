@@ -27,15 +27,11 @@ export class AgentprofileComponent implements OnInit, OnDestroy  {
   f: FormGroup;
   formadd: FormGroup;
   result: any;
-  result2: any;
-
   res: any;
-  res2: any;
   k: any;
   loading = true;
 
-  fname: any;
-  agent_id: any;
+
 
   p:any
 
@@ -45,9 +41,10 @@ export class AgentprofileComponent implements OnInit, OnDestroy  {
     this.ngUnsubscribe.complete();
   }
   constructor(private ht: HttpClient, private fb: FormBuilder, private titleService: Title, private toastr: ToastrManager) {
-    this.fname = sessionStorage.getItem("fname");
-    this.agent_id = sessionStorage.getItem("agent_id");
-    const newTitle = "Services of " + this.fname.toUpperCase() + " : " + this.agent_id;
+
+    const fname = sessionStorage.getItem("fname");
+    const agent_id = sessionStorage.getItem("agent_id");
+    const newTitle = "Services of " + fname.toUpperCase() + " : " + agent_id;
     this.titleService.setTitle(newTitle);
   }
 
@@ -82,20 +79,22 @@ export class AgentprofileComponent implements OnInit, OnDestroy  {
 
   }
   getAllServices() {
+    let res2: any;
     this.ht.get(this.getAllServicesurl)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(res => {
-      this.res2 = res;
-      this.res = this.res2.data;
+      res2 = res;
+      this.res = res2.data;
       this.loading = false
     });
   }
   getCategory(){
+    let result2: any;
     this.ht.get(this.getcategoryurl)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(res => 
-      { this.result2 = res,
-        this.result = this.result2.data
+      { result2 = res,
+        this.result = result2.data
        });
   }
   funs(formdata) {

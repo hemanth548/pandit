@@ -8,10 +8,6 @@
    overflow: auto;
    resize: vertical;
  }
- .app-nav, .app-menu, .treeview-menu {
-   padding-left: 0;
-   list-style: none;
- }
  
  .ngx-pagination .current {
    padding: 0.1875rem 0.625rem;
@@ -32,14 +28,4 @@
   }
   table{
    margin-top: -10px;
-  }
-  .swal-height2 {
-    height: 50vh;
-    width:60vh;
-    border:5px thin black;
-  }
-  .swal-height3 {
-    height: 30vh;
-    width:80vh;
-    border:5px thin black;
   }

@@ -239,7 +239,7 @@ overflow: scroll;
   overflow-y: hidden; 
 }
 .fa-download{
-  font-size: 13px;
+  font-size: 1.8em !important;
   opacity: 1;
   color:black;
 }

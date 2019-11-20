@@ -68,11 +68,12 @@ export class LoginComponent implements OnInit {
 
         },
         (err: HttpResponse<any>) => {
-          if (err.status == 400)
+          if (err.status == 400){
            this.toastr.errorToastr("<span style='font-size:16px;'>Invalid Credentials</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
-          else
+          }
+          else{
            this.toastr.errorToastr("<span style='font-size:16px;'>Seems Something wrong, Please try again</span>", "Oops!", {enableHTML: true, animate:'slideFromRight'});
-          this.loading = false;
+           } this.loading = false;
         }
       )
     }
@@ -135,11 +136,14 @@ export class LoginComponent implements OnInit {
       if (this.roll == 'Purohit') {
         (await this.authService.purohitregisterAction(formData)).subscribe(
           (res: HttpResponse<any>) => {
-
             this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
           },
           (err: HttpResponse<any>) => {
-            this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
+            if(err.status == 400){
+              this.toastr.errorToastr("<span style='font-size:16px;'>Account exist already</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
+            }
+            else
+              this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
           }
 
         );
@@ -152,7 +156,10 @@ export class LoginComponent implements OnInit {
             this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
           },
           (err: HttpResponse<any>) => {
-            this.loading = false;
+            if(err.status == 400){
+              this.toastr.errorToastr("<span style='font-size:16px;'>Account exist already</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
+            }
+            else
             this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
           }
         );
@@ -166,11 +173,12 @@ export class LoginComponent implements OnInit {
             this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
           },
           (err: HttpResponse<any>) => {
-            this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
-          }
-
-
-        );
+              if(err.status == 400){
+                this.toastr.errorToastr("<span style='font-size:16px;'>Account exist already</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
+              }
+              else
+                this.toastr.errorToastr("<span style='font-size:16px;'>Registration Unsuccessful</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
+          });
         this.loading = false;
       }
     }

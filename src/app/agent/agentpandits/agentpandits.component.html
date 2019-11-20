@@ -46,7 +46,32 @@
                       <th colspan="2">Suhasini Cost</th>
                     </tr>
                   </thead>
-                  <div *ngIf="loading">
+                
+                  <tbody>
+            
+                    <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: 6, currentPage: p1}" (click)="navigatoToDetails(a)" title="click to see pandit details">
+                      <td colspan="2">{{a.pandit_id}}</td>
+                      <td colspan="2">{{a.fname}}</td>
+                      <td colspan="2" *ngIf="a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
+                      <td colspan="2" *ngIf="!a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="./assets/usericon.png"></td>
+                      <td colspan="2">{{a.mobile}}</td>
+                      <td colspan="2">{{a.addressproofurl}}</td>
+                      <td colspan="2">{{a.email}}</td>
+                      <td colspan="2">{{a.sakha}}</td>
+                      <td colspan="2">{{a.gotra}}</td>
+                      <td colspan="2">{{a.veda}}</td>
+                      <td colspan="2">{{a.region}}</td>
+                      <td colspan="2">{{a.experience}}</td>
+                      <td colspan="2">{{a.degree}}</td>
+                      <td colspan="2">{{a.university}}</td>
+                      <td colspan="2">{{a.specialization}}</td>
+                      <td colspan="2">{{a.location}}</td>
+                      <td colspan="2">{{a.bhokta_cost}}</td>
+                      <td colspan="2">{{a.suhasini_cost}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="col-6 text-center mx-auto" *ngIf="loading">
                     <div class="col-4 mx-auto">
                       <div class="lds-css ng-scope">
                         <div class="lds-spinner" style="width:100%;height:100%">
@@ -179,30 +204,6 @@
                       </div>
                     </div>
                   </div>
-                  <tbody>
-            
-                    <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: 6, currentPage: p1}" (click)="navigatoToDetails(a)" title="click to see pandit details">
-                      <td colspan="2">{{a.pandit_id}}</td>
-                      <td colspan="2">{{a.fname}}</td>
-                      <td colspan="2" *ngIf="a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
-                      <td colspan="2" *ngIf="!a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="./assets/usericon.png"></td>
-                      <td colspan="2">{{a.mobile}}</td>
-                      <td colspan="2">{{a.addressproofurl}}</td>
-                      <td colspan="2">{{a.email}}</td>
-                      <td colspan="2">{{a.sakha}}</td>
-                      <td colspan="2">{{a.gotra}}</td>
-                      <td colspan="2">{{a.veda}}</td>
-                      <td colspan="2">{{a.region}}</td>
-                      <td colspan="2">{{a.experience}}</td>
-                      <td colspan="2">{{a.degree}}</td>
-                      <td colspan="2">{{a.university}}</td>
-                      <td colspan="2">{{a.specialization}}</td>
-                      <td colspan="2">{{a.location}}</td>
-                      <td colspan="2">{{a.bhokta_cost}}</td>
-                      <td colspan="2">{{a.suhasini_cost}}</td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
               <div class="row container">
             
@@ -251,7 +252,43 @@
               <th>Suhasini cost</th>
               <th>Status</th>
             </thead>
-            <div *ngIf="loading">
+            
+            <tbody>
+            <tr *ngFor="let a of result | filter:termsearch2" (click)="navigatoToDetails(a)" title="click to see pandit details">
+              <td *ngIf="a.isVerified">{{a.pandit_id}}</td>
+              <td *ngIf="a.isVerified">{{a.fname}}</td>    
+              <td *ngIf="a.isVerified && a.idproofurl">
+                <div>
+                  <img style="width:50px;height:50px"class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                </div>
+              </td>
+              <td *ngIf="a.isVerified && !a.idproofurl">
+                <div>
+                  <img style="width:50px;height:50px" class="pandit-image img-responsive" src="./assets/usericon.png">
+                </div>
+              </td>
+              <td *ngIf="a.isVerified">{{a.mobile}}</td>
+              <td *ngIf="a.isVerified">{{a.addressproofurl}}</td>
+              <td *ngIf="a.isVerified">{{a.email}}</td>
+              <td *ngIf="a.isVerified">{{a.sakha}}</td>
+              <td *ngIf="a.isVerified">{{a.gotra}}</td>
+              <td *ngIf="a.isVerified">{{a.veda}}</td>
+              <td *ngIf="a.isVerified">{{a.region}}</td>
+              <td *ngIf="a.isVerified">{{a.experience}}</td>
+              <td *ngIf="a.isVerified">{{a.degree}}</td>
+              <td *ngIf="a.isVerified">{{a.university}}</td>
+              <td *ngIf="a.isVerified">{{a.specialization}}</td>
+              <td *ngIf="a.isVerified">{{a.location}}</td>
+              <td *ngIf="a.isVerified">{{a.bhokta_cost}}</td>
+              <td *ngIf="a.isVerified">{{a.suhasini_cost}}</td>
+              <td *ngIf="a.isVerified">
+                  <button style="background-color: red;" class="btn"
+                  (click)="rejectPandit(a.pandit_id,a.isVerified)">&nbsp;&nbsp;Reject&nbsp;&nbsp;</button>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+          <div class="col-6 text-center mx-auto" *ngIf="loading">
               <div class="col-4 mx-auto">
                 <div class="lds-css ng-scope">
                   <div class="lds-spinner" style="width:100%;height:100%">
@@ -384,41 +421,6 @@
                 </div>
               </div>
             </div>
-            <tbody>
-            <tr *ngFor="let a of result | filter:termsearch2" (click)="navigatoToDetails(a)" title="click to see pandit details">
-              <td *ngIf="a.isVerified">{{a.pandit_id}}</td>
-              <td *ngIf="a.isVerified">{{a.fname}}</td>    
-              <td *ngIf="a.isVerified && a.idproofurl">
-                <div>
-                  <img style="width:50px;height:50px"class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
-                </div>
-              </td>
-              <td *ngIf="a.isVerified && !a.idproofurl">
-                <div>
-                  <img style="width:50px;height:50px" class="pandit-image img-responsive" src="./assets/usericon.png">
-                </div>
-              </td>
-              <td *ngIf="a.isVerified">{{a.mobile}}</td>
-              <td *ngIf="a.isVerified">{{a.addressproofurl}}</td>
-              <td *ngIf="a.isVerified">{{a.email}}</td>
-              <td *ngIf="a.isVerified">{{a.sakha}}</td>
-              <td *ngIf="a.isVerified">{{a.gotra}}</td>
-              <td *ngIf="a.isVerified">{{a.veda}}</td>
-              <td *ngIf="a.isVerified">{{a.region}}</td>
-              <td *ngIf="a.isVerified">{{a.experience}}</td>
-              <td *ngIf="a.isVerified">{{a.degree}}</td>
-              <td *ngIf="a.isVerified">{{a.university}}</td>
-              <td *ngIf="a.isVerified">{{a.specialization}}</td>
-              <td *ngIf="a.isVerified">{{a.location}}</td>
-              <td *ngIf="a.isVerified">{{a.bhokta_cost}}</td>
-              <td *ngIf="a.isVerified">{{a.suhasini_cost}}</td>
-              <td *ngIf="a.isVerified">
-                  <button style="background-color: red;" class="btn"
-                  (click)="rejectPandit(a.pandit_id,a.isVerified)">&nbsp;&nbsp;Reject&nbsp;&nbsp;</button>
-              </td>
-            </tr>
-          </tbody>
-          </table>
         </div>
         <br>
       </mat-tab>
@@ -466,7 +468,44 @@
               <th>Suhasini Cost</th>
               <th>Status</th>
             </thead>
-            <div *ngIf="loading">
+           
+          <tbody>
+            <tr *ngFor="let a of result | filter:termsearch3 " (click)="navigatoToDetails(a)" title="click to see pandit details">
+              <td *ngIf="!a.isVerified">{{a.pandit_id}}</td>
+              <td *ngIf="!a.isVerified">{{a.fname}}</td>
+              <td *ngIf="a.idproofurl && !a.isVerified">
+                  <div>
+                    <img style="width:50px;height:50px"class="pandit-image img-fluid img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
+                  </div>
+                </td>
+                <td *ngIf="!a.idproofurl && !a.isVerified">
+                  <div>
+                    <img style="width:50px;height:50px" class="pandit-image img-fluid img-responsive" src="./assets/usericon.png">
+                  </div>
+                </td>
+              <td *ngIf="!a.isVerified">{{a.mobile}}</td>
+              <td *ngIf="!a.isVerified">{{a.addressproofurl}}</td>
+              <td *ngIf="!a.isVerified">{{a.email}}</td>
+              <td *ngIf="!a.isVerified">{{a.sakha}}</td>
+              <td *ngIf="!a.isVerified">{{a.gotra}}</td>
+              <td *ngIf="!a.isVerified">{{a.veda}}</td>
+              <td *ngIf="!a.isVerified">{{a.region}}</td>
+              <td *ngIf="!a.isVerified">{{a.experience}}</td>
+              <td *ngIf="!a.isVerified">{{a.degree}}</td>
+              <td *ngIf="!a.isVerified">{{a.university}}</td>
+              <td *ngIf="!a.isVerified">{{a.specialization}}</td>
+              <td *ngIf="!a.isVerified">{{a.location}}</td>
+              <td *ngIf="!a.isVerified">{{a.bhokta_cost}}</td>
+              <td *ngIf="!a.isVerified">{{a.suhasini_cost}}</td>
+              <td *ngIf="!a.isVerified">
+                <button style="background-color: green;" class="btn"
+                  (click)="verifyPandit(a.pandit_id, a.isVerified)">Approve</button>
+               
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="col-6 text-center mx-auto"  *ngIf="loading">
               <div class="col-4 mx-auto">
                 <div class="lds-css ng-scope">
                   <div class="lds-spinner" style="width:100%;height:100%">
@@ -599,42 +638,6 @@
                 </div>
               </div>
             </div>
-          <tbody>
-            <tr *ngFor="let a of result | filter:termsearch3 " (click)="navigatoToDetails(a)" title="click to see pandit details">
-              <td *ngIf="!a.isVerified">{{a.pandit_id}}</td>
-              <td *ngIf="!a.isVerified">{{a.fname}}</td>
-              <td *ngIf="a.idproofurl && !a.isVerified">
-                  <div>
-                    <img style="width:50px;height:50px"class="pandit-image img-fluid img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}">
-                  </div>
-                </td>
-                <td *ngIf="!a.idproofurl && !a.isVerified">
-                  <div>
-                    <img style="width:50px;height:50px" class="pandit-image img-fluid img-responsive" src="./assets/usericon.png">
-                  </div>
-                </td>
-              <td *ngIf="!a.isVerified">{{a.mobile}}</td>
-              <td *ngIf="!a.isVerified">{{a.addressproofurl}}</td>
-              <td *ngIf="!a.isVerified">{{a.email}}</td>
-              <td *ngIf="!a.isVerified">{{a.sakha}}</td>
-              <td *ngIf="!a.isVerified">{{a.gotra}}</td>
-              <td *ngIf="!a.isVerified">{{a.veda}}</td>
-              <td *ngIf="!a.isVerified">{{a.region}}</td>
-              <td *ngIf="!a.isVerified">{{a.experience}}</td>
-              <td *ngIf="!a.isVerified">{{a.degree}}</td>
-              <td *ngIf="!a.isVerified">{{a.university}}</td>
-              <td *ngIf="!a.isVerified">{{a.specialization}}</td>
-              <td *ngIf="!a.isVerified">{{a.location}}</td>
-              <td *ngIf="!a.isVerified">{{a.bhokta_cost}}</td>
-              <td *ngIf="!a.isVerified">{{a.suhasini_cost}}</td>
-              <td *ngIf="!a.isVerified">
-                <button style="background-color: green;" class="btn"
-                  (click)="verifyPandit(a.pandit_id, a.isVerified)">Approve</button>
-               
-              </td>
-            </tr>
-            </tbody>
-          </table>
         </div>
 
       </mat-tab>

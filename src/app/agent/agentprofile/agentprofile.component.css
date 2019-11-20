@@ -93,23 +93,14 @@ transition: .3s ease-in;
   background-color:rgba(139, 129, 129, 0.671);
 }
 
-.btnSave{
-  color:white;
+.btnSave, .btnDelete{
   background-color: orangered;
+  color:white;
   font-size: 16px;
   font-family: 'Syntax';
-  padding:12px 25px;
-  border-radius: 5px;
+border-radius:5px;
 }
-.btnDelete{
-  color:white;
-  background-color: orangered;
-  font-size: 16px;
-  font-family: 'Syntax';
-  padding:12px 25px;
-  border-radius: 5px;
 
-}
 p{
   text-align: left;
   font-family: 'Syntax';

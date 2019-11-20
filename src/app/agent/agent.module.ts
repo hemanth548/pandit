@@ -16,8 +16,6 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { NgxLoadingModule } from 'ngx-loading';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 
@@ -35,7 +33,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     MDBBootstrapModule,
-    MatPaginatorModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -46,7 +43,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     RouterModule,
     MatTabsModule,
     MatIconModule,
-    NgxLoadingModule.forRoot({ }),
     MatExpansionModule
 
 

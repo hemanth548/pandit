@@ -82,7 +82,7 @@
             </div>
           </div>
           <div class="col-12 text-center">
-            <button type="submit"class="btnSave" mdbBtn mdbWavesEffect name="submit" [disabled]="f.invalid || f.untouched" (click)="actup(f.value)" data-dismiss="modal">Save changes</button>
+            <button type="submit"class="btnSave" mdbBtn mdbWavesEffect name="submit" [disabled]="f.invalid" (click)="actup(f.value)" data-dismiss="modal">Save changes</button>
             <button class="btnDelete" mdbBtn mdbWavesEffect (click)="del(f.value)" data-dismiss="modal">delete</button>
           </div>
         </form>
@@ -222,10 +222,22 @@
           <th scope="col">Duration</th>
           <th scope="col">Description</th>
           <th scope="col">Samagri</th>
-          <!-- <th scope="col">Delete</th> -->
         </tr>
       </thead>
-      <div *ngIf="loading">
+      
+      <tbody>
+        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: 10, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" title="click to see edit service details">
+          <td scope="row">{{a.category_id}}</td>
+          <td scope="row">{{a.service_id}}</td>
+          <td scope="row">{{a.noofpandits}}</td>
+          <td scope="row">{{a.cost}}</td>
+          <td scope="row">{{a.duration}}</td>
+          <td scope="row">{{a.description}}</td>
+          <td scope="row">{{a.samagri}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-6 text-center mx-auto"  *ngIf="loading">
         <div class="col-4 mx-auto">
           <div class="lds-css ng-scope">
             <div class="lds-spinner" style="width:100%;height:100%">
@@ -358,19 +370,5 @@
           </div>
         </div>
       </div>
-      <tbody>
-        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: 10, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" title="click to see edit service details">
-          <td scope="row">{{a.category_id}}</td>
-          <td scope="row">{{a.service_id}}</td>
-          <td scope="row">{{a.noofpandits}}</td>
-          <td scope="row">{{a.cost}}</td>
-          <td scope="row">{{a.duration}}</td>
-          <td scope="row">{{a.description}}</td>
-          <td scope="row">{{a.samagri}}</td>
-          <!-- <td class="text-center"><span title="delete" (click)="del(a)" class="fa fa-trash " style="color:red;"></span></td> -->
-        </tr>
-      </tbody>
-    </table>
-
   </div>
 </div>

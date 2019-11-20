@@ -87,7 +87,6 @@ th {
 
   .btnSave{
     background-color: orangered;
-    opacity:0.9;
     color:white;
     font-size: 16px;
     font-family: 'Syntax';
@@ -130,11 +129,7 @@ th {
   span:hover{
     cursor: pointer;
   }
-  /* .btn{
-    padding: 10px 14px;
-      font-size: 17px;
-      font-family: "Syntax";
-    } */
+
     .back{
       font-size:17px;
       font-family: "Syntax";
@@ -157,11 +152,7 @@ th {
   opacity:0.7;
 overflow: scroll;
 }
-.fa{
-  font-size: 18px;
-  opacity:0.7;
 
-}
 .card-userDetails{
   padding:5px;
 }
@@ -171,10 +162,6 @@ overflow: scroll;
 .namesOrg{
   font-size: 18px;
   font-family: "Syntax";
-}
-.moreDetailsArrow{
-  border-radius: 50%;
-  padding:12px;
 }
 
 @keyframes slideInUp {
@@ -243,12 +230,24 @@ overflow: scroll;
 .mat-icon{
   font-size: 24px;
 }
-.pdf{
-  border-radius: 55%;
-  padding:10px;
-  background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664) );
-  font-size: 14px;
+  .pdf{
+    border-radius: 55%;
+    padding:8px;
+    background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664) );
 }
 .body{
   overflow-y: hidden; 
+}
+.fa-download{
+  font-size: 13px;
+  opacity: 1;
+  color:black;
+}
+.fa-arrow-circle-down, .fa-arrow-circle-up{
+  color:orangered;
+  font-size: 45px;
+}
+.fa-check, .fa-times{
+  font-size: 16px;
+  color:white;
 }

@@ -1,7 +1,7 @@
 <section class="container-fluid">
   <div class="row d-flex">
     <div routerLink="/agentbooking" class="card1 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-      <div class="text-center name"><strong class="text-uppercase">New bookings</strong>
+      <div class="text-center name"><strong class="text-uppercase">New Bookings</strong>
         <div class="text-center count">{{resp.newBooking}}</div>
       </div>
     </div>
@@ -37,3 +37,136 @@
     </div>
   </div>
 </section>
+<div class="col-6 text-center mx-auto" *ngIf="loading">
+    <div class="col-4 mx-auto">
+      <div class="lds-css ng-scope">
+        <div class="lds-spinner" style="width:100%;height:100%">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <style type="text/css">
+          @keyframes lds-spinner {
+            0% {
+              opacity: 1;
+            }
+  
+            100% {
+              opacity: 0;
+            }
+          }
+  
+          @-webkit-keyframes lds-spinner {
+            0% {
+              opacity: 1;
+            }
+  
+            100% {
+              opacity: 0;
+            }
+          }
+  
+          .lds-spinner {
+            position: relative;
+          }
+  
+          .lds-spinner div {
+            top: 45px;
+            position: absolute;
+            -webkit-animation: lds-spinner linear 1.3s infinite;
+            animation: lds-spinner linear 1.3s infinite;
+            background: #fd6a0fea;
+            width: 12px;
+            height: 30px;
+            border-radius: 40%;
+            -webkit-transform-origin: 0px 55px;
+            transform-origin: 0px 55px;
+          }
+  
+          .lds-spinner div:nth-child(1) {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-animation-delay: -1.17s;
+            animation-delay: -1.17s;
+          }
+  
+          .lds-spinner div:nth-child(2) {
+            -webkit-transform: rotate(36deg);
+            transform: rotate(36deg);
+            -webkit-animation-delay: -1.04s;
+            animation-delay: -1.04s;
+          }
+  
+          .lds-spinner div:nth-child(3) {
+            -webkit-transform: rotate(72deg);
+            transform: rotate(72deg);
+            -webkit-animation-delay: -0.91s;
+            animation-delay: -0.91s;
+          }
+  
+          .lds-spinner div:nth-child(4) {
+            -webkit-transform: rotate(108deg);
+            transform: rotate(108deg);
+            -webkit-animation-delay: -0.78s;
+            animation-delay: -0.78s;
+          }
+  
+          .lds-spinner div:nth-child(5) {
+            -webkit-transform: rotate(144deg);
+            transform: rotate(144deg);
+            -webkit-animation-delay: -0.65s;
+            animation-delay: -0.65s;
+          }
+  
+          .lds-spinner div:nth-child(6) {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            -webkit-animation-delay: -0.52s;
+            animation-delay: -0.52s;
+          }
+  
+          .lds-spinner div:nth-child(7) {
+            -webkit-transform: rotate(216deg);
+            transform: rotate(216deg);
+            -webkit-animation-delay: -0.39s;
+            animation-delay: -0.39s;
+          }
+  
+          .lds-spinner div:nth-child(8) {
+            -webkit-transform: rotate(252deg);
+            transform: rotate(252deg);
+            -webkit-animation-delay: -0.26s;
+            animation-delay: -0.26s;
+          }
+  
+          .lds-spinner div:nth-child(9) {
+            -webkit-transform: rotate(288deg);
+            transform: rotate(288deg);
+            -webkit-animation-delay: -0.13s;
+            animation-delay: -0.13s;
+          }
+  
+          .lds-spinner div:nth-child(10) {
+            -webkit-transform: rotate(324deg);
+            transform: rotate(324deg);
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+          }
+  
+          .lds-spinner {
+            width: 200px !important;
+            height: 200px !important;
+            -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+            transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+          }
+        </style>
+      </div>
+    </div>
+  </div>

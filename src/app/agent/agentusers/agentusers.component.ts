@@ -62,8 +62,8 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     
   }
   verifyPandit(pandit_id: any, isVerified: any) {
-    pandit_id = this.pandit_id,
     this.loading = true,
+    pandit_id = this.pandit_id,
     isVerified = 1,
     this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(respToVerify => {
       this.getPanditDetails(pandit_id);
@@ -71,6 +71,7 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     })
   }
   rejectPandit(pandit_id: any, isVerified: any) {
+    this.loading = true,
     pandit_id = this.pandit_id,
     isVerified = 0,
     this.ht.patch(this.verifyPanditURL, { isVerified, pandit_id }).subscribe(resp => {
@@ -79,10 +80,12 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     })
   }
   verifiedPanditToaster() {
+    this.loading = false;
     this.toastr.successToastr("<span style='font-size:16px;'>Pandit Verified Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
 
   rejectedToaster() {
+    this.loading = false;
     this.toastr.successToastr("<span style='font-size:16px;'>Pandit Rejected Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
 
@@ -120,12 +123,12 @@ export class AgentusersComponent implements OnInit, OnDestroy {
 
   this.service.getPanditServices(pandit_id).subscribe(resp => {
     result2 = resp,
-      this.result = result2.data
+      this.result = result2.data,    this.loading = false;
+
     },
     err=>{
-      this.dangerToaster2()
+      this.loading = false, this.dangerToaster2() 
     })
-    this.loading = false;
   }
 
   getPanditDetails(pandit_id) {
@@ -133,22 +136,25 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     let result3: any;
     this.service.getPanditDetails(pandit_id).subscribe(resp => {
         result3 = resp;
-        this.getresult = result3.data
+        this.loading = false,
+        this.getresult = result3.data     
+
       },
       err=>{
-        this.dangerToaster2()
+        this.loading = false,this.dangerToaster2()   
+
         })
-        this.loading = false;
     }
 
   act(v) {
    this.loading = true;
     this.service.act(v).subscribe(resp => {
       this.getPanditServices(this.pandit_id),
-      this.verifiedToaster()
+      this.verifiedToaster(),
+      this.loading = false
     },
     err=>{
-      this.dangerToaster()
+      this.loading = false, this.dangerToaster()    
     })
   }
 
@@ -164,23 +170,19 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     this.service.getPanditBookings(pandit_id).subscribe(resp => {
       bookingres1 = resp,
       this.bookingdata = bookingres1.data,
-      this.matTabChangeValue = true
+      this.matTabChangeValue = true,    this.loading = false;
     },
     err=>{
-      this.dangerToaster2()
+      this.loading = false, this.dangerToaster2()   
     })
-    this.loading = false;
   }
   verifiedToaster() {
-    this.loading = false;
     this.toastr.successToastr("<span style='font-size:16px;'>Saved successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }
   dangerToaster() {
-    this.loading = false;
-    this.toastr.successToastr("<span style='font-size:16px;'>Failed to save data</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+    this.toastr.errorToastr("<span style='font-size:16px;'>Failed to save data</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
   }
   dangerToaster2() {
-    this.loading = false;
-    this.toastr.successToastr("<span style='font-size:16px;'>Sorry! Failed to get data</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+    this.toastr.errorToastr("<span style='font-size:16px;'>Sorry! Failed to get data</span>", "Oops !", {enableHTML: true, animate:'slideFromRight'});
   }
 }

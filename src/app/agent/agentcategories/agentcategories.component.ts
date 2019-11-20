@@ -18,6 +18,7 @@ export class AgentcategoriesComponent implements OnInit, OnDestroy {
   term: any;
   p: any;
   loading = true;
+  allCategoryLoading: boolean  = true;
   rc11: any;
   rc22: any;
   rc33: any;
@@ -90,7 +91,7 @@ export class AgentcategoriesComponent implements OnInit, OnDestroy {
       .subscribe(resp => {
         resultt2 = resp;
         this.resultt = resultt2.data,
-          this.loading = false
+          this.allCategoryLoading = false
       })
   }
   ngOnDestroy(): any {

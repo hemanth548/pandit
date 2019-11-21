@@ -1,15 +1,11 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from "@angular/core";
-import { Validators, FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import Swal from 'sweetalert2';
-import { PlatformLocation } from '@angular/common';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { MatTabChangeEvent } from '@angular/material';
-import { Title } from '@angular/platform-browser';
 import { HttpResponse } from '@angular/common/http';
+
 declare var $: any;
 
 
@@ -26,7 +22,7 @@ export class LoginComponent implements OnInit {
   val:boolean = false;
   valf: boolean = true;
   val2: boolean = false;
-  TrafficLoginForm: FormGroup;
+  PurohitLoginForm: FormGroup;
   PurohitRegisterForm: FormGroup;
   ff: FormGroup;
   f: FormGroup;
@@ -35,10 +31,8 @@ export class LoginComponent implements OnInit {
   res: any;
   roll: any;
 
-  constructor(private toastr: ToastrManager, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router, public dialog: MatDialog, private _snackBar: MatSnackBar, private location: PlatformLocation, private titleService: Title) {
-    
-    const newTitle = "Purohit - Web Platform for Puja and Poojari Bookings";
-    this.titleService.setTitle(newTitle);
+  constructor(private toastr: ToastrManager, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router) {
+ 
   }
 
   onChange(s) {
@@ -60,7 +54,6 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("purohitfname", this.res.data.fname);
           sessionStorage.setItem("purohitlname", this.res.data.lname);
           sessionStorage.setItem("purohittoken", this.res.token);
-          sessionStorage.setItem("panditIdProof",this.res.data.idproofurl);
           if (this.res.token) {
             this.routerNavigate.navigate(['purohithome',this.res.data.pandit_id]);
           }
@@ -99,14 +92,13 @@ export class LoginComponent implements OnInit {
     if (this.roll == 'Agent') {
 
       this.authService.agentloginActions(formData).subscribe(res => {
-
         this.res = res;
         sessionStorage.setItem("fname", this.res.data.fname);
         sessionStorage.setItem("lname", this.res.data.lname);
         sessionStorage.setItem("agent_id", this.res.data.agent_id);
         sessionStorage.setItem("token", this.res.token);
         if (this.res.token) {
-          this.routerNavigate.navigate(['agentdashboard', this.res.data.agent_id]);
+          this.routerNavigate.navigate(['agentdashboard', this.res.data.fname, this.res.data.lname, this.res.data.agent_id]);
         }
         this.loading = false;
       },
@@ -167,7 +159,6 @@ export class LoginComponent implements OnInit {
       }
       if (this.roll == 'Agent') {
         this.loading = true;
-
         (await this.authService.agentregisterAction(formData)).subscribe(
           (res: HttpResponse<any>) => {
             this.toastr.successToastr("<span style='font-size:16px;'>Registration Successful</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
@@ -186,22 +177,22 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
 
-    this.TrafficLoginForm = this.fb.group({
-      mobile: [null, [Validators.pattern("[0-9]{10}$"), Validators.required]],
+    this.PurohitLoginForm = this.fb.group({
+      mobile: [null, Validators.required],
       password: [null, Validators.required],
       gender: [null, Validators.required],
 
     })
     this.PurohitRegisterForm = this.fb.group({
-      fname: [null, [Validators.required, Validators.pattern("^[A-Za-z]{3,15}$")]],
-      lname: [null, [Validators.required, Validators.pattern("^[A-Za-z]{3,15}$")]],
-      mobile: [null, [Validators.required, Validators.pattern("[6789][0-9]{9}$")]],
+      fname: [null, [Validators.required, Validators.pattern("^[A-Za-z]{1,25}$")]],
+      lname: [null, [Validators.required, Validators.pattern("^[A-Za-z]{1,25}$")]],
+      mobile: [null, [Validators.required, Validators.pattern("[0-9]{10}$")]],
       email: [null, [Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"), Validators.required]],
       gender: ['Yajman'],
-      city: [null]
+      city: ["Hyderabad"]
     });
     this.ff = this.fb.group({
-      mobile: ['', [Validators.required, Validators.pattern("[6789][0-9]{9}$")]],
+      mobile: [null, [Validators.required, Validators.pattern("[0-9]{10}$")]],
     })
     this.f = this.fb.group({
       ot: [null, [Validators.required, Validators.pattern("[0-9]{6}$")]],

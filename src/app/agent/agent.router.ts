@@ -17,7 +17,7 @@ import { AuthGuard } from '../gaurds/auth.guard';
 export const AgentRoutes: Routes = [{
     path: '', component: AgentdashboardComponent, canActivate: [AuthGuard],
     children: [
-        { path: 'agentdashboard/:agent_id', component: AgentComponent },
+        { path: 'agentdashboard/:fname/:lname/:agent_id', component: AgentComponent },
         { path: 'agent', component: AgentComponent },
         { path: 'agentprofile', component: AgentprofileComponent },
         { path: 'agentpandits', component: AgentpanditsComponent },

@@ -21,7 +21,6 @@ agent_id: any;
     this.lname=sessionStorage.getItem("lname");
     this.agent_id=sessionStorage.getItem("agent_id");
     const newTitle="Dashboard of "+this.fname.toUpperCase( )+" : "+this.agent_id;
-
     this.titleService.setTitle( newTitle );
   }
   ngAfterViewInit() {

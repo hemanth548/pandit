@@ -118,7 +118,7 @@ option{
 
 }
 :disabled{
-  background-color: rgba(0, 0, 0, 0.548);
+  background-color: rgba(0, 0, 0, 0.075);
   font-family: 'Syntax';
 
 }

@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 export const Purohitroutes: Routes = [
     {path:'',component:PurohitComponent,canActivate:[AuthGuard],
     children:[
-    {path:'purohithome',component:HomeComponent},
     {path:'purohithome/:pandit_id',component:HomeComponent},
     {path:'purohitdashboard',component:PurohitdashboardComponent},
     {path:'purohitservices',component:PurohitservicesComponent},

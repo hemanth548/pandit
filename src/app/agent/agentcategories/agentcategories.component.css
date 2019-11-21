@@ -51,10 +51,7 @@ button{
     font-family: "Syntax";
     opacity:1;
   }
-  /* .card{
-    box-shadow: 0 0 0 0 ; 
-    border: 0px solid rgb(243, 151, 117);
-  } */
+
   .fa-long-arrow-right{
     font-size:30px;
   }
@@ -128,7 +125,6 @@ button{
 
 .colorOuterpanel{
   background-color: #f4f2e498;
-  box-shadow: 0px 1px 0 0;
 }
 .colorInnerPanel{
   background-color: rgba(245, 237, 237, 0.342);

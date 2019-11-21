@@ -35,12 +35,12 @@ export class AgentusersComponent implements OnInit, OnDestroy {
 
   getresult: any;
   bookingdata: any;
-  matTabChangeValue: boolean;
+  matTabChangeValue: boolean = true;
   p: any;
   p2: any;
   loading: boolean;
   verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
-
+  selectedIndex: any;
   constructor(private location: Location, private activatedRoute: ActivatedRoute, private titleService: Title, private fb: FormBuilder, private toastr: ToastrManager, private service: AuthService,private ht: HttpClient) {
     this.pandit_id = this.activatedRoute.snapshot.params.pandit_id;
     const newTitle = "Pandit Profile - " + this.pandit_id;
@@ -49,14 +49,13 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     this.getPanditDetails(this.pandit_id);
    }
   ngOnInit() {
-   
     this.moreDetails = false;
     this.f = this.fb.group({
-      'noofpandits': [null, Validators.required],
-      'duration': [null, Validators.required],
-      'cost': [null, Validators.required],
+      'noofpandits': [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,5}$")]],
+      'duration': [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,5}$")]],
+      'cost': [null, [Validators.required, Validators.pattern("^[0123456789]{0,10}$")]],
       'samagri': [null, Validators.required],
-      'samagri_cost': [null, Validators.required],
+      'samagri_cost': [null, [Validators.required, Validators.pattern("^[0123456789]{0,10}$")]],
       'pandit_service_id': [null, Validators.required]
     });
     
@@ -116,7 +115,6 @@ export class AgentusersComponent implements OnInit, OnDestroy {
 
   }
   
-
   getPanditServices(pandit_id:any){
     this.loading = true;
     let result2: any;
@@ -159,18 +157,24 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   }
 
   onLinkClick(){
-    if(this.matTabChangeValue)
+
+    if(this.matTabChangeValue){
+      this.getPanditBookings(this.pandit_id),
+      this.matTabChangeValue = false,
+      this.selectedIndex = 1
+    }
+    else{
       return;
-    this.getPanditBookings(this.pandit_id);
+    }
   }
 
   getPanditBookings(pandit_id){
-    let bookingres1: any;
     this.loading = true;
+    let bookingres1: any;
     this.service.getPanditBookings(pandit_id).subscribe(resp => {
       bookingres1 = resp,
       this.bookingdata = bookingres1.data,
-      this.matTabChangeValue = true,    this.loading = false;
+      this.loading = false;
     },
     err=>{
       this.loading = false, this.dangerToaster2()   

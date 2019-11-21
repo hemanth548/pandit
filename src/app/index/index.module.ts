@@ -9,8 +9,6 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -18,7 +16,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { CountdownModule } from 'ngx-countdown';
 import { RouterModule } from '@angular/router';
 import { NgxLoadingModule } from 'ngx-loading';
-
 
 
 
@@ -38,15 +35,14 @@ import { NgxLoadingModule } from 'ngx-loading';
     MatFormFieldModule,
     BrowserAnimationsModule,
     BrowserModule,
-    MatDialogModule,
     MatBottomSheetModule,
     MDBBootstrapModule,
     MatTabsModule,
     MatIconModule,
     CountdownModule,
     RouterModule,
-    MatSnackBarModule,
-    NgxLoadingModule.forRoot({ })
+    NgxLoadingModule.forRoot({ }),
+
   ],
   entryComponents: [
 ],

@@ -24,14 +24,7 @@ export class PurohitComponent implements OnInit {
 
   constructor(private authService: AuthService, private routerNavigate: Router, private titleService: Title) {
     this.purohitfname = localStorage.getItem("purohitfname");
-    this.purohitlname = localStorage.getItem("purohitlname");
-    this.purohitemail = localStorage.getItem("purohitemail");
-    this.purohitpandit_id = localStorage.getItem("purohitpandit_id");
-    this.purohitotp = localStorage.getItem("purohitotp");
-    this.purohitIdProof = localStorage.getItem("purohitIdProof");
-
     const newTitle = "Dashboard - " + this.purohitfname.toUpperCase() + " : " + this.purohitpandit_id;
-
     this.titleService.setTitle(newTitle);
 
   }

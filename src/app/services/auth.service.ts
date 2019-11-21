@@ -1,15 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 declare var $: any;
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
 
-  responseData: any;
-  multiple_roles: any;
-  constructor(private http: HttpClient, private routerNavigate: Router) { }
+  constructor(private http: HttpClient) { }
 
   purohitloginurl: any = "http://192.168.1.55:3040/api/pandit/login";
   purohitRegisterurl: any = "http://192.168.1.55:3040/api/pandit/register";
@@ -22,8 +19,8 @@ export class AuthService {
   panditDetailsURL: string = "http://192.168.1.55:3040/api/pandit/getProfileData?pandit_id=";
   panditBookingURL: string = "http://115.112.122.99:3040/api/booking/getPanditBookings?pandit_id=";
   categoryURL: string = "http://115.112.122.99:3040/api/services/servicesByCat?category_id=";
-identity:any;
-pandit_id:any
+identity: any;
+pandit_id: any
   public isAuthenticate(): boolean {
     const userData1 = sessionStorage.getItem('token');
     const userData2 = sessionStorage.getItem('purohittoken');
@@ -37,13 +34,13 @@ pandit_id:any
   }
   public getToken() {
     if(this.identity == "purohit"){
-
+      return sessionStorage.getItem('purohittoken');
     }
     if(this.identity == "agent"){
-
+      return sessionStorage.getItem('token');
     }
     if(this.identity == "yajman"){
-    return sessionStorage.getItem('token');
+    return sessionStorage.getItem('yajmantoken');
     }
   }
   public purohitloginAction(postData) {
@@ -60,7 +57,7 @@ pandit_id:any
     return this.http.post(this.yajmanloginurl, userObj);
 
   }
-  agentloginActions(postData) {
+  public agentloginActions(postData) {
     this.identity = "agent";
     var userObj = { mobile: postData.mobile, password: postData.password }
     return this.http.post(this.agentloginurl, userObj);
@@ -74,8 +71,7 @@ pandit_id:any
   }
 
   public async agentregisterAction(postData) {
-    var agentregister = { fname: postData.fname, lname: postData.lname, email: postData.email, mobile: postData.mobile, city: postData.city }
-
+    var agentregister = { fname: postData.fname, lname: postData.lname, email: postData.email, mobile: postData.mobile, city: postData.city}
     return this.http.post(this.agentregisterurl, agentregister);
 
   }

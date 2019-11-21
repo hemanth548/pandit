@@ -9,12 +9,12 @@
    resize: vertical;
  }
  
- .ngx-pagination .current {
-   padding: 0.1875rem 0.625rem;
+ pagination-controls, .ngx-pagination .current {
    background-image: linear-gradient(rgb(255, 68, 0), rgba(255, 74, 8, 0.795) ) !important;
    border-radius: 25px;
-   color: white;
+   color:black;
    cursor: default;
+   font-size:16px;
  }
 
   .swal-height {

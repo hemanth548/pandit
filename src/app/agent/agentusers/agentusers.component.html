@@ -388,7 +388,7 @@ aria-hidden="true">
 
 
 
-    <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick()">
+    <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick()" [(selectedIndex)]="selectedIndex">
         <mat-tab label="All Pandit">
             <ng-template mat-tab-label #ngtu1>
                 <mat-icon>dvr&nbsp;</mat-icon>
@@ -403,7 +403,7 @@ aria-hidden="true">
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
                   <pagination-controls (pageChange)="p = $event" id="table1" responsive="true"></pagination-controls>
                 </div>
               </div>
@@ -435,7 +435,7 @@ aria-hidden="true">
   </tbody>
 </table>
 </mat-tab>
-<mat-tab label="All Pandit">
+<mat-tab label="All Pandit" >
     <ng-template mat-tab-label #ngtu2>
       <mat-icon>note&nbsp;</mat-icon>
       <span class="mat-labels">&nbsp;Pandit Bookings</span>
@@ -453,7 +453,7 @@ aria-hidden="true">
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right" style="font-size:16px;">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
           <pagination-controls (pageChange)="p2 = $event" id="table2" responsive="true"></pagination-controls>
         </div>
       </div>

@@ -168,8 +168,8 @@
 							<ng-template mat-tab-label #ngt1>
 								<span class="mat-labels">&nbsp;Sign In</span>
 							</ng-template>
-							<form class="container" [formGroup]="TrafficLoginForm"
-								(ngSubmit)="LoginAction(TrafficLoginForm.value);TrafficLoginForm.reset();">
+							<form class="container" [formGroup]="PurohitLoginForm"
+								(ngSubmit)="LoginAction(PurohitLoginForm.value);PurohitLoginForm.reset();">
 								<br>
 								<div class="md-form md-outline">
 									<input type="text" id="form1" class="form-control" formControlName="mobile" mdbInput>
@@ -197,7 +197,7 @@
 								<div class="form-group mx-auto col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xl-12">
 									<div class="d-flex justify-content-center">
 										<button type="submit" id="btn-login" mdbBtn color="deep-orange"
-											class="signIn waves-light" [disabled]="TrafficLoginForm.invalid" mdbWavesEffect><i
+											class="signIn waves-light" [disabled]="PurohitLoginForm.invalid" mdbWavesEffect><i
 												class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
 									</div>
 
@@ -220,8 +220,6 @@
 										<mat-radio-button class="example-margin " name="gender" value="Agent">Agent
 										</mat-radio-button>
 										&nbsp;
-										<!-- <mat-radio-button class="example-margin "name="gender" value="Admin">Admin</mat-radio-button> -->
-										&nbsp;
 									</mat-radio-group>
 								</section>
 								<div class="md-form md-outline">
@@ -233,8 +231,7 @@
 										class="invalid-feedback">
 										<p *ngIf="PurohitRegisterForm.get('fname').errors.required">First Name is
 											required</p>
-										<p *ngIf="PurohitRegisterForm.get('fname').errors.pattern">3 to 15 characters
-											are required</p>
+										<p *ngIf="PurohitRegisterForm.get('fname').errors.pattern">Please enter valid FirstName</p>
 
 									</div>
 								</div>
@@ -247,8 +244,7 @@
 										class="invalid-feedback">
 										<p *ngIf="PurohitRegisterForm.get('lname').errors.required">Last Name is
 											required</p>
-										<p *ngIf="PurohitRegisterForm.get('lname').errors.pattern">3 to 15 characters
-											are required</p>
+										<p *ngIf="PurohitRegisterForm.get('lname').errors.pattern">Please enter valid LastName</p>
 
 									</div>
 								</div>
@@ -274,8 +270,9 @@
 										class="invalid-feedback">
 										<p *ngIf="PurohitRegisterForm.get('mobile').errors.required">Mobile Number is
 											required</p>
-										<p *ngIf="PurohitRegisterForm.get('mobile').errors.pattern">Invalid mobile
-											number</p>
+										<p *ngIf="PurohitRegisterForm.get('mobile').errors.pattern">Enter 10 digit mobile number</p>
+									
+
 
 									</div>
 								</div>

@@ -56,9 +56,9 @@ export class AgentprofileComponent implements OnInit, OnDestroy  {
     
     this.f = this.fb.group({
       samagri: [null, Validators.required],
-      noofpandits: [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,2}$")]],
-      duration: [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,2}$")]],
-      cost: [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,50}$")]],
+      noofpandits: [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,5}$")]],
+      duration: [null, [Validators.required, Validators.pattern("^[123456789][0-9]{0,5}$")]],
+      cost: [null, [Validators.required, Validators.pattern("^[0123456789]{0,10}$")]],
       description: [null, Validators.required],
       category_id: [null, Validators.required],
       service_id: [null, Validators.required],

@@ -36,9 +36,6 @@ export class AgentbookingsComponent implements OnInit, OnDestroy {
   getBookings(url){
     
    let result2: any
-
-
-
     this.ht.get(url)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(resp => {

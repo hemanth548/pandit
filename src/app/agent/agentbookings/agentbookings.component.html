@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
     <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
@@ -35,9 +34,7 @@
         <th>Status&nbsp;<i class="fa fa-sort"></i></th>
       </tr>
     </thead>
-
     <tbody>
-
       <tr *ngFor="let a of result | filter:term | paginate: { itemsPerPage: 8, currentPage: p }">
         <td>{{a.booking_id}}</td>
         <td>{{a.date}}</td>
@@ -50,146 +47,152 @@
         <td>{{a.payment_mode}}</td>
         <td>{{a.noofbhokta}}</td>
         <td>{{a.noofsuhasini}}</td>
-        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(0, 82, 0);"><br>New Booking</i></td>
-        <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x' style="color:rgba(0, 163, 0, 0.856)"><br>Accepted by<br>Pandit</i></td>
-        <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x' style="color:rgb(26, 129, 26)"><br>Pooja Started</i></td>
-        <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x' style="color:green;"><br>Completed</i></td>
-        <td *ngIf="a.status==1004"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled by<br>Pandit</i></td>
-        <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled by<br>Yajman</i></td>
+        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(0, 82, 0);"><br>New
+            Booking</i></td>
+        <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x'
+            style="color:rgba(0, 163, 0, 0.856)"><br>Accepted by<br>Pandit</i></td>
+        <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x'
+            style="color:rgb(26, 129, 26)"><br>Pooja Started</i></td>
+        <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x'
+            style="color:green;"><br>Completed</i></td>
+        <td *ngIf="a.status==1004"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled
+            by<br>Pandit</i></td>
+        <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled
+            by<br>Yajman</i></td>
       </tr>
     </tbody>
   </table>
   <div class="col-6 text-center mx-auto" *ngIf="loading">
-      <div class="col-4 mx-auto">
-        <div class="lds-css ng-scope">
-          <div class="lds-spinner" style="width:100%;height:100%">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <style type="text/css">
-            @keyframes lds-spinner {
-              0% {
-                opacity: 1;
-              }
-  
-              100% {
-                opacity: 0;
-              }
-            }
-  
-            @-webkit-keyframes lds-spinner {
-              0% {
-                opacity: 1;
-              }
-  
-              100% {
-                opacity: 0;
-              }
-            }
-  
-            .lds-spinner {
-              position: relative;
-            }
-  
-            .lds-spinner div {
-              top: 45px;
-              position: absolute;
-              -webkit-animation: lds-spinner linear 1.3s infinite;
-              animation: lds-spinner linear 1.3s infinite;
-              background: #fd6a0fea;
-              width: 12px;
-              height: 30px;
-              border-radius: 40%;
-              -webkit-transform-origin: 0px 55px;
-              transform-origin: 0px 55px;
-            }
-  
-            .lds-spinner div:nth-child(1) {
-              -webkit-transform: rotate(0deg);
-              transform: rotate(0deg);
-              -webkit-animation-delay: -1.17s;
-              animation-delay: -1.17s;
-            }
-  
-            .lds-spinner div:nth-child(2) {
-              -webkit-transform: rotate(36deg);
-              transform: rotate(36deg);
-              -webkit-animation-delay: -1.04s;
-              animation-delay: -1.04s;
-            }
-  
-            .lds-spinner div:nth-child(3) {
-              -webkit-transform: rotate(72deg);
-              transform: rotate(72deg);
-              -webkit-animation-delay: -0.91s;
-              animation-delay: -0.91s;
-            }
-  
-            .lds-spinner div:nth-child(4) {
-              -webkit-transform: rotate(108deg);
-              transform: rotate(108deg);
-              -webkit-animation-delay: -0.78s;
-              animation-delay: -0.78s;
-            }
-  
-            .lds-spinner div:nth-child(5) {
-              -webkit-transform: rotate(144deg);
-              transform: rotate(144deg);
-              -webkit-animation-delay: -0.65s;
-              animation-delay: -0.65s;
-            }
-  
-            .lds-spinner div:nth-child(6) {
-              -webkit-transform: rotate(180deg);
-              transform: rotate(180deg);
-              -webkit-animation-delay: -0.52s;
-              animation-delay: -0.52s;
-            }
-  
-            .lds-spinner div:nth-child(7) {
-              -webkit-transform: rotate(216deg);
-              transform: rotate(216deg);
-              -webkit-animation-delay: -0.39s;
-              animation-delay: -0.39s;
-            }
-  
-            .lds-spinner div:nth-child(8) {
-              -webkit-transform: rotate(252deg);
-              transform: rotate(252deg);
-              -webkit-animation-delay: -0.26s;
-              animation-delay: -0.26s;
-            }
-  
-            .lds-spinner div:nth-child(9) {
-              -webkit-transform: rotate(288deg);
-              transform: rotate(288deg);
-              -webkit-animation-delay: -0.13s;
-              animation-delay: -0.13s;
-            }
-  
-            .lds-spinner div:nth-child(10) {
-              -webkit-transform: rotate(324deg);
-              transform: rotate(324deg);
-              -webkit-animation-delay: 0s;
-              animation-delay: 0s;
-            }
-  
-            .lds-spinner {
-              width: 200px !important;
-              height: 200px !important;
-              -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-              transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-            }
-          </style>
+    <div class="col-4 mx-auto">
+      <div class="lds-css ng-scope">
+        <div class="lds-spinner" style="width:100%;height:100%">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+        <style type="text/css">
+          @keyframes lds-spinner {
+            0% {
+              opacity: 1;
+            }
+
+            100% {
+              opacity: 0;
+            }
+          }
+
+          @-webkit-keyframes lds-spinner {
+            0% {
+              opacity: 1;
+            }
+
+            100% {
+              opacity: 0;
+            }
+          }
+
+          .lds-spinner {
+            position: relative;
+          }
+
+          .lds-spinner div {
+            top: 45px;
+            position: absolute;
+            -webkit-animation: lds-spinner linear 1.3s infinite;
+            animation: lds-spinner linear 1.3s infinite;
+            background: #fd6a0fea;
+            width: 12px;
+            height: 30px;
+            border-radius: 40%;
+            -webkit-transform-origin: 0px 55px;
+            transform-origin: 0px 55px;
+          }
+
+          .lds-spinner div:nth-child(1) {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-animation-delay: -1.17s;
+            animation-delay: -1.17s;
+          }
+
+          .lds-spinner div:nth-child(2) {
+            -webkit-transform: rotate(36deg);
+            transform: rotate(36deg);
+            -webkit-animation-delay: -1.04s;
+            animation-delay: -1.04s;
+          }
+
+          .lds-spinner div:nth-child(3) {
+            -webkit-transform: rotate(72deg);
+            transform: rotate(72deg);
+            -webkit-animation-delay: -0.91s;
+            animation-delay: -0.91s;
+          }
+
+          .lds-spinner div:nth-child(4) {
+            -webkit-transform: rotate(108deg);
+            transform: rotate(108deg);
+            -webkit-animation-delay: -0.78s;
+            animation-delay: -0.78s;
+          }
+
+          .lds-spinner div:nth-child(5) {
+            -webkit-transform: rotate(144deg);
+            transform: rotate(144deg);
+            -webkit-animation-delay: -0.65s;
+            animation-delay: -0.65s;
+          }
+
+          .lds-spinner div:nth-child(6) {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            -webkit-animation-delay: -0.52s;
+            animation-delay: -0.52s;
+          }
+
+          .lds-spinner div:nth-child(7) {
+            -webkit-transform: rotate(216deg);
+            transform: rotate(216deg);
+            -webkit-animation-delay: -0.39s;
+            animation-delay: -0.39s;
+          }
+
+          .lds-spinner div:nth-child(8) {
+            -webkit-transform: rotate(252deg);
+            transform: rotate(252deg);
+            -webkit-animation-delay: -0.26s;
+            animation-delay: -0.26s;
+          }
+
+          .lds-spinner div:nth-child(9) {
+            -webkit-transform: rotate(288deg);
+            transform: rotate(288deg);
+            -webkit-animation-delay: -0.13s;
+            animation-delay: -0.13s;
+          }
+
+          .lds-spinner div:nth-child(10) {
+            -webkit-transform: rotate(324deg);
+            transform: rotate(324deg);
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+          }
+
+          .lds-spinner {
+            width: 200px !important;
+            height: 200px !important;
+            -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+            transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+          }
+        </style>
       </div>
     </div>
+  </div>
 </div>

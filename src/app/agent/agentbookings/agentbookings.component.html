@@ -21,10 +21,10 @@
   <table class="table table-hover" id="my-table">
     <thead>
       <tr>
-        <th>Booking ID</th>
+        <th class="data-sort-name">Booking ID</th>
         <th>Date</th>
         <th>Time</th>
-        <th>OTP</th>
+        <th class="data-sort-name">OTP</th>
         <th>Pandit ID</th>
         <th>Yajman ID</th>
         <th>Total Cost</th>
@@ -32,7 +32,7 @@
         <th>Payment Mode</th>
         <th>No Of Bhokta</th>
         <th>No Of Suhasini</th>
-        <th>Status</th>
+        <th>Status&nbsp;<i class="fa fa-sort"></i></th>
       </tr>
     </thead>
 
@@ -50,16 +50,12 @@
         <td>{{a.payment_mode}}</td>
         <td>{{a.noofbhokta}}</td>
         <td>{{a.noofsuhasini}}</td>
-        <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled</i>
-        </td>
-        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(78, 156, 71)"><br>New Booking</i>
-        </td>
-        <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x'
-            style="color:rgba(61, 223, 61, 0.815);"><br>Accepted</i></td>
-        <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x'
-            style="color:rgb(32, 112, 32);"><br>Started</i></td>
-        <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x'
-            style="color:rgb(2, 83, 2);"><br>Completed</i></td>
+        <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(0, 82, 0);"><br>New Booking</i></td>
+        <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x' style="color:rgba(0, 163, 0, 0.856)"><br>Accepted by<br>Pandit</i></td>
+        <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x' style="color:rgb(26, 129, 26)"><br>Pooja Started</i></td>
+        <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x' style="color:green;"><br>Completed</i></td>
+        <td *ngIf="a.status==1004"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled by<br>Pandit</i></td>
+        <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled by<br>Yajman</i></td>
       </tr>
     </tbody>
   </table>

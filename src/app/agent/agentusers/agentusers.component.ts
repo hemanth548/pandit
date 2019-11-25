@@ -41,12 +41,18 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   loading: boolean;
   verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
   selectedIndex: any;
+  Servicelength: boolean;
+  Bookinglength: boolean;
+
   constructor(private location: Location, private activatedRoute: ActivatedRoute, private titleService: Title, private fb: FormBuilder, private toastr: ToastrManager, private service: AuthService,private ht: HttpClient) {
     this.pandit_id = this.activatedRoute.snapshot.params.pandit_id;
     const newTitle = "Pandit Profile - " + this.pandit_id;
     this.titleService.setTitle(newTitle);
     this.getPanditServices(this.pandit_id);
     this.getPanditDetails(this.pandit_id);
+    this.Servicelength = false;
+    this.Bookinglength = false;
+
    }
   ngOnInit() {
     this.moreDetails = false;
@@ -118,17 +124,35 @@ export class AgentusersComponent implements OnInit, OnDestroy {
   getPanditServices(pandit_id:any){
     this.loading = true;
     let result2: any;
-
-  this.service.getPanditServices(pandit_id).subscribe(resp => {
-    result2 = resp,
-      this.result = result2.data,    this.loading = false;
-
+    this.service.getPanditServices(pandit_id).subscribe(resp => {
+    result2 = resp,this.result = result2.data
+    if(this.result.length>0){
+      this.Servicelength =true
+    }
+    this.loading = false;
     },
     err=>{
-      this.loading = false, this.dangerToaster2() 
+      this.loading = false,
+      this.Servicelength =false;
+      this.dangerToaster2() 
     })
   }
-
+  getPanditBookings(pandit_id){
+    this.loading = true;
+    let bookingres1: any;
+    this.service.getPanditBookings(pandit_id).subscribe(resp => {
+      bookingres1 = resp,this.bookingdata = bookingres1.data
+      if(this.bookingdata.length>0){
+        this.Bookinglength = true
+      }
+      this.loading = false;
+    },
+    err=>{
+      this.loading = false,
+      this.Bookinglength = false,
+      this.dangerToaster2()   
+    })
+  }
   getPanditDetails(pandit_id) {
     this.loading = true;
     let result3: any;
@@ -168,18 +192,7 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     }
   }
 
-  getPanditBookings(pandit_id){
-    this.loading = true;
-    let bookingres1: any;
-    this.service.getPanditBookings(pandit_id).subscribe(resp => {
-      bookingres1 = resp,
-      this.bookingdata = bookingres1.data,
-      this.loading = false;
-    },
-    err=>{
-      this.loading = false, this.dangerToaster2()   
-    })
-  }
+
   verifiedToaster() {
     this.toastr.successToastr("<span style='font-size:16px;'>Saved successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
   }

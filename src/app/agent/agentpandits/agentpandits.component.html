@@ -31,19 +31,10 @@
                       <th colspan="2">First Name</th>
                       <th colspan="2">Image</th>
                       <th colspan="2">Mobile</th>
-                      <th colspan="2">Address Proof</th>
                       <th colspan="2">Email</th>
-                      <th colspan="2">Sakha</th>
-                      <th colspan="2">Gotra</th>
-                      <th colspan="2">Veda</th>
                       <th colspan="2">Region</th>
-                      <th colspan="2">Experience</th>
-                      <th colspan="2">Degree</th>
-                      <th colspan="2">University</th>
                       <th colspan="2">Specialization</th>
                       <th colspan="2">Location</th>
-                      <th colspan="2">Bhokta Cost</th>
-                      <th colspan="2">Suhasini Cost</th>
                     </tr>
                   </thead>
                 
@@ -55,19 +46,10 @@
                       <td colspan="2" *ngIf="a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>
                       <td colspan="2" *ngIf="!a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="./assets/usericon.png"></td>
                       <td colspan="2">{{a.mobile}}</td>
-                      <td colspan="2">{{a.addressproofurl}}</td>
                       <td colspan="2">{{a.email}}</td>
-                      <td colspan="2">{{a.sakha}}</td>
-                      <td colspan="2">{{a.gotra}}</td>
-                      <td colspan="2">{{a.veda}}</td>
                       <td colspan="2">{{a.region}}</td>
-                      <td colspan="2">{{a.experience}}</td>
-                      <td colspan="2">{{a.degree}}</td>
-                      <td colspan="2">{{a.university}}</td>
                       <td colspan="2">{{a.specialization}}</td>
                       <td colspan="2">{{a.location}}</td>
-                      <td colspan="2">{{a.bhokta_cost}}</td>
-                      <td colspan="2">{{a.suhasini_cost}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -237,20 +219,11 @@
               <th>First Name</th>
               <th>Image</th>
               <th>Mobile</th>
-              <th>Address Proof</th>
               <th>Email</th>
-              <th>Sakha</th>
-              <th>Gotra</th>
-              <th>Veda</th>
               <th>Region</th>
-              <th>Experience</th>
-              <th>Degree</th>
-              <th>University</th>
               <th>Specialization</th>
               <th>Location</th>
-              <th>Bhokta cost</th>
-              <th>Suhasini cost</th>
-              <th>Status</th>
+
             </thead>
             
             <tbody>
@@ -268,23 +241,11 @@
                 </div>
               </td>
               <td *ngIf="a.isVerified">{{a.mobile}}</td>
-              <td *ngIf="a.isVerified">{{a.addressproofurl}}</td>
               <td *ngIf="a.isVerified">{{a.email}}</td>
-              <td *ngIf="a.isVerified">{{a.sakha}}</td>
-              <td *ngIf="a.isVerified">{{a.gotra}}</td>
-              <td *ngIf="a.isVerified">{{a.veda}}</td>
               <td *ngIf="a.isVerified">{{a.region}}</td>
-              <td *ngIf="a.isVerified">{{a.experience}}</td>
-              <td *ngIf="a.isVerified">{{a.degree}}</td>
-              <td *ngIf="a.isVerified">{{a.university}}</td>
               <td *ngIf="a.isVerified">{{a.specialization}}</td>
               <td *ngIf="a.isVerified">{{a.location}}</td>
-              <td *ngIf="a.isVerified">{{a.bhokta_cost}}</td>
-              <td *ngIf="a.isVerified">{{a.suhasini_cost}}</td>
-              <td *ngIf="a.isVerified">
-                  <button style="background-color: red;" class="btn"
-                  (click)="rejectPandit(a.pandit_id,a.isVerified)">&nbsp;&nbsp;Reject&nbsp;&nbsp;</button>
-              </td>
+
             </tr>
           </tbody>
           </table>
@@ -453,20 +414,10 @@
               <th>First Name</th>
               <th>Image</th>
               <th>Mobile</th>
-              <th>Address Proof</th>
               <th>Email</th>
-              <th>Sakha</th>
-              <th>Gotra</th>
-              <th>Veda</th>
               <th>Region</th>
-              <th>Experience</th>
-              <th>Degree</th>
-              <th>University</th>
               <th>Specialization</th>
               <th>Location</th>
-              <th>Bhokta Cost</th>
-              <th>Suhasini Cost</th>
-              <th>Status</th>
             </thead>
            
           <tbody>
@@ -484,24 +435,10 @@
                   </div>
                 </td>
               <td *ngIf="!a.isVerified">{{a.mobile}}</td>
-              <td *ngIf="!a.isVerified">{{a.addressproofurl}}</td>
               <td *ngIf="!a.isVerified">{{a.email}}</td>
-              <td *ngIf="!a.isVerified">{{a.sakha}}</td>
-              <td *ngIf="!a.isVerified">{{a.gotra}}</td>
-              <td *ngIf="!a.isVerified">{{a.veda}}</td>
               <td *ngIf="!a.isVerified">{{a.region}}</td>
-              <td *ngIf="!a.isVerified">{{a.experience}}</td>
-              <td *ngIf="!a.isVerified">{{a.degree}}</td>
-              <td *ngIf="!a.isVerified">{{a.university}}</td>
               <td *ngIf="!a.isVerified">{{a.specialization}}</td>
               <td *ngIf="!a.isVerified">{{a.location}}</td>
-              <td *ngIf="!a.isVerified">{{a.bhokta_cost}}</td>
-              <td *ngIf="!a.isVerified">{{a.suhasini_cost}}</td>
-              <td *ngIf="!a.isVerified">
-                <button style="background-color: green;" class="btn"
-                  (click)="verifyPandit(a.pandit_id, a.isVerified)">Approve</button>
-               
-              </td>
             </tr>
             </tbody>
           </table>

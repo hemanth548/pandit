@@ -280,6 +280,16 @@
         </div>
     </div>
     <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
+      <div class="row">
+        <div class="col-5">
+          <i class="fa fa-map-marker">&nbsp;</i><strong class="names">Address proof</strong>
+        </div>
+        <div class="col-7">
+              <small class="namesOrg">{{getresult.addressproofurl}}</small>
+        </div>
+      </div>
+  </div>
+    <div class="slideInUp animated card card-userDetails col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-transparent">
         <div class="row">
           <div class="col-5">
             <i class="fa fa-university">&nbsp;</i><strong class="names">University</strong>
@@ -388,28 +398,29 @@ aria-hidden="true">
 
 
 
-    <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick()" [(selectedIndex)]="selectedIndex">
-        <mat-tab label="All Pandit">
-            <ng-template mat-tab-label #ngtu1>
-                <mat-icon>dvr&nbsp;</mat-icon>
-              <span class="mat-labels">&nbsp;Pandit Services</span>
-            </ng-template> 
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 "></div>          
-                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                  <div class="form-midline waves-light" mdbWavesEffect>
-                    <div class="md-form">
-                        <input class="form-control-search" name="search1" [(ngModel)]="term1" type="text" placeholder="Search" style="font-size:16px">
-                    </div>
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick()" [(selectedIndex)]="selectedIndex">
+    <mat-tab label="All Pandit">
+      <ng-template mat-tab-label #ngtu1>
+        <mat-icon>dvr&nbsp;</mat-icon>
+        <span class="mat-labels">&nbsp;Pandit Services</span>
+      </ng-template>
+            <div class="row" *ngIf= "Servicelength">
+              <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 "></div>
+              <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-midline waves-light" mdbWavesEffect>
+                  <div class="md-form">
+                    <input class="form-control-search" name="search1" [(ngModel)]="term1" type="text" placeholder="Search"
+                      style="font-size:16px">
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
-                  <pagination-controls (pageChange)="p = $event" id="table1" responsive="true"></pagination-controls>
-                </div>
               </div>
+              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
+                <pagination-controls (pageChange)="p = $event" id="table1" responsive="true"></pagination-controls>
+              </div>
+            </div>
 
-<table class="table table-hover" id="my-table">
-  <thead>
+<table class="table table-hover" id="my-table" >
+  <thead  *ngIf= "Servicelength">
     <tr>
       <th>Pandit_Service_ID</th>
       <th>Description</th>    
@@ -423,7 +434,7 @@ aria-hidden="true">
 
   <tbody>
 
-    <tr *ngFor="let a of result | filter:term1 | paginate: { itemsPerPage: 8, currentPage: p, id:'table1' }" (click)="funs(a)" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter" title="click to edit pandit services">
+    <tr *ngFor="let a of result | filter:term1 | paginate: { itemsPerPage: 9, currentPage: p, id:'table1' }" (click)="funs(a)" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter" title="click to edit pandit services">
       <td>{{a.pandit_service_id}}</td>
       <td>{{a.description}}</td>   
       <td>{{a.cost}}</td>
@@ -434,13 +445,14 @@ aria-hidden="true">
     </tr>
   </tbody>
 </table>
+<p class="text-center my-3 noservice" *ngIf= "!Servicelength">Pandit Services are not available</p>
 </mat-tab>
 <mat-tab label="All Pandit" >
     <ng-template mat-tab-label #ngtu2>
       <mat-icon>note&nbsp;</mat-icon>
       <span class="mat-labels">&nbsp;Pandit Bookings</span>
     </ng-template>
-    <div class="row">
+    <div class="row"  *ngIf= "Bookinglength">
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
             <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
               class="fa fa-download fa-2x"></i></button>
@@ -457,7 +469,7 @@ aria-hidden="true">
           <pagination-controls (pageChange)="p2 = $event" id="table2" responsive="true"></pagination-controls>
         </div>
       </div>
-              <table class="table table-hover" id="my-table">
+              <table class="table table-hover" id="my-table"  *ngIf= "Bookinglength">
           <thead>
             <tr>
               <th>Booking ID</th>
@@ -475,7 +487,7 @@ aria-hidden="true">
             </tr>
           </thead>
           <tbody *ngIf="bookingdata">  
-            <tr *ngFor="let a of bookingdata | filter:term2 | paginate: { itemsPerPage: 8, currentPage: p2, id:'table2'}">
+            <tr *ngFor="let a of bookingdata | filter:term2 | paginate: { itemsPerPage: 7, currentPage: p2, id:'table2'}">
               <td>{{a.booking_id}}</td>
               <td>{{a.date}}</td>
               <td>{{a.time}}</td>
@@ -487,19 +499,16 @@ aria-hidden="true">
               <td>{{a.payment_mode}}</td>
               <td>{{a.noofbhokta}}</td>
               <td>{{a.noofsuhasini}}</td>
-              <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled</i>
-              </td>
-              <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgba(0, 132, 255, 0.89)"><br>New Booking</i>
-              </td>
-              <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x'
-                  style="color:rgb(113, 248, 2);"><br>Accepted</i></td>
-              <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x'
-                  style="color:rgb(5, 158, 5);"><br>Started</i></td>
-              <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x'
-                  style="color:rgb(2, 83, 2);"><br>Completed</i></td>
+              <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(0, 82, 0);"><br>New Booking</i></td>
+              <td *ngIf="a.status==1001"><i class='text-center fa fa-check fa-4x' style="color:rgba(0, 163, 0, 0.856)"><br>Accepted by<br>Pandit</i></td>
+              <td *ngIf="a.status==1002"><i class='text-center fa fa-star-half-o fa-4x' style="color:rgb(26, 129, 26)"><br>Pooja Started</i></td>
+              <td *ngIf="a.status==1003"><i class='text-center fa fa-check-circle fa-4x' style="color:green;"><br>Completed</i></td>
+              <td *ngIf="a.status==1004"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled by<br>Pandit</i></td>
+              <td *ngIf="a.status==1005"><i class='text-center fa fa-close fa-4x' style="color:red;"><br>Cancelled by<br>Yajman</i></td>
             </tr>
           </tbody>
-        </table>      
+        </table>    
+        <p class="text-center my-1 nobooking" *ngIf= "!Bookinglength">Pandit Bookings are not available</p>  
     </mat-tab>
     </mat-tab-group>
     

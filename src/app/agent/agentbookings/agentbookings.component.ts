@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+declare var $: any;
 
 @Component({
   selector: 'app-agentbookings',
@@ -30,10 +31,14 @@ export class AgentbookingsComponent implements OnInit, OnDestroy {
     this.getBookings(url);
 
   }
-  ngOnInit() { }
+  ngOnInit() {  }
+
   getBookings(url){
     
    let result2: any
+
+
+
     this.ht.get(url)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(resp => {

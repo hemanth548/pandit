@@ -47,37 +47,7 @@ export class AgentpanditsComponent implements OnInit {
         this.loading = false;
     })
   }
-  verifyPandit(pandit_id: any, isVerified: any) {
-    let verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
 
-    this.loading = true;
-    isVerified = 1;
-    this.ht.patch(verifyPanditURL, { isVerified, pandit_id })
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(respToVerify => {
-      this.getAllPandits(),
-        this.verifiedToaster()
-    })
-  }
-  rejectPandit(pandit_id: any, isVerified: any) {
-    let verifyPanditURL: any = "http://115.112.122.99:3040/api/pandit/approveReject";
-
-    isVerified = 0;
-    this.ht.patch(verifyPanditURL, { isVerified, pandit_id })
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(resp => {
-      this.getAllPandits(),
-        this.rejectedToaster()
-    })
-  }
-
-  verifiedToaster() {
-    this.toastr.successToastr("<span style='font-size:16px;'>Pandit Verified Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
-  }
-
-  rejectedToaster() {
-    this.toastr.successToastr("<span style='font-size:16px;'>Pandit Rejected Successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
-  }
   navigatoToDetails(a){
     this.pandit_id = a.pandit_id
     this.r.navigate(["details", this.pandit_id])

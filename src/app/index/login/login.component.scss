@@ -10,10 +10,6 @@ p{
   font-size:16px;
   text-align: center;
 }
-
-a:hover{
-  text-decoration: none;
-}
 .count{
   font-family: "Syntax";
   font-size:17px;
@@ -130,7 +126,6 @@ p{
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index:-1;
- 
 }
 .nav-item{
   padding: 1px 5px;
@@ -146,9 +141,7 @@ border-radius: 5px;
 h2{
   font-family:"Syntax";
 }
-a{
-  text-decoration: none;
-}
+
 .offer-code{
   word-break: break-word;
   font-family:"Syntax";
@@ -185,11 +178,30 @@ body{
   transform: translate(-50%, -50%);
   z-index:-1;
   color:black;
-  border: 3px solid orangered;
-  font-weight: 600;
-  font-size:18px;
+  border: 2px solid rgba(255, 68, 0, 0.6);
+  font-weight: 550;
+  font-size:16px;
+  border-radius: 5px;
 }
+.blurbtn:hover{
+  background-color: rgba(0, 0, 0, 0.6);
+  color:white;
+  font-weight: 550;
 
+}
+.loginbutton{
+  color:white;
+  font-weight: 600;
+  font-size:16px;
+  border: 2px solid rgba(255, 255, 255, 0.712);
+  border-radius: 5px;
+  padding:8px 30px;
+}
+.loginbutton:hover{
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+
+}
 .fixed-nav-bar{
   background-image: linear-gradient(orangered,rgba(255, 68, 0, 0.815) );
   border-radius: 0px !important;
@@ -204,26 +216,21 @@ li{
   text-decoration: none;
   font-size: 15px;
   color:white;
-  padding: 10px 30px;
+  padding: 10px 35px;
   cursor: pointer;
   font-family: Lato,sans-serif!important;
     list-style:none !important;
-  font-weight: 600;
-    color: #eee2e2;
+    font-weight: 600;
     letter-spacing: 1px;
     position: relative;
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     transition: 0.2s;
 }
 li:hover, .active-link{
-  background: #f6fcff2d;
+  background: rgba(0, 0, 0, 0.6);
   text-decoration: none;
-  /* border-left: 15px solid rgb(255, 255, 254); */
-  /* border:2px solid rgb(247, 115, 63); */
   transition: 0.18s ease-in;
   padding: 10px 35px;
   outline-width: 0;
@@ -232,7 +239,8 @@ li:hover, .active-link{
   align-content: center;
   transition: 0.2s;
   font-family: 'Syntax';
-border-radius: 10px;
+  border-radius: 5px;
+
 }
 .search{
   width: 100%;
@@ -270,4 +278,89 @@ border-radius: 5px 0  0 5px !important;
   border-radius: 5px;
   padding:10px 20px;
   font-size:15px;
+}
+.footer-text{
+  font-size: 17px;
+  font-family: "Syntax";
+  color:white;
+  letter-spacing: 1px;
+
+}
+.address-link{
+  font-size: 17px;
+  font-family: "Syntax" !important;
+  color:white;
+  border: 0;
+  overflow: visible;
+  padding: 3px 0;
+  font-weight: 400;
+}
+.address-link:hover{
+  font-size: 17px;
+  font-family: "Syntax" !important;
+  color:white;
+  border: 0;
+  overflow: visible;
+  padding: 3px 0;
+  background-color: transparent;
+  cursor: text;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius:35px;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius:35px;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius:35px;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius:35px;
+}
+.fa-phone, .fa-envelope{
+  border-radius: 0px;
+  color:#efaf4e;
+  text-align:left ;
+  padding: 1px;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  background-color: rgba(0, 0, 0, 0.5);
+  padding:25px;
+  border-radius: 50%;
 }

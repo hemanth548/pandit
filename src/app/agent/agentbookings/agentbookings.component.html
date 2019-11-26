@@ -20,10 +20,11 @@
   <table class="table table-hover" id="my-table">
     <thead>
       <tr>
-        <th class="data-sort-name">Booking ID</th>
+        <th (click)="sortBookings('booking_id')" *ngIf="arrow2 == 'up'">Booking ID&nbsp;<i class="fa fa-sort-up"></i></th>
+        <th (click)="sortBookings('booking_id')"*ngIf="arrow2 == 'down'">Booking ID&nbsp;<i class="fa fa-sort-down"></i></th>
         <th>Date</th>
         <th>Time</th>
-        <th class="data-sort-name">OTP</th>
+        <th >OTP</th>
         <th>Pandit ID</th>
         <th>Yajman ID</th>
         <th>Total Cost</th>
@@ -31,11 +32,12 @@
         <th>Payment Mode</th>
         <th>No Of Bhokta</th>
         <th>No Of Suhasini</th>
-        <th>Status&nbsp;<i class="fa fa-sort"></i></th>
+        <th (click)="sortStatus('status')" *ngIf="arrow1 == 'up'">Status&nbsp;<i class="fa fa-sort-down"></i></th>
+        <th (click)="sortStatus('status')"*ngIf="arrow1 == 'down'">Status&nbsp;<i class="fa fa-sort-up"></i></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let a of result | filter:term | paginate: { itemsPerPage: 8, currentPage: p }">
+      <tr *ngFor="let a of result | orderBy: order:reverse | filter:term | paginate: { itemsPerPage: 8, currentPage: p }">
         <td>{{a.booking_id}}</td>
         <td>{{a.date}}</td>
         <td>{{a.time}}</td>

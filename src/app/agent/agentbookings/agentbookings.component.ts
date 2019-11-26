@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { OrderPipe } from 'ngx-order-pipe';
+
 declare var $: any;
 
 @Component({
@@ -20,19 +22,45 @@ export class AgentbookingsComponent implements OnInit, OnDestroy {
   loading = true;
   term: any;
   p: any;
-  
+  order: any;
   result: any;
-  constructor(private ht: HttpClient, private authService: AuthService, private routerNavigate: Router, private titleService: Title) {
+  arrow1: any = "down";
+  arrow2: any = "down";
+
+  reverse: boolean=false;
+  constructor(private ht: HttpClient, private authService: AuthService, private routerNavigate: Router, private titleService: Title, private orderPipe: OrderPipe) {
     let fname = sessionStorage.getItem("fname");
     let agent_id = sessionStorage.getItem("agent_id");
     let newTitle = "Bookings of " + fname.toUpperCase() + " - " + agent_id;
     this.titleService.setTitle(newTitle);
     let url: any = "http://192.168.1.55:3040/api/booking/getAllBookings";
     this.getBookings(url);
-
   }
   ngOnInit() {  }
-
+sortStatus(data){
+  this.order = data
+  if(this.arrow1 == 'up'){
+      this.arrow1 = 'down';
+      this.reverse = true;
+  }
+  else{
+      this.arrow1 = 'up';
+      this.reverse = false;
+  }
+this.orderPipe.transform(this.result, this.order)
+}
+sortBookings(data){
+  this.order = data
+  if(this.arrow2 == 'up'){
+      this.arrow2 = 'down';
+      this.reverse = true;
+  }
+  else{
+      this.arrow2 = 'up';
+      this.reverse = false;
+  }
+this.orderPipe.transform(this.result, this.order)
+}
   getBookings(url){
     
    let result2: any

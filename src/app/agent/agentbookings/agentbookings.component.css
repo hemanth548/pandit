@@ -82,3 +82,10 @@ select{
 .fa-close, .fa-plus-square, .fa-check, .fa-star-half-o, .fa-check-circle{
   font-size:18px;
 }
+.fa-sort-down:hover, .fa-sort-up:hover{
+  cursor: pointer;
+  opacity: 0.6;
+}
+.fa-sort-down, .fa-sort-up{
+  opacity: 0.6;
+}

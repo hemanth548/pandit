@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import Swal from 'sweetalert2'
 
 declare var $:any;
 @Component({
@@ -41,9 +42,19 @@ agent_id: any;
 }
   ngOnInit() {
   } 
-logOutAction() {
-  if (this.authService.logOutAction()) {
-    this.routerNavigate.navigate(['login'])
+  logOutAction() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "This action makes you to login again!",
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Get Me Out !',
+      customClass: 'swal-height'
+    }).then((result) => {
+      if (result.value) {
+        if (this.authService.logOutAction()) {
+          this.routerNavigate.navigate(['login'])
+        }
+      }
+    })
   }
-}
 }

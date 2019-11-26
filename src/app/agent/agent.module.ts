@@ -17,6 +17,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -43,7 +44,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     RouterModule,
     MatTabsModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    OrderModule
 
 
   ],

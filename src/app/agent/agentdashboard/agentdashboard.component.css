@@ -11,28 +11,23 @@ li{
   font-family: Lato,sans-serif!important;
     list-style:none !important;
     font-weight: 600;
-    color: #eee2e2;
     letter-spacing: 1px;
     position: relative;
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     transition: 0.2s;
 }
 li:hover, .active-link {
-  background: #f6fcff2d;
+  background: rgba(0, 0, 0, 0.6);
   text-decoration: none;
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
   transition: 0.18s ease-in;
-  padding: 10px 40px;
+  padding: 10px 35px;
   outline-width: 0;
   font-size: 15px;
   width:auto;
   align-content: center;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow-x: wrap;
 }
 

@@ -40,7 +40,7 @@
                 
                   <tbody>
             
-                    <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: 6, currentPage: p1}" (click)="navigatoToDetails(a)" title="click to see pandit details">
+                    <tr *ngFor="let a of result | filter:termsearch1 | paginate: { itemsPerPage: 7, currentPage: p1}" (click)="navigatoToDetails(a)" title="click to see pandit details">
                       <td colspan="2">{{a.pandit_id}}</td>
                       <td colspan="2">{{a.fname}}</td>
                       <td colspan="2" *ngIf="a.idproofurl"><img style="width:50px;height:50px" class="pandit-image img-responsive" src="http://115.112.122.99:3040/api/images/{{a.idproofurl}}"></td>

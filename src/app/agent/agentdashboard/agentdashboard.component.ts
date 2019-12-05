@@ -44,10 +44,10 @@ agent_id: any;
   } 
   logOutAction() {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "This action makes you to login again!",
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Get Me Out !',
+      title: 'Are you sure to Logout?',
+      text: "This action moves you to landing page!",
+      confirmButtonColor: '#F83922',
+      confirmButtonText: 'Yes! Get Me Out',
       customClass: 'swal-height'
     }).then((result) => {
       if (result.value) {

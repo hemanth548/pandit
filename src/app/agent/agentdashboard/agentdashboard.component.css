@@ -5,8 +5,8 @@ i {
 li{
   text-decoration: none;
   font-size: 15px;
-  color:white;
-  padding: 10px 35px;
+  color:rgb(32, 32, 32);
+  padding: 10px 40px;
   cursor: pointer;
   font-family: Lato,sans-serif!important;
     list-style:none !important;
@@ -15,46 +15,54 @@ li{
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: show;
     transition: 0.2s;
 }
-li:hover, .active-link {
-  background: rgba(0, 0, 0, 0.6);
+li:hover, .active-link{
+  background: rgba(34, 34, 34, 0.466);
   text-decoration: none;
   transition: 0.18s ease-in;
-  padding: 10px 35px;
+  padding: 10px 40px;
   outline-width: 0;
   font-size: 15px;
   width:auto;
   align-content: center;
-  border-radius: 5px;
-  overflow-x: wrap;
-}
-
-.fixed-nav-bar{
-  background-image: linear-gradient(orangered,rgba(255, 68, 0, 0.815) );
-}
-.fixed-nav-bar2{
-  background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664));
-  margin-top: -20px;
-}
-.dropdown-item{
   transition: 0.2s;
-}
-  .dropdown-item:hover{
-    background-color: rgba(0, 0, 0, 0.144);
-    transition:ease 0.2s;
-    border-radius: 5px;
+  font-family: 'Syntax';
+  border-radius: 5px;
+  color:orangered;
 
-  }
-mdb-navbar{
-  border-radius: 0px !important;
 }
-h2{
-  color:white;
-  font-weight:550;
+.fixed-nav-bar{
+  background: #f3ac42;
 }
+
 .navbar{
   border-radius: 0px !important;
   outline: 0 none;
+}
+.bg-dark-menu{
+  background: rgba(0, 0, 0, 0.4);
+}
+.modal-title-menu{
+  color:white;
+  font-weight: 600;
+  font-size:16px;
+}
+.modal-title-menu:hover{
+  color:white;
+  opacity: 1;
+  cursor: pointer;
+}
+.WelcomeName{
+  color:rgb(31, 30, 30);
+}
+.menubutton,.loginbutton{
+  cursor: pointer;
+  font:17px inherit;
+}
+.menubutton:hover,.loginbutton:hover{
+  color:orangered;
+  font-family:17px inherit;
+
 }

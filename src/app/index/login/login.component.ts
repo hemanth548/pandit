@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   val:boolean = false;
   valf: boolean = true;
   val2: boolean = false;
+  show: boolean = false;
   PurohitLoginForm: FormGroup;
   PurohitRegisterForm: FormGroup;
   ff: FormGroup;
@@ -30,9 +31,10 @@ export class LoginComponent implements OnInit {
   submitstatus = false;
   res: any;
   roll: any;
+  contactForm: FormGroup;
 
   constructor(private toastr: ToastrManager, private fb: FormBuilder, private authService: AuthService, private routerNavigate: Router) {
- 
+
   }
 
   onChange(s) {
@@ -112,7 +114,6 @@ export class LoginComponent implements OnInit {
       );
     }
   }
-
 
   async RegisterAction(formData: any) {
     this.loading = true;
@@ -197,9 +198,24 @@ export class LoginComponent implements OnInit {
     this.f = this.fb.group({
       ot: [null, [Validators.required, Validators.pattern("[0-9]{6}$")]],
     })
+    this.contactForm = this.fb.group({
+      contactFormName: [null, [Validators.required, Validators.pattern("^[A-Za-z]{1,25}$")]],
+      contactFormMob: [null, [Validators.required, Validators.pattern("[0-9]{10}$")]],
+      contactFormText: [null, Validators.required],
+
+
+    })
    
   }
- 
+  forgotPassword(){
+    if(this.show == true){
+      if(this.val2 == false)
+        this.show = false;
+    }
+    else{
+      this.show = true;
+    }
+  }
   act(s) {
     this.submitted = true;
     if (this.ff.invalid) {
@@ -221,10 +237,9 @@ export class LoginComponent implements OnInit {
     }
     if (this.f.valid) {
       this.submitted = false;
+      this.show = false;
       this.toastr.successToastr("<span style='font-size:16px;'>Password reset successfully</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
-
     }
-   this
     this.valf = true;
     this.val2 = false;
     this.f.reset();
@@ -243,5 +258,12 @@ export class LoginComponent implements OnInit {
   onLinkClick(event: MatTabChangeEvent) {
     this.submitted = false;
   }
-
+  onContactDetailsSubmit(formData){
+    if(this.contactForm.invalid)
+    {
+      this.toastr.warningToastr("<span style='font-size:16px;'>please enter valid details</span>", "Warning !", {enableHTML: true, animate:'slideFromRight'});
+      return;
+    }
+    this.toastr.successToastr("<span style='font-size:16px;'>sit back and relax, we'll reach you soon</span>", "Success !", {enableHTML: true, animate:'slideFromRight'});
+  }
 }

@@ -48,22 +48,8 @@ p{
     -webkit-transform: none;
     transform: none;
     transition-delay: 10s;
-
   }
 }
-h4{
-  padding-top:5px;
-  font-family: "Syntax";
-  color:rgb(46, 43, 43);
-  text-decoration: none;
-  font-weight:600;
-
-}
-h4:hover{
-  text-decoration: none;
-  color:rgb(46, 43, 43);
-}
-
 .icon-display {
   transform: scale(1.3);
 }
@@ -73,22 +59,6 @@ h4:hover{
 }
 .cursor{
   cursor: pointer;
-}
-
-
-.nav-link{
-font-size:18px;
-color:white;
-font-weight:540;
-padding:10px 10px;
-
-}
-
-.ss:hover {
-  transition: box-shadow .2s;
-  box-shadow: 0 0 31px rgba(33,33,33,.8); 
-  border: 1px solid #ccc;
-
 }
 .fa-rupee{
   font-size:1.5vw;
@@ -119,24 +89,14 @@ margin-top:20px;
 p{
   margin:0;
 }
-.blur{
-  -webkit-trasform: translate(-40%, -40%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  z-index:-1;
-}
-.nav-item{
-  padding: 1px 5px;
-
-}
-.nav-link:hover{
-background-color: rgba(0,0,0,0.5);
-transition: ease-in-out 0.2s;
-border-radius: 5px;
-}
-
+// .blur{
+//   -webkit-trasform: translate(-40%, -40%);
+//   -moz-transform: translate(-50%, -50%);
+//   -ms-transform: translate(-50%, -50%);
+//   -o-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+//   z-index:-1;
+// }
 
 h2{
   font-family:"Syntax";
@@ -154,13 +114,9 @@ h2{
   border-radius: 6px;
   color: white;
 }
-.shop-box {
-  border-radius: 6px;
-  color: white;
-}
+
 body{
   color:black;
-  font-size: 16px;
   font-family:"Syntax";
   overflow-y: hidden;
 }
@@ -170,104 +126,19 @@ body{
   font-family:"Syntax";
   word-spacing: -5px;
 }
-.blurbtn{
-  -webkit-trasform: translate(60%, -60%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  z-index:-1;
-  color:black;
-  border: 2px solid rgba(255, 68, 0, 0.6);
-  font-weight: 550;
-  font-size:16px;
-  border-radius: 5px;
-}
-.blurbtn:hover{
-  background-color: rgba(0, 0, 0, 0.6);
-  color:white;
-  font-weight: 550;
 
-}
-.loginbutton{
-  color:white;
-  font-weight: 600;
-  font-size:16px;
-  border: 2px solid rgba(255, 255, 255, 0.712);
-  border-radius: 5px;
-  padding:8px 30px;
-}
-.loginbutton:hover{
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 2px solid rgba(0, 0, 0, 0.6);
 
-}
-.fixed-nav-bar{
-  background-image: linear-gradient(orangered,rgba(255, 68, 0, 0.815) );
-  border-radius: 0px !important;
-
-}
-.fixed-nav-bar2{
-  background-image: linear-gradient(rgba(255, 68, 0, 0.815), rgba(238, 65, 2, 0.664));
-  margin-top: -20px;
-    border-radius: 0px !important;
-}
-li{
-  text-decoration: none;
-  font-size: 15px;
-  color:white;
-  padding: 10px 35px;
+.login{
+  color:rgb(51, 49, 49);
+  font-weight: 540;
+  font-size:17px;
+  font-family: inherit;
   cursor: pointer;
-  font-family: Lato,sans-serif!important;
-    list-style:none !important;
-    font-weight: 600;
-    letter-spacing: 1px;
-    position: relative;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: 0.2s;
 }
-li:hover, .active-link{
-  background: rgba(0, 0, 0, 0.6);
-  text-decoration: none;
-  transition: 0.18s ease-in;
-  padding: 10px 35px;
-  outline-width: 0;
-  font-size: 15px;
-  width:auto;
-  align-content: center;
-  transition: 0.2s;
-  font-family: 'Syntax';
-  border-radius: 5px;
+.login:hover{
+  color:orangered;
+}
 
-}
-.search{
-  width: 100%;
-height:36px;
-  background:rgb(255, 255, 255);
-  border:0px !important;
-  color:rgba(0,0,0,0.8) !important;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.3s;
-  outline: none;
-  font-size: 18px;
-  font-family: "Syntax";
-border-radius: 5px 0  0 5px !important;
-} 
-.search-button{
-  justify-content: flex-end;
-    border: 0 none;
-    background-color: #ffffff;
-    height: 36px;
-    width: 44px;
-    cursor: pointer;
-    padding: 4px 12px 0 8px;
-    outline: none;
-    border-radius: 0 5px 5px 0 !important;
-
-}
 .form-control{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   font-size: 16px;
@@ -307,7 +178,8 @@ border-radius: 5px 0  0 5px !important;
 }
 
 .fa:hover {
-    opacity: 0.7;
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .fa-facebook {
@@ -360,7 +232,74 @@ border-radius: 5px 0  0 5px !important;
   padding: 1px;
 }
 .carousel-control-prev-icon, .carousel-control-next-icon{
-  background-color: rgba(0, 0, 0, 0.5);
-  padding:25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding:18px;
   border-radius: 50%;
+}
+.contactHeader{
+  font-size: 30px;
+  font-family: "Syntax";
+  color:rgb(46, 45, 45);
+}
+.contactsubmitButton{
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+.modal-title-menu{
+  color:white;
+  font-weight: 600;
+  font-size:16px;
+}
+.modal-title-menu:hover{
+  color:white;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.forgot-text-link {
+  color: #0054b5;
+}
+.forgot-text-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.textarea{
+  height: 100px;
+}
+.navbar-brand{
+width:80%;
+height:20%;
+}
+.layer1{
+  background: #f3ac42;
+}
+
+.location, .callNumbers, .emailSupport{
+  font-family: "Syntax";
+  font-size: 18px;
+}
+.secondlayer{
+  margin-top:-15px;
+}
+.nav-item{
+  display: inline;
+  padding:0 15px;
+  font-size:16px;
+  font-family: inherit;
+  font-weight: 540;
+  cursor: pointer;
+}
+.nav-item:hover{
+  color:orangered;
+}
+
+.carousel{
+  margin-top: -20px;
+}
+.whoweare{
+  color:rgb(32, 32, 32);
+  font-size: 18px;
+  font-family: "Syntax";
+  letter-spacing: 0.5px;
 }

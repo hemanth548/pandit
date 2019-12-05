@@ -223,7 +223,7 @@
       </thead>
       
       <tbody>
-        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: 12, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" title="click to see edit service details">
+        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: 14, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" title="click to see edit service details">
           <td scope="row">{{a.service_id}}</td>
           <td scope="row">{{a.category_id}}</td>
           <td scope="row">{{a.noofpandits}}</td>

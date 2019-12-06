@@ -10,13 +10,6 @@ p{
   font-size:16px;
   text-align: center;
 }
-.count{
-  font-family: "Syntax";
-  font-size:17px;
-  color:black;
-  font-weight:500;
-}
-
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
@@ -35,7 +28,6 @@ p{
     transition-delay: 10s;
   }
 }
-
 @-webkit-keyframes slideInUp {
   from {
     opacity: 0;
@@ -50,84 +42,13 @@ p{
     transition-delay: 10s;
   }
 }
-.icon-display {
-  transform: scale(1.3);
-}
-.icon-display:focus{
-  color:white;
-  background-color: azure;
-}
-.cursor{
-  cursor: pointer;
-}
-.fa-rupee{
-  font-size:1.5vw;
-  font-weight: 550;
-  color:rgba(33,33,33,.8);
-}
-.count1{
-  font-family: 'Montserrat';
-  font-size:1.5vw;
-  font-weight: 600;
-  color:rgba(33,33,33,.8);
-  padding:0px;
-  letter-spacing: 1px;
-  text-align:center;
-margin-top:20px;
-}
-.count2{
-  font-family:"Syntax";
-  font-size:1.9vw;
-  font-weight: 600;
-  color:rgba(33,33,33,.8);
-  padding:0px;
-  letter-spacing: 1px;
-  text-align:center;
-margin-top:20px;
-}
-
 p{
   margin:0;
 }
-// .blur{
-//   -webkit-trasform: translate(-40%, -40%);
-//   -moz-transform: translate(-50%, -50%);
-//   -ms-transform: translate(-50%, -50%);
-//   -o-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
-//   z-index:-1;
-// }
 
 h2{
   font-family:"Syntax";
 }
-
-.offer-code{
-  word-break: break-word;
-  font-family:"Syntax";
-  font-size:18px;
-  font-weight: 700;
-  color:black;
-  letter-spacing: 1px;;
-}
-.box {
-  border-radius: 6px;
-  color: white;
-}
-
-body{
-  color:black;
-  font-family:"Syntax";
-  overflow-y: hidden;
-}
-.price-drop{
-  color:red;
-  font-size: 20px;
-  font-family:"Syntax";
-  word-spacing: -5px;
-}
-
-
 .login{
   color:rgb(51, 49, 49);
   font-weight: 540;
@@ -138,7 +59,6 @@ body{
 .login:hover{
   color:orangered;
 }
-
 .form-control{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   font-size: 16px;
@@ -176,12 +96,10 @@ body{
   background-color: transparent;
   cursor: text;
 }
-
 .fa:hover {
     opacity: 0.8;
     cursor: pointer;
 }
-
 .fa-facebook {
   background: #3B5998;
   color: white;
@@ -192,7 +110,6 @@ body{
   text-decoration: none;
   border-radius:35px;
 }
-
 .fa-twitter {
   background: #55ACEE;
   color: white;
@@ -203,7 +120,6 @@ body{
   text-decoration: none;
   border-radius:35px;
 }
-
 .fa-google {
   background: #dd4b39;
   color: white;
@@ -214,7 +130,6 @@ body{
   text-decoration: none;
   border-radius:35px;
 }
-
 .fa-linkedin {
   background: #007bb5;
   color: white;
@@ -302,4 +217,33 @@ height:20%;
   font-size: 18px;
   font-family: "Syntax";
   letter-spacing: 0.5px;
+}
+.carousel-indicators li{
+width:30px;
+height:4px;
+border:0;
+background-color:white;
+border-radius: 0;
+}
+.carousel-indicators .active{
+  background-color:orangered;
+
+}
+.carousel-caption{
+  opacity: 0;
+}
+.carousel:hover{
+  .carousel-caption{
+    opacity: 1;
+    transition: 0.3s;
+    background-color: rgba(14, 13, 13, 0.63);
+  }
+}
+.bookPandit{
+  align-content:center;
+  font-size:16px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:black;
+  background:#f3ac42;
+  border-radius: 5px;
 }

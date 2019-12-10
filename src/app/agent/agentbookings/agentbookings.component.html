@@ -1,22 +1,20 @@
 <div class="row">
-  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-    <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
-        class="fa fa-download fa-3x"></i></button>
-  </div>
+  <div class="col-xl-4 col-lg-4 col-md-2 hidden-12 hidden-12 "></div>
 
-  <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+  <div class='col-xl-4 col-lg-4 col-md-5 col-sm-10 col-xs-10'>
     <div class="form-midline waves-light" mdbWavesEffect>
       <div class="md-form">
         <input class="form-control" [(ngModel)]="term" type="text" placeholder="Search" style="font-size:16px">
       </div>
     </div>
   </div>
-  <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
-    <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+  <div class="col-xl-4 col-lg-4 col-md-5 col-sm-2 col-xs-2 text-right">
+      <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
+        class="fa fa-download"></i></button>
   </div>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive col-12">
   <table class="table table-hover" id="my-table">
     <thead>
       <tr>
@@ -29,7 +27,6 @@
         <th>Yajman ID</th>
         <th>Total Cost</th>
         <th>Address</th>
-        <th>Payment Mode</th>
         <th>No Of Bhokta</th>
         <th>No Of Suhasini</th>
         <th (click)="sortStatus('status')" *ngIf="arrow1 == 'up'">Status&nbsp;<i class="fa fa-sort-down"></i></th>
@@ -37,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let a of result | orderBy: order:reverse | filter:term | paginate: { itemsPerPage: 9, currentPage: p }">
+      <tr *ngFor="let a of result | orderBy: order:reverse | filter:term | paginate: { itemsPerPage: page, currentPage: p, id:'table2'}">
         <td>{{a.booking_id}}</td>
         <td>{{a.date}}</td>
         <td>{{a.time}}</td>
@@ -46,7 +43,6 @@
         <td>{{a.yajman_id}}</td>
         <td>{{a.total_cost}}</td>
         <td>{{a.address}}</td>
-        <td>{{a.payment_mode}}</td>
         <td>{{a.noofbhokta}}</td>
         <td>{{a.noofsuhasini}}</td>
         <td *ngIf="a.status==1000"><i class='text-center fa fa-plus-square fa-4x' style="color:rgb(0, 82, 0);"><br>New
@@ -197,4 +193,22 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-xl-6 col-lg-6 hidden-12 hidden-12 hidden-12"></div>
+  <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mx-auto" >
+      <mat-form-field>
+        <mat-label>Items per Page</mat-label>
+        <mat-select matNativeControl [(ngModel)]="page">
+          <mat-option value="10">10</mat-option>
+          <mat-option value="20">20</mat-option>
+          <mat-option value="30">30</mat-option>
+          <mat-option value="50">50</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-12">
+  <pagination-controls (pageChange)="p = $event" id="table2" responsive="true"></pagination-controls>
+</div>
+
 </div>

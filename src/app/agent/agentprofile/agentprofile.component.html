@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="f" >
-          <div class="col-12 wow animated slideInLeft form-group" data-wow-delay=".5s">
+          <div class="col-12 form-group">
             <div class="form-group">
               <label>Cost</label>
               <input name="cost" formControlName="cost" class="form" placeholder="Cost" type="text" autocomplete="off"
@@ -106,7 +106,7 @@
         <div class="col-10 mx-auto">
           <br>
           <form [formGroup]="formadd">
-            <div class="col-xs-12 animated slideInLeft form-group" data-wow-delay=".9s">
+            <div class="col-xs-12 form-group">
               <div class="form-group">
                 <label>Choose your Pooja Category</label>
                 <select class="form" formControlName="category_id"
@@ -188,27 +188,39 @@
     </div>
   </div>
 </div>
-
+<div class="modal modal-fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle1">Samagri</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"style="color:orangered">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <td class="samagri">{{samagriList}}</td>
+        </div>
+      </div>
+    </div>
+  </div>
 <div>
   <div class="row">
-    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-      <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i class="fa fa-download fa-3x"></i></button>
-      <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn class="waves-light pdf" mdbWavesEffect ><i class="fa fa-plus fa-3x"></i></button>
-    </div>
-    <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
+    <div class="col-xl-4 col-lg-4 col-md-2 col-sm-12 col-xs-12 "></div>
+    <div class='col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12'>
       <div class="form-midline waves-light ">
         <div class="md-form">
           <input class="form-control-search" name="term" [(ngModel)]="term" type="text" placeholder="Search">
         </div>
       </div>
     </div>
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
-      <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+    <div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-xs-12 text-right">
+        <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i class="fa fa-download fa-3x"></i></button>
+        <button title="Add Service" data-toggle="modal" data-target="#modaladd" mdbBtn class="waves-light pdf" mdbWavesEffect ><i class="fa fa-plus fa-3x"></i></button>  
     </div>
 
 
   </div>
-  <div class="table-responsive">
+  <div class="table-responsive col-12">
     <table class="table table-hover" id="my-table">
       <thead>
         <tr>
@@ -219,21 +231,42 @@
           <th scope="col">Duration</th>
           <th scope="col">Description</th>
           <th scope="col">Samagri</th>
+          <th scope="col">Edit</th>
+
         </tr>
       </thead>
       
       <tbody>
-        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: 14, currentPage: p }" (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" title="click to see edit service details">
+        <tr *ngFor="let a of res | filter:term | paginate: { itemsPerPage: page, currentPage: p, id:'table2' }">
           <td scope="row">{{a.service_id}}</td>
           <td scope="row">{{a.category_id}}</td>
           <td scope="row">{{a.noofpandits}}</td>
           <td scope="row">{{a.cost}}</td>
           <td scope="row">{{a.duration}}</td>
           <td scope="row">{{a.description}}</td>
-          <td scope="row">{{a.samagri}}</td>
+          <td><button (click)="samagriData(a.samagri)" data-toggle="modal" data-target="#exampleModalCenter1" (click)="samagriData(a.samagri)" class="view btn btn-link text-lowercase">View</button></td>
+          <td><button (click)="funs(a)" data-toggle="modal" data-target="#exampleModalCenter2" class="pt-2 pb-2 edit btn btn-primary"title="click to see edit service details">Edit</button></td>
         </tr>
       </tbody>
     </table>
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 hidden-12 hidden-12 hidden-12"></div>
+        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mx-auto" >
+            <mat-form-field class="float-right">
+              <mat-label>Items per Page</mat-label>
+              <mat-select matNativeControl [(ngModel)]="page">
+                <mat-option value="10">10</mat-option>
+                <mat-option value="20">20</mat-option>
+                <mat-option value="30">30</mat-option>
+                <mat-option value="50">50</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+      <div class="col-xl-4 col-lg-4 col-md-8 col-sm-8 col-xs-12 ">
+        <pagination-controls (pageChange)="p = $event" id="table2" responsive="true"></pagination-controls>
+      </div>
+      
+      </div>
     <div class="col-6 text-center mx-auto"  *ngIf="loading">
         <div class="col-4 mx-auto">
           <div class="lds-css ng-scope">

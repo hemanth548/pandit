@@ -26,7 +26,7 @@ export class AgentbookingsComponent implements OnInit, OnDestroy {
   result: any;
   arrow1: any = "down";
   arrow2: any = "down";
-
+  page: number = 5;
   reverse: boolean=false;
   constructor(private ht: HttpClient, private authService: AuthService, private routerNavigate: Router, private titleService: Title, private orderPipe: OrderPipe) {
     let fname = sessionStorage.getItem("fname");

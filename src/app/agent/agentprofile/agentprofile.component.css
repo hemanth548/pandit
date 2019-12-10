@@ -74,19 +74,14 @@
   line-clamp: inherit;
   font-size: 17px;
   word-wrap: break-word;
-  white-space: nowrap;
   line-height: 1.5;
   text-align: inherit;
   }
 span {
   font-size:30px;
- color:darkcyan;
-
 }
 span:hover {
 cursor: pointer;
-transition: .3s ease-in;
-
 }
 
 #s {
@@ -153,4 +148,16 @@ font-family: 'Syntax';
 .modal-title{
   font-family: "Syntax";
   font-size: x-large;
+}
+*{
+font-size:16px;
+}
+.edit, .view{
+  font-size:18px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  text-transform: capitalize;
+}
+.btn-primary{
+  border-radius: 5px;
+
 }

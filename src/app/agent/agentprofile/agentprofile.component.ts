@@ -30,12 +30,13 @@ export class AgentprofileComponent implements OnInit, OnDestroy  {
   res: any;
   k: any;
   loading = true;
-
+  page: any = 5;
 
 
   p:any
 
   private ngUnsubscribe: Subject<any> = new Subject();
+  samagriList: any;
   ngOnDestroy(): any {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
@@ -111,7 +112,9 @@ export class AgentprofileComponent implements OnInit, OnDestroy  {
     })
 
   }
-
+  samagriData(data){
+    this.samagriList = data;
+  }
   act(v) {
     this.submitted = true;
     if (this.formadd.invalid) {

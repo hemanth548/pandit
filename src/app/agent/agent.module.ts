@@ -18,6 +18,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { OrderModule } from 'ngx-order-pipe';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -45,7 +47,8 @@ import { OrderModule } from 'ngx-order-pipe';
     MatTabsModule,
     MatIconModule,
     MatExpansionModule,
-    OrderModule
+    OrderModule,
+    MatSelectModule
 
 
   ],

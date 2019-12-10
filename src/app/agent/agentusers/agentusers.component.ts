@@ -17,7 +17,8 @@ import { Subject } from 'rxjs';
 })
 export class AgentusersComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<any> = new Subject();
-
+  samagriList: any;
+  page: any = 5;
   ngOnDestroy(): any {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
@@ -120,7 +121,9 @@ export class AgentusersComponent implements OnInit, OnDestroy {
     })
 
   }
-  
+  samagriData(data){
+    this.samagriList = data;
+  }
   getPanditServices(pandit_id:any){
     this.loading = true;
     let result2: any;

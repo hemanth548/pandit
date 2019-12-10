@@ -9,9 +9,6 @@ th {
   word-wrap: break-word;
   white-space: nowrap;
   text-transform: uppercase;
-
-
-
 }
 td {
 font-family: 'Charlotte Sans';
@@ -19,20 +16,15 @@ word-spacing: 2px;
 line-clamp: inherit;
 font-size: 17px;
 word-wrap: break-word;
-white-space: nowrap;
 line-height: 1.5;
 text-align: inherit;
 }
-
 .search {
   width: 100%;
   position: relative;
   display: flex;
   font-family: "sans-serif";
-
 }
-
-/*Resize the wrap to see the search bar change!*/
 .wrap{
   width: 30%;
   position: absolute;
@@ -40,19 +32,11 @@ text-align: inherit;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "sans-serif";
-
 }
-agm-map {
-  height: 200px;
-  width:300px;
-}
-
 .form-control:focus {
   box-shadow: none;
   outline:white;
 }
-
-
 .form-control-underlined {
   border-width: 0;
   border-bottom-width: 1px;
@@ -60,20 +44,7 @@ agm-map {
   padding-left: 0;
   outline-color: black;
   font-family: "sans-serif";
-
 }
-
-
-select{
-  width:230px;
-  height:30px;
-  outline:none;
-  font-size: 18px;
-  padding:2px;
-  font-family: "sans-serif";
-  z-index: 1;
-}
-
 .pdf{
   border-radius: 55%;
   padding:10px;
@@ -82,10 +53,16 @@ select{
 .fa-close, .fa-plus-square, .fa-check, .fa-star-half-o, .fa-check-circle{
   font-size:18px;
 }
+.fa-download{
+  font-size: 26px;
+}
 .fa-sort-down:hover, .fa-sort-up:hover{
   cursor: pointer;
   opacity: 0.6;
 }
 .fa-sort-down, .fa-sort-up{
   opacity: 0.6;
+}
+*{
+  font-size:16px;
 }

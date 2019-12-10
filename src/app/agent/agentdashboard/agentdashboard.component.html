@@ -10,8 +10,8 @@
         <h2>Welcome&nbsp;{{fname|uppercase}}&nbsp;{{lname|uppercase}}</h2>
       </span>
       <div class="text-center pl-3 d-flex ">
-        <h3 (click)="logOutAction()" class="text-center loginbutton pl-3 pr-3">Logout</h3>
         <h3 (click)="menuModalAgent.show()" class="text-center menubutton pl-3 pr-3">Menu</h3>
+        <h3 (click)="logOutAction()" class="text-center loginbutton pl-3 pr-3">Logout</h3>
       </div>
     </div>
     <div class="modal fade right " mdbModal #menuModalAgent="mdbModal" id="menuModalAgent" tabindex="-1" role="dialog"

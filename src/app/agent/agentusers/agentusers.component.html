@@ -368,7 +368,7 @@ aria-hidden="true">
     </div>
     <div class="modal-body">
       <form [formGroup]="f">
-        <div class="col-12 wow animated slideInLeft form-group" data-wow-delay=".5s">
+        <div class="col-12 form-group">
           <label>Cost</label>
           <input type="text" name="cost" formControlName="cost" class="form-control" placeholder="cost">
 
@@ -397,6 +397,22 @@ aria-hidden="true">
 </div>
 
 
+  <!-- Modal -->
+  <div class="modal modal-fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle1">Samagri</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"style="color:orangered">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <td class="samagri">{{samagriList}}</td>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onLinkClick()" [(selectedIndex)]="selectedIndex">
     <mat-tab label="All Pandit">
@@ -406,7 +422,7 @@ aria-hidden="true">
       </ng-template>
             <div class="row" *ngIf= "Servicelength">
               <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 "></div>
-              <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-midline waves-light" mdbWavesEffect>
                   <div class="md-form">
                     <input class="form-control-search" name="search1" [(ngModel)]="term1" type="text" placeholder="Search"
@@ -414,11 +430,8 @@ aria-hidden="true">
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
-                <pagination-controls (pageChange)="p = $event" id="table1" responsive="true"></pagination-controls>
-              </div>
+              <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 text-right"></div>
             </div>
-
 <table class="table table-hover" id="my-table" >
   <thead  *ngIf= "Servicelength">
     <tr>
@@ -429,19 +442,19 @@ aria-hidden="true">
       <th>Pandits</th>
       <th>Samagri_Cost</th>
       <th>Samagri</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
-
-    <tr *ngFor="let a of result | filter:term1 | paginate: { itemsPerPage: 9, currentPage: p, id:'table1' }" (click)="funs(a)" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter" title="click to edit pandit services">
+    <tr *ngFor="let a of result | filter:term1" (click)="funs(a)" aria-hidden="true" >
       <td>{{a.pandit_service_id}}</td>
       <td>{{a.description}}</td>   
       <td>{{a.cost}}</td>
       <td>{{a.duration}}</td>
       <td>{{a.noofpandits}}</td>
       <td>{{a.samagri_cost}}</td>
-      <td>{{a.samagri}}</td>
+      <td><button data-toggle="modal" data-target="#exampleModalCenter1" (click)="samagriData(a.samagri)" class="btn btn-link text-lowercase">View</button></td>
+      <td><button data-toggle="modal" data-target="#exampleModalCenter" class="edit btn btn-primary pt-2 pb-2">Edit</button></td>
     </tr>
   </tbody>
 </table>
@@ -454,8 +467,7 @@ aria-hidden="true">
     </ng-template>
     <div class="row"  *ngIf= "Bookinglength">
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-            <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
-              class="fa fa-download fa-2x"></i></button>
+           
         </div>
       
         <div class='col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12'>
@@ -466,7 +478,8 @@ aria-hidden="true">
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
-          <pagination-controls (pageChange)="p2 = $event" id="table2" responsive="true"></pagination-controls>
+            <button title="Download PDF" (click)="downloadpdf()" mdbBtn class="waves-light pdf" mdbWavesEffect><i
+              class="fa fa-download fa-2x"></i></button>
         </div>
       </div>
               <table class="table table-hover" id="my-table"  *ngIf= "Bookinglength">
@@ -486,7 +499,7 @@ aria-hidden="true">
             </tr>
           </thead>
           <tbody *ngIf="bookingdata">  
-            <tr *ngFor="let a of bookingdata | filter:term2 | paginate: { itemsPerPage: 7, currentPage: p2, id:'table2'}">
+            <tr *ngFor="let a of bookingdata | filter:term2 | paginate: { itemsPerPage: page, currentPage: p2, id:'table2'}">
               <td>{{a.booking_id}}</td>
               <td>{{a.date}}</td>
               <td>{{a.time}}</td>
@@ -507,6 +520,24 @@ aria-hidden="true">
           </tbody>
         </table>    
         <p class="text-center my-1 nobooking" *ngIf= "!Bookinglength">Pandit Bookings are not available</p>  
+        <div class="row">
+            <div class="col-xl-4 col-lg-2 hidden-12 hidden-12 hidden-12"></div>
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mx-auto" >
+                <mat-form-field  class="float-right">
+                  <mat-label>Items per Page</mat-label>
+                  <mat-select matNativeControl [(ngModel)]="page">
+                    <mat-option value="10">10</mat-option>
+                    <mat-option value="20">20</mat-option>
+                    <mat-option value="30">30</mat-option>
+                    <mat-option value="50">50</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+          <div class="col-xl-6 col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <pagination-controls (pageChange)="p2 = $event" id="table2" responsive="true"></pagination-controls>
+          </div>
+          
+          </div>
     </mat-tab>
     </mat-tab-group>
     

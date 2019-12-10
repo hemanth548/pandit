@@ -46,7 +46,7 @@ agent_id: any;
     Swal.fire({
       title: 'Are you sure to Logout?',
       text: "This action moves you to landing page!",
-      confirmButtonColor: '#F83922',
+      confirmButtonColor: '#FA4E30',
       confirmButtonText: 'Yes! Get Me Out',
       customClass: 'swal-height'
     }).then((result) => {
